@@ -41,7 +41,8 @@ def upgrade():
     sa.Column('votes_with_party_pct', sa.Float(), nullable=True),
     sa.Column('votes_against_party_pct', sa.Float(), nullable=True),
     sa.ForeignKeyConstraint(['state_id'], ['states.abbreviation'], ),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('bioguide_id'),
     )
     op.create_table('followers',
     sa.Column('representative_id', sa.Integer(), nullable=False),

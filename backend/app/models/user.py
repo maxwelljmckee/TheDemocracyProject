@@ -1,6 +1,7 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from .representatives import followers
 
 
 class User(db.Model, UserMixin):
@@ -14,12 +15,12 @@ class User(db.Model, UserMixin):
     zip_code = db.Column(db.String(5), nullable=False)
     is_registered_voter = db.Column(db.Boolean, nullable=False)
 
-    bill_votes = db.relationship('BillVote', back_populates='user')
-    bill_comments = db.relationship('BillComment', back_populates='user')
+    # bill_votes = db.relationship('BillVote', back_populates='user')
+    # bill_comments = db.relationship('BillComment', back_populates='user')
     # threads = db.relationship('Thread', back_populates='user')
     # thread_comments = db.relationship('ThreadComment', back_populates='user')
-    following = db.relationship('Representative', secondary='followers',
-                                back_populates='followers')
+    # following = db.relationship('Representative', secondary='followers',
+    #                             back_populates='followers')
 
     @property
     def password(self):
@@ -39,5 +40,10 @@ class User(db.Model, UserMixin):
             "lastName": self.last_name,
             "email": self.email,
             'zipCode': self.zip_code,
-            'isRegisteredVoter': self.is_registered_voter
+            'isRegisteredVoter': self.is_registered_voter,
+            # 'billVotes': self.bill_votes,
+            # 'billComments': self.bill_comments,
+            # 'threads': self.threads,
+            # 'threadComments': self.thread_comments,
+            # 'following': self.following,
         }
