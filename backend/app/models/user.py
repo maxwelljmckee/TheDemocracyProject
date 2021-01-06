@@ -15,12 +15,12 @@ class User(db.Model, UserMixin):
     zip_code = db.Column(db.String(5), nullable=False)
     is_registered_voter = db.Column(db.Boolean, nullable=False)
 
-    # bill_votes = db.relationship('BillVote', back_populates='user')
-    # bill_comments = db.relationship('BillComment', back_populates='user')
+    bill_votes = db.relationship('BillVote', back_populates='user')
+    bill_comments = db.relationship('BillComment', back_populates='user')
     # threads = db.relationship('Thread', back_populates='user')
     # thread_comments = db.relationship('ThreadComment', back_populates='user')
-    # following = db.relationship('Representative', secondary='followers',
-    #                             back_populates='followers')
+    following = db.relationship('Representative', secondary='followers',
+                                back_populates='followers')
 
     @property
     def password(self):

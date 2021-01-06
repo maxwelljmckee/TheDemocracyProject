@@ -33,7 +33,7 @@ def upgrade():
     sa.Column('website_url', sa.String(length=500), nullable=True),
     sa.Column('contact_url', sa.String(length=500), nullable=True),
     sa.Column('in_office', sa.Boolean(), nullable=False),
-    sa.Column('next_election', sa.DateTime(), nullable=True),
+    sa.Column('next_election', sa.String(4), nullable=True),
     sa.Column('ocd_id', sa.String(length=100), nullable=True),
     sa.Column('phone', sa.String(length=20), nullable=True),
     sa.Column('state_id', sa.String(length=2), nullable=False),

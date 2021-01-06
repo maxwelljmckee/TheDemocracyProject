@@ -3,9 +3,7 @@ from .db import db
 
 class BillVote(db.Model):
     __tablename__ = 'bill_votes'
-    # __table_args__ = (db.PrimaryKeyConstraint(('user_id', 'bill_id')))
 
-    # id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False,
                         primary_key=True)
     bill_id = db.Column(db.Integer, db.ForeignKey('bills.id'), nullable=False,

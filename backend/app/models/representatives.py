@@ -27,7 +27,7 @@ class Representative(db.Model):
     website_url = db.Column(db.String(500))
     contact_url = db.Column(db.String(500))
     in_office = db.Column(db.Boolean, nullable=False)
-    next_election = db.Column(db.DateTime)
+    next_election = db.Column(db.String(4))
     ocd_id = db.Column(db.String(100), nullable=False)
     phone = db.Column(db.String(20))
     state_id = db.Column(db.String(2), db.ForeignKey('states.abbreviation'),
@@ -37,9 +37,9 @@ class Representative(db.Model):
     votes_against_party_pct = db.Column(db.Float)
 
     state = db.relationship('State', back_populates='representatives')
-    # bills_sponsored = db.relationship('Bill', back_populates='sponsor')
-    # followers = db.relationship('User', secondary='followers', back_populates=
-    #                             'following')
+    bills_sponsored = db.relationship('Bill', back_populates='sponsor')
+    followers = db.relationship('User', secondary='followers', back_populates=
+                                'following')
 
     def to_dict(self):
         return {
