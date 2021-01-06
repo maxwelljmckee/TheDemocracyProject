@@ -3,9 +3,9 @@ from .db import db
 
 followers = db.Table('followers',
                      db.Column('representative_id', db.Integer, db.ForeignKey(
-                               'representatives.id'), primary_key=True)
-                     db.Column('representative_id', db.Integer, db.ForeignKey(
-                               'representatives.id'), primary_key=True)
+                               'representatives.id'), primary_key=True),
+                     db.Column('user_id', db.Integer, db.ForeignKey(
+                               'users.id'), primary_key=True),
                      db.Column('is_constituent', db.Boolean, nullable=False)
                      )
 
