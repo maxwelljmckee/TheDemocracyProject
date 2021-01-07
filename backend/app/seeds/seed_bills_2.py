@@ -8,11 +8,11 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 
-def seed_bills():
+def seed_bills_2():
     API_KEY = os.environ.get('PROPUBLICA_API_KEY')
     # incrementor = 0
     all_bills = []
-    for i in range(0, 301, 20):
+    for i in range(320, 500, 20):
         res = requests.get(
             f'https://api.propublica.org/congress/v1/116/both/bills/active.json?offset= {i}',
             headers={'X-API-Key': API_KEY})
@@ -46,8 +46,3 @@ def seed_bills():
         print(new_bill)
         db.session.add(new_bill)
         db.session.commit()
-
-
-def undo_bills():
-    db.session.execute('TRUNCATE bills RESTART IDENTITY CASCADE')
-    db.session.commit()

@@ -1,6 +1,10 @@
+import datetime
+
 
 # CAST DATE STRING INTO DATETIME
 def parse_date(date_string):
+    if date_string is None:
+        return None
     split_date = date_string.split('-')
     parsed_date = [int(n) for n in split_date]
     return datetime.datetime(*parsed_date)

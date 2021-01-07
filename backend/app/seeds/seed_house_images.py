@@ -1,7 +1,7 @@
 from app.models import db, Representative
 import requests
 import os
-from .seed_senate_images import parse_ocdid
+from app.utils import parse_ocdid
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
 

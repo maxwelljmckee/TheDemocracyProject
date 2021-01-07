@@ -86,16 +86,17 @@ class Bill(db.Model):
     introduced_date = db.Column(db.DateTime, nullable=False)
     active = db.Column(db.Boolean, nullable=False)
     last_vote = db.Column(db.DateTime)
-    house_passage = db.Column(db.Boolean)
-    senate_passage = db.Column(db.Boolean)
-    enacted = db.Column(db.Boolean)
-    vetoed = db.Column(db.Boolean)
+    house_passage = db.Column(db.DateTime)
+    senate_passage = db.Column(db.DateTime)
+    enacted = db.Column(db.DateTime)
+    vetoed = db.Column(db.DateTime)
     committees = db.Column(db.String(255))
     primary_subject = db.Column(db.String(255), nullable=False)
     summary = db.Column(db.Text, nullable=False)
     short_summary = db.Column(db.Text, nullable=False)
     latest_major_action_date = db.Column(db.DateTime)
     latest_major_action = db.Column(db.String(500))
+    clicks = db.Column(db.Integer, nullable=False)
 
     sponsor = db.relationship('Representative',
                               back_populates='bills_sponsored')
@@ -124,6 +125,7 @@ class Bill(db.Model):
             'shortSummary': self.short_summary,
             'latestMajorActionDate': self.latest_major_action_date,
             'latestMajorAction': self.latest_major_action,
+            'clicks': self.clicks,
         }
 
     def to_dict_full(self):
@@ -148,6 +150,7 @@ class Bill(db.Model):
             'shortSummary': self.short_summary,
             'latestMajorActionDate': self.latest_major_action_date,
             'latestMajorAction': self.latest_major_action,
+            'clicks': self.clicks,
             'billVotes': [vote.to_dict() for vote in self.bill_votes],
             'billComments': [comment.to_dict()
                              for comment in self.bill_comments],

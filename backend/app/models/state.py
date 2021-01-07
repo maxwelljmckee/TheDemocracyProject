@@ -14,6 +14,13 @@ class State(db.Model):
         return {
             'id': self.id,
             'name': self.name,
+            'abbreviation': self.abbreviation
+        }
+
+    def to_dict_full(self):
+        return {
+            'id': self.id,
+            'name': self.name,
             'abbreviation': self.abbreviation,
-            # 'representatives': [rep.to_dict() for rep in self.representatives]
+            'representatives': [rep.to_dict() for rep in self.representatives]
         }

@@ -60,9 +60,10 @@ class Representative(db.Model):
             'nextElection': self.next_election,
             'ocdId': self.ocd_id,
             'phone': self.phone,
-            'state': self.state.to_dict(),
+            'stateId': self.state_id,
             'missedVotesPct': self.missed_votes_pct,
             'votesWithPartyPct': self.votes_with_party_pct,
+            'votesAgainstPartyPct': self.votes_against_party_pct
         }
 
     def to_dict_full(self):
