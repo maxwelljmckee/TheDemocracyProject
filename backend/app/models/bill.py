@@ -15,6 +15,13 @@ class BillVote(db.Model):
 
     def to_dict(self):
         return {
+            'user_id': self.user_id,
+            'bill_id': self.bill_id,
+            'isDownvote': self.is_downvote
+        }
+
+    def to_dict_full(self):
+        return {
             'user': self.user.to_dict(),
             'bill': self.bill.to_dict(),
             'isDownvote': self.is_downvote
@@ -48,6 +55,14 @@ class BillComment(db.Model):
                                )
 
     def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'bill_id': self.bill_id,
+            'message': self.message
+        }
+
+    def to_dict_full(self):
         return {
             'id': self.id,
             'user': self.user.to_dict(),
@@ -88,6 +103,30 @@ class Bill(db.Model):
     bill_comments = db.relationship('BillComment', back_populates='bill')
 
     def to_dict(self):
+        return {
+            'id': self.id,
+            'billId': self.bill_id,
+            'billType': self.bill_type,
+            'title': self.title,
+            'shortTitle': self.short_title,
+            'sponsor_id': self.sponsor_id,
+            'govtrackUrl': self.govtrack_url,
+            'introducedDate': self.introduced_date,
+            'active': self.active,
+            'lastVote': self.last_vote,
+            'housePassage': self.house_passage,
+            'senatePassage': self.senate_passage,
+            'enacted': self.enacted,
+            'vetoed': self.vetoed,
+            'committees': self.committees,
+            'primarySubject': self.primary_subject,
+            'summary': self.summary,
+            'shortSummary': self.short_summary,
+            'latestMajorActionDate': self.latest_major_action_date,
+            'latestMajorAction': self.latest_major_action,
+        }
+
+    def to_dict_full(self):
         return {
             'id': self.id,
             'billId': self.bill_id,

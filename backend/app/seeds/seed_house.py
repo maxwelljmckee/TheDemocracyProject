@@ -2,13 +2,11 @@ from app.models import db, Representative
 import datetime
 import requests
 import os
-import pprint
-pp = pprint.PrettyPrinter(indent=4)
 
 
-# Adds a demo user, you can add other users here if you want
+
 def seed_house():
-    print('='*15, 'HIT SEED HOUSE', '='*15)
+    # QUERY PROPUBLICA CONGRESS API FOR HOUSE DATA
     api_key = os.environ.get('PROPUBLICA_API_KEY')
     res = requests.get(
         'https://api.propublica.org/congress/v1/116/house/members.json',
@@ -20,6 +18,7 @@ def seed_house():
         if member['id'] in bioguide_id_list:
             continue
 
+        # PARSE BIRTHDATE STRING INTO DATE OBJECT
         if member['date_of_birth']:
             split_birth_date = member['date_of_birth'].split('-')
             parsed_birth_date = [int(n) for n in split_birth_date]
@@ -27,6 +26,7 @@ def seed_house():
         else:
             date = None
 
+        # REGISTER NEW DB RECORD
         try:
             new_rep = Representative(
                 bioguide_id=member['id'],

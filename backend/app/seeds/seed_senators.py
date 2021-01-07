@@ -4,13 +4,12 @@ import requests
 import os
 
 
-# Adds a demo user, you can add other users here if you want
 def seed_senators():
-    print('='*15, 'HIT SEED SENATE', '='*15)
-    api_key = os.environ.get('PROPUBLICA_API_KEY')
+    # QUERY PROPUBLICA CONGRESS API FOR SENATE DATA
+    API_KEY = os.environ.get('PROPUBLICA_API_KEY')
     res = requests.get(
         'https://api.propublica.org/congress/v1/116/senate/members.json',
-        headers={'X-API-Key': api_key})
+        headers={'X-API-Key': API_KEY})
     data = res.json()
 
     bioguide_id_list = []
@@ -18,6 +17,7 @@ def seed_senators():
         if member['id'] in bioguide_id_list:
             continue
 
+        # PARSE BIRTHDATE STRING INTO DATE OBJECT
         if member['date_of_birth']:
             split_birth_date = member['date_of_birth'].split('-')
             parsed_birth_date = [int(n) for n in split_birth_date]
@@ -25,6 +25,7 @@ def seed_senators():
         else:
             date = None
 
+        # REGISTER NEW DB RECORD
         try:
             new_rep = Representative(
                 bioguide_id=member['id'],
@@ -48,7 +49,6 @@ def seed_senators():
                 votes_with_party_pct=float(member.get('votes_with_party_pct', None)),
                 votes_against_party_pct=float(member.get('votes_against_party_pct', None))
             )
-            print(new_rep)
             db.session.add(new_rep)
             db.session.commit()
             bioguide_id_list.append(new_rep.bioguide_id)

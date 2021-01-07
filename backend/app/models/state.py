@@ -15,5 +15,5 @@ class State(db.Model):
             'id': self.id,
             'name': self.name,
             'abbreviation': self.abbreviation,
-            'representatives': [rep.to_dict() for rep in self.representatives]
+            # 'representatives': [rep.to_dict() for rep in self.representatives]
         }

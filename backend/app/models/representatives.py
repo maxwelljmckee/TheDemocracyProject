@@ -63,7 +63,31 @@ class Representative(db.Model):
             'state': self.state.to_dict(),
             'missedVotesPct': self.missed_votes_pct,
             'votesWithPartyPct': self.votes_with_party_pct,
-            # 'votesAgainstPartyPct': self.votes_against_party_pct,
-            # 'billsSponsored': self.bills_sponsored,
-            # 'followers': self.followers
+        }
+
+    def to_dict_full(self):
+        return {
+            'id': self.id,
+            'bioguideId': self.bioguide_id,
+            'shortTitle': self.short_title,
+            'firstName': self.first_name,
+            'lastName': self.last_name,
+            'dateOfBirth': self.date_of_birth,
+            'party': self.party,
+            'twitterHandle': self.twitter_handle,
+            'facebookHandle': self.facebook_handle,
+            'youtubeHandle': self.youtube_handle,
+            'imageUrl': self.image_url,
+            'websiteUrl': self.website_url,
+            'contactUrl': self.contact_url,
+            'inOffice': self.in_office,
+            'nextElection': self.next_election,
+            'ocdId': self.ocd_id,
+            'phone': self.phone,
+            'state': self.state.to_dict(),
+            'missedVotesPct': self.missed_votes_pct,
+            'votesWithPartyPct': self.votes_with_party_pct,
+            'votesAgainstPartyPct': self.votes_against_party_pct,
+            'billsSponsored': [bill.to_dict() for bill in self.bills_sponsored],
+            'followers': [follower.to_dict for follower in self.followers]
         }

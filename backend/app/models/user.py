@@ -41,8 +41,18 @@ class User(db.Model, UserMixin):
             "email": self.email,
             'zipCode': self.zip_code,
             'isRegisteredVoter': self.is_registered_voter,
-            # 'billVotes': self.bill_votes,
-            # 'billComments': self.bill_comments,
+        }
+
+    def to_dict_full(self):
+        return {
+            "id": self.id,
+            "firstName": self.first_name,
+            "lastName": self.last_name,
+            "email": self.email,
+            'zipCode': self.zip_code,
+            'isRegisteredVoter': self.is_registered_voter,
+            'billVotes': self.bill_votes,
+            'billComments': self.bill_comments,
             # 'threads': self.threads,
             # 'threadComments': self.thread_comments,
             'following': [rep.to_dict() for rep in self.following]
