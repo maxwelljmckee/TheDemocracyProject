@@ -1,5 +1,5 @@
 from app.models import db, Representative
-# from utils.string_parsers import parse_date
+from app.utils import parse_date
 import datetime
 import requests
 import os
@@ -20,9 +20,7 @@ def seed_senators():
 
         # PARSE BIRTHDATE STRING INTO DATE OBJECT
         if member['date_of_birth']:
-            split_birth_date = member['date_of_birth'].split('-')
-            parsed_birth_date = [int(n) for n in split_birth_date]
-            date = datetime.date(*parsed_birth_date)
+            date = parse_date(member['date_of_birth'])
         else:
             date = None
 
