@@ -18,7 +18,7 @@ class Representative(db.Model):
     short_title = db.Column(db.String(5), nullable=False)
     first_name = db.Column(db.String(20), nullable=False)
     last_name = db.Column(db.String(20), nullable=False)
-    date_of_birth = db.Column(db.DateTime, nullable=False)
+    date_of_birth = db.Column(db.DateTime)
     party = db.Column(db.String(2), nullable=False)
     twitter_handle = db.Column(db.String(100))
     facebook_handle = db.Column(db.String(100))

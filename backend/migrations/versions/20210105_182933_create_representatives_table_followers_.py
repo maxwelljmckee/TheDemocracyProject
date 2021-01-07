@@ -24,7 +24,7 @@ def upgrade():
     sa.Column('short_title', sa.String(length=5), nullable=False),
     sa.Column('first_name', sa.String(length=20), nullable=False),
     sa.Column('last_name', sa.String(length=20), nullable=False),
-    sa.Column('date_of_birth', sa.DateTime(), nullable=False),
+    sa.Column('date_of_birth', sa.DateTime()),
     sa.Column('party', sa.String(length=2), nullable=False),
     sa.Column('twitter_handle', sa.String(length=100), nullable=True),
     sa.Column('facebook_handle', sa.String(length=100), nullable=True),
