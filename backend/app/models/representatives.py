@@ -63,6 +63,7 @@ class Representative(db.Model):
             'state': self.state.to_dict(),
             'missedVotesPct': self.missed_votes_pct,
             'votesWithPartyPct': self.votes_with_party_pct,
+            'votesAgainstPartyPct': self.votes_against_party_pct
         }
 
     def to_dict_full(self):

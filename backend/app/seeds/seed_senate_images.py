@@ -1,4 +1,5 @@
 from app.models import db, Representative
+# from utils import parse_phone, parse_ocdid
 import requests
 import os
 
@@ -13,7 +14,7 @@ def parse_phone(phone_number):
     return '-'.join(split)
 
 
-# REFORMAT OCDID STRING TO URL ENCODING && REPLACE ALL INVALID CHARS
+# # REFORMAT OCDID STRING TO URL ENCODING && REPLACE ALL INVALID CHARS
 def parse_ocdid(ocdid):
     ocdid = ['%2F' if char == '/' else char for char in ocdid]
     ocdid = ['%3A' if char == ':' else char for char in ocdid]
