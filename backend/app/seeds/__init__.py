@@ -6,6 +6,7 @@ from .seed_house import seed_house, undo_house
 from .seed_executive import seed_executive, undo_executive
 from .seed_house_images import seed_house_images, undo_house_images
 from .seed_senate_images import seed_senate_images, undo_senate_images
+from .seed_bills import seed_bills, undo_bills
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -20,15 +21,17 @@ def seed():
     # seed_executive()
     # seed_senators()
     # seed_house()
-    seed_house_images()
+    # seed_house_images()
     # seed_senate_images()
+    seed_bills()
 
 
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
+    undo_bills()
     # undo_senate_images()
-    undo_house_images()
+    # undo_house_images()
     # undo_executive()
     # undo_senators()
     # undo_house()
