@@ -90,5 +90,5 @@ class Representative(db.Model):
             'votesWithPartyPct': self.votes_with_party_pct,
             'votesAgainstPartyPct': self.votes_against_party_pct,
             'billsSponsored': [bill.to_dict() for bill in self.bills_sponsored],
-            'followers': [follower.to_dict for follower in self.followers]
+            'followers': [follower.to_dict() for follower in self.followers]
         }
