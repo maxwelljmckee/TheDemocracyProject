@@ -28,13 +28,13 @@ function App() {
       {!user && <h1>no session user</h1>}
       <Switch>
         <Route path='/dashboard'><LogoutButton /></Route>
-        <Route path="/login" exact={true}>
+        <Route exact path="/login">
           <LoginForm />
         </Route>
-        <Route path="/sign-up" exact={true}>
+        <Route exact path="/sign-up">
           <SignUpForm />
         </Route>
-        <Route path="/" exact={true}>
+        <Route exact path="/">
           <SplashMain />
         </Route>
         <Route path='/about'>
