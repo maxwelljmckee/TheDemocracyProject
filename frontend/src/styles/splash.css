@@ -60,6 +60,10 @@
 
 
 /* ===== SPLASH_ABOUT STYLES ===== */
+.splash-about__wrapper {
+
+}
+
 .splash-about__container {
     width: 100%;
     height: 50vh;
@@ -109,9 +113,10 @@
 
 
 
-/* ===== LOGIN FORM STYLES ===== */
+/* ===== LOGIN && SIGNUP FORM STYLES ===== */
 
-.login-form__container {
+.login-form__container,
+.signup-form__container {
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -124,7 +129,12 @@
     margin-top: 5em;
 }
 
-.login-form {
+.signup-form__container img {
+    width: 75%;
+}
+
+.login-form,
+.signup-form {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -132,8 +142,15 @@
     align-items: center;
 }
 
+.signup-form {
+    position: fixed;
+    top: 32vh;
+}
+
 .login-form input,
-.login-form button {
+.login-form button,
+.signup-form input,
+.signup-form button {
     box-sizing: border-box;
     width: 75%;
     font-size: 3em;
@@ -143,22 +160,27 @@
     box-shadow: 0 0 0.2em 0 #1761a0;
 }
 
-.login-form input {
+.login-form input,
+.signup-form input {
     text-align: center;
     color: #1761a0;
     border: 0.1em solid #1761a0;
 }
 
-.login-form button {
+.login-form button,
+.signup-form button {
     color: white;
     background-color: #1761a0;
+    text-transform: uppercase;
 }
 
-.login-form input:focus {
+.login-form input:focus,
+.signup-form input:focus {
     box-shadow: 0 0 0.5em 0 #1761a0;
 }
 
-.login-form ::placeholder {
+.login-form ::placeholder,
+.signup-form ::placeholder {
     color: #1761a0;
 }
 
@@ -169,4 +191,11 @@
     font-size: 3em;
     color: #1761a0;
     background-color: red;
+} */
+
+
+/* ===== SIGNUP FORM STYLES ===== */
+
+/* .signup-form__container {
+
 } */

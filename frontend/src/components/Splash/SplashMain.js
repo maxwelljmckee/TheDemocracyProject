@@ -20,7 +20,7 @@ const SplashMain = () => {
     setVerticalAnimation(true)
     setTimeout(() => {
       history.push('/splash/about')
-    }, 490)
+    }, 480)
   }
 
   return (

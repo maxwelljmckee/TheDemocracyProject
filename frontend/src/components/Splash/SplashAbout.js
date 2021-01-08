@@ -20,43 +20,45 @@ const SplashAbout = () => {
       setUnhide2(true)
     }, 3000)
   }, [])
-
+  
   useEffect(() => {
     setTimeout(() => {
       setUnhide3(true)
     }, 4500)
   }, [])
-
+  
   useEffect(() => {
     setTimeout(() => {
       setAnimate(true)
       setTimeout(() => {
-        history.push('/splash/demo')
-      }, 490)
-    }, 8000)
+        history.push('/splash/register')
+      }, 480)
+    }, 6500)
   }, [])
 
   return (
-    <div className={`splash-about__container slide-in-bottom
-    ${ animate && 'slide-out-top' }`}>
-      <div className='splash-about__header'>
-        Imagine
+    <div className={`${animate && 'slide-out-top' }`}>
+      <div className={`splash-about__container slide-in-bottom
+      ${ animate && 'slide-out-top' }`}>
+        <div className='splash-about__header'>
+          Imagine
+        </div>
+        { unhide && 
+          <div className='splash-about__body slide-in-bottom'>
+            Civic Engagement
+          </div>
+        }
+        { unhide2 && 
+          <div className='splash-about__footer slide-in-bottom'>
+            Made Simple
+          </div>
+        }
+        { unhide3 && 
+          <div className='splash-about__img-container'>
+            <img className='slide-in-bottom' src='https://miro.medium.com/max/400/1*q6gzHA3kEeaBEMIFIjtuIQ.jpeg' alt='phew' />
+          </div>
+        }
       </div>
-      { unhide && 
-        <div className='splash-about__body slide-in-bottom'>
-          Civic Engagement
-        </div>
-      }
-      { unhide2 && 
-        <div className='splash-about__footer slide-in-bottom'>
-          Made Easy
-        </div>
-      }
-      { unhide3 && 
-        <div className='splash-about__img-container'>
-          <img className='slide-in-bottom' src='https://miro.medium.com/max/400/1*q6gzHA3kEeaBEMIFIjtuIQ.jpeg' alt='phew' />
-        </div>
-      }
     </div>
   )
 }
