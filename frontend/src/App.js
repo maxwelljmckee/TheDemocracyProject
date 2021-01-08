@@ -37,7 +37,7 @@ function App() {
         <Route path="/" exact={true}>
           <SplashMain />
         </Route>
-        <Route path='/about'>
+        <Route path='/splash/about'>
           <SplashAbout />
         </Route>
       </Switch>

@@ -19,7 +19,7 @@ const SplashMain = () => {
   const handleLearnMore = () => {
     setVerticalAnimation(true)
     setTimeout(() => {
-      history.push('/about')
+      history.push('/splash/about')
     }, 490)
   }
 
