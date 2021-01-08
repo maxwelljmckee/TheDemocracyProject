@@ -6,14 +6,18 @@ import secondaryLogo from '../../static/secondary_logo.png'
 
 const SplashMain = () => {
   const history = useHistory();
-  const [animation, setAnimation] = useState(false);
+  const [verticalAnimation, setVerticalAnimation] = useState(false);
+  const [lateralAnimation, setLateralAnimation] = useState(false);
 
   const handleLogin = () => {
-    history.push('/login')
+    setLateralAnimation(true)
+    setTimeout(() => {
+      history.push('/login')
+    }, 490)
   }
 
   const handleLearnMore = () => {
-    setAnimation(true)
+    setVerticalAnimation(true)
     setTimeout(() => {
       history.push('/about')
     }, 490)
@@ -21,7 +25,11 @@ const SplashMain = () => {
 
   return (
     <>
-      <div className={`splash-main__container ${ animation ? 'slide-out-top' : ''}`}>
+      <div 
+        className={`splash-main__container
+        ${ verticalAnimation && 'slide-out-top' } 
+        ${ lateralAnimation && 'slide-out-left' }`}
+      >
         <div className='splash-main__main-logo'>
           <img src={logo} alt='The Democracy Project' />
         </div>

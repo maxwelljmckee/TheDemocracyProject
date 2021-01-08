@@ -6,3 +6,5 @@
 /* ===== ANIMATIONS ===== */
 @import './animations/slide-out-top.css';
 @import './animations/slide-in-bottom.css';
+@import './animations/slide-out-left.css';
+@import './animations/slide-in-right.css';

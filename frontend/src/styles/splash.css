@@ -35,7 +35,7 @@
 }
 
 .splash-main__btn-container {
-    width: 30%;
+    width: 75%;
     height: 10%;
     margin: 0 auto;
 
@@ -43,17 +43,17 @@
 
 .splash-main__btn-container .splash-main__btn {
     width: 100%;
-    height: 50%;
+    box-sizing: border-box;
     margin: 0 auto;
+    padding: 0.85em;
     color: white;
     background-color: #1761a0;
     font-size: 3em;
-    /* font-weight: bold; */
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 1em;
-    box-shadow: 0 0 20px 3px rgba(23, 97, 160, 0.8);
+    border-radius: 5em;
+    box-shadow: 0 0 0.5em 0 #1761a0;
 }
 
 
@@ -69,3 +69,67 @@
 .splash-about__container h1 {
     font-size: 10em
 }
+
+
+
+/* ===== LOGIN FORM STYLES ===== */
+
+.login-form__container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form__container img {
+    width: 75%;
+    margin-top: 5em;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form input,
+.login-form button {
+    box-sizing: border-box;
+    width: 75%;
+    font-size: 3em;
+    padding: .7em;
+    margin: .5em;
+    border-radius: 5em;
+    box-shadow: 0 0 0.2em 0 #1761a0;
+}
+
+.login-form input {
+    text-align: center;
+    color: #1761a0;
+    border: 0.1em solid #1761a0;
+}
+
+.login-form button {
+    color: white;
+    background-color: #1761a0;
+}
+
+.login-form input:focus {
+    box-shadow: 0 0 0.5em 0 #1761a0;
+}
+
+.login-form ::placeholder {
+    color: #1761a0;
+}
+
+/* .login-form input:-webkit-autofill,
+.login-form input:-webkit-autofill:hover,
+.login-form select:-webkit-autofill:hover,
+.login-form select:-webkit-autofill:hover {
+    font-size: 3em;
+    color: #1761a0;
+    background-color: red;
+} */
