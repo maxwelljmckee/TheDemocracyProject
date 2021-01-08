@@ -26,7 +26,6 @@ function App() {
   return (
     <BrowserRouter>
       {!user && <h1>no session user</h1>}
-      {/* <NavBar /> */}
       <Switch>
         <Route path='/dashboard'><LogoutButton /></Route>
         <Route path="/login" exact={true}>
