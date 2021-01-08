@@ -1,4 +1,7 @@
 
+
+
+
 /* ===== SPLASH_MAIN STYLES ===== */
 .splash-main__container {
     height: 100vh;
@@ -7,6 +10,7 @@
     flex-direction: column;
     justify-content: space-between;
     position: fixed;
+    background-color: rgba(23, 97, 160, 0.1);
 }
 
 .splash-main__main-logo {
@@ -59,7 +63,12 @@
 
 
 
-/* ===== SPLASH_ABOUT STYLES ===== */
+
+
+
+
+
+/* ===== SPLASH_ABOUT && IS-REGISTERED STYLES ===== */
 .splash-about__wrapper {
 
 }
@@ -110,6 +119,10 @@
     /* margin: 0 auto; */
     width: 100%;
 }
+
+
+
+
 
 
 
@@ -199,3 +212,55 @@
 /* .signup-form__container {
 
 } */
+
+.hidden {
+    display: none;
+}
+
+
+
+
+
+
+
+/* ===== IS-REGISTERED BUTTON STYLES ===== */
+
+.is-registered__header {
+    width: 75%;
+    margin: 1em auto;
+    font-size: 10em;
+    text-align: center;
+    color: #1761a0;
+    text-shadow: 0.08em 0.08em rgba(23, 97, 160, 0.2);
+}
+
+.is-registered__body {
+    width: 75%;
+    margin: 2em auto;
+    font-size: 5em;
+    text-align: center;
+    line-height: 1.5em;
+    color: #1761a0;
+    text-shadow: 0.08em 0.08em rgba(23, 97, 160, 0.2);
+}
+
+/* .is-registered__button-container {
+    width:100%;
+    position: relative;
+} */
+
+.fa-check-circle {
+    margin: 0.35em;
+    font-size: 15em;
+    color: rgb(57, 185, 57);
+    position: fixed;
+    left: 0.3em;
+}
+
+.fa-times-circle {
+    margin: 0.35em;
+    font-size: 15em;
+    color: rgb(228, 21, 21);
+    position: fixed;
+    right: 0.3em;
+}

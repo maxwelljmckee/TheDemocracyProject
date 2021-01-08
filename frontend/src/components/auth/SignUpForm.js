@@ -1,79 +1,123 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Redirect, useHistory } from 'react-router-dom';
 
 import logo_img from '../../static/image-only_logo.png';
+import IsRegistered from '../Splash/IsRegistered';
 import { registerUser } from '../../store/session';
+
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const history = useHistory()
 
   const [animate, setAnimate] = useState(false);
+  // RESET ISHIDDEN TO FALSE AFTER STYLING VOTER REGISTRATION PAGE!!!!!!!!!!!!!!!!!!!!!!!!
+  const [isHidden, setIsHidden] = useState(true);
+
+  const [errors, setErrors] = useState([]);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [registeredVoter, setRegisteredVoter] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
-
+    setAnimate(true)
+    setTimeout(() => {
+      setIsHidden(true)
+    }, 480)
   };
 
-  return (
+  const handleSubmit = () => {
+    const newUser = {
+      firstName,
+      lastName,
+      email,
+      zipCode,
+      password,
+      isRegistered
+    }
+    console.log(newUser);
+    // dispatch(registerUser(newUser)).then(res => {
+    //   if (res && res.errors) setErrors(res.errors)
+    //   if (!res.errors) history.push('/dashboard')
+    // })
+  }
 
-    <div className='signup-form__container slide-in-bottom'>
-      <img src={logo_img} />
-      <form className='signup-form' onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="firstName"
-          placeholder='First Name'
-          onChange={(e) => setFirstName(e.target.value)}
-          value={firstName}
-        ></input>
-        <input
-          type="text"
-          name="lastName"
-          placeholder='Last Name'
-          onChange={(e) => setLastName(e.target.value)}
-          value={lastName}
-        ></input>
-        <input
-          type="text"
-          name="email"
-          placeholder='Email'
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        ></input>
-        <input
-          type="number"
-          name="zipCode"
-          placeholder='5-Digit Zip Code'
-          onChange={(e) => setZipCode(e.target.value)}
-          value={zipCode}
-        ></input>
-        <input
-          type="password"
-          name="password"
-          placeholder='Password'
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        ></input>
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder='Confirm Password'
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          value={confirmPassword}
-          required={true}
-        ></input>
-        <button type="submit">Make an Account</button>
-      </form>
-    </div>
+  return (
+    <>
+      <div className={`
+        ${ animate && 'slide-out-top' }
+        ${ isHidden && 'hidden' }`}
+      >
+        <div className='signup-form__container slide-in-bottom'>
+          <img src={logo_img} />
+          <form className='signup-form'>
+            <input
+              type="text"
+              name="firstName"
+              placeholder='First Name'
+              onChange={(e) => setFirstName(e.target.value)}
+              value={firstName}
+              required={true}
+            ></input>
+            <input
+              type="text"
+              name="lastName"
+              placeholder='Last Name'
+              onChange={(e) => setLastName(e.target.value)}
+              value={lastName}
+              required={true}
+            ></input>
+            <input
+              type="text"
+              name="email"
+              placeholder='Email'
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              required={true}
+            ></input>
+            <input
+              type="number"
+              name="zipCode"
+              placeholder='5-Digit Zip Code'
+              onChange={(e) => setZipCode(e.target.value)}
+              value={zipCode}
+              required={true}
+            ></input>
+            <input
+              type="password"
+              name="password"
+              placeholder='Password'
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              required={true}
+            ></input>
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder='Confirm Password'
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              value={confirmPassword}
+              required={true}
+            ></input>
+            <button type="button" onClick={handleClick}>Make an Account</button>
+          </form>
+        </div>
+      </div>
+      {/* <div> */}
+      { isHidden &&
+        <IsRegistered
+          setIsRegistered={setIsRegistered}
+          handleSubmit={handleSubmit}
+        />
+      }
+      {/* </div> */}
+    </>
   );
 };
 

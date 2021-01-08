@@ -19,7 +19,7 @@ export const loginUser = (email, password) => async (dispatch) => {
 }
 
 export const registerUser = (user) => async (dispatch) => {
-  const { firstName, lastName, email, password, zipCode, isRegisteredVoter } = user;
+  const { firstName, lastName, email, password, zipCode, isRegistered } = user;
   const res = await fetch('/api/auth/register', {
     method: 'POST',
     headers: {
@@ -29,9 +29,9 @@ export const registerUser = (user) => async (dispatch) => {
       firstName, 
       lastName,
       email,
-      password,
       zipCode,
-      isRegisteredVoter
+      password,
+      isRegistered
     })
   })
   const data = await res.json()
