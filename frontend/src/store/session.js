@@ -5,40 +5,57 @@ const REMOVE_SESSION_USER = 'REMOVE_SESSION_USER';
 
 
 // DEFINE ACTION CREATORS - ASYNC/THUNK //
-export const loginUser = (credential, password) => async (dispatch) => {
-  const res = await fetch('/api/session', {
+export const loginUser = (email, password) => async (dispatch) => {
+  const res = await fetch('/api/auth/login', {
     method: 'POST',
-    body: JSON.stringify({ credential, password })
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email, password })
   })
-  const data = res.json()
-  dispatch(setSessionUser(data.user));
-  return res;
+  const data = await res.json()
+  dispatch(setSessionUser(data));
+  return data;
 }
 
 export const registerUser = (user) => async (dispatch) => {
-  const { email, password, username } = user;
-  const res = await fetch('/api/users', {
+  const { firstName, lastName, email, password, zipCode, isRegisteredVoter } = user;
+  const res = await fetch('/api/auth/register', {
     method: 'POST',
-    body: JSON.stringify({ email, password, username })
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      firstName, 
+      lastName,
+      email,
+      password,
+      zipCode,
+      isRegisteredVoter
+    })
   })
-  const data = res.json()
-  dispatch(setSessionUser(data.user));
-  return res;
+  const data = await res.json()
+  dispatch(setSessionUser(data));
+  return data;
 }
 
 export const restoreUser = () => async (dispatch) => {
-  const res = await fetch('/api/session');
-  const data = res.json();
-  dispatch(setSessionUser(data.user));
-  return res
+  const res = await fetch('/api/auth/restore', {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  const data = await res.json();
+  console.log('IN RESTORE THUNK', res, data);
+  dispatch(setSessionUser(data));
+  return data
 }
 
 export const deleteSession = () => async (dispatch) => {
-  const res = await fetch('/api/session', {
-    method: 'DELETE',
-  })
+  const res = await fetch('/api/auth/logout')
   dispatch(removeSessionUser());
-  return res
+  const data = await res.json();
+  return data
 }
 
 

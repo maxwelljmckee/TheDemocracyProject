@@ -1,39 +1,29 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
-import { login } from "../../services/auth";
+import { Redirect, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 
-const LoginForm = ({ authenticated, setAuthenticated }) => {
+import { loginUser } from '../../store/session';
+
+const LoginForm = () => {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [errors, setErrors] = useState([]);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const onLogin = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const user = await login(email, password);
-    if (!user.errors) {
-      setAuthenticated(true);
-    } else {
-      setErrors(user.errors);
-    }
+    dispatch(loginUser(email, password)).then(res => {
+      if (res && res.errors) setErrors(res.errors)
+      if (!res.errors) history.push('/dashboard')
+    })
   };
-
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const updatePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  if (authenticated) {
-    return <Redirect to="/" />;
-  }
 
   return (
-    <form onSubmit={onLogin}>
+    <form onSubmit={onSubmit}>
       <div>
-        {errors.map((error) => (
-          <div>{error}</div>
+        {errors.map((error, i) => (
+          <div key={`error-${i}`}>{error}</div>
         ))}
       </div>
       <div>
@@ -43,7 +33,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           type="text"
           placeholder="Email"
           value={email}
-          onChange={updateEmail}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div>
@@ -53,7 +43,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           type="password"
           placeholder="Password"
           value={password}
-          onChange={updatePassword}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Login</button>
       </div>

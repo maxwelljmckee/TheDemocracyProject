@@ -1,0 +1,71 @@
+
+/* ===== SPLASH_MAIN STYLES ===== */
+.splash-main__container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+}
+
+.splash-main__main-logo {
+    width: 85%;
+    height: 40%;
+    margin: 0 auto;
+}
+
+.splash-main__main-logo img {
+    width: 100%;
+}
+
+.splash-main__secondary-logo {
+    width: 50%;
+    height: 20%;
+    margin: 1.5em auto;
+}
+
+.splash-main__secondary-logo img {
+    width: 100%;
+}
+
+.propublicaLogo {
+    width: 80%;
+    border-radius: 1.5em;
+}
+
+.splash-main__btn-container {
+    width: 30%;
+    height: 10%;
+    margin: 0 auto;
+
+}
+
+.splash-main__btn-container .splash-main__btn {
+    width: 100%;
+    height: 50%;
+    margin: 0 auto;
+    color: white;
+    background-color: #1761a0;
+    font-size: 3em;
+    /* font-weight: bold; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    box-shadow: 0 0 20px 3px rgba(23, 97, 160, 0.8);
+}
+
+
+
+/* ===== SPLASH_ABOUT STYLES ===== */
+.splash-about__container {
+    width: 100vh;
+    height: 100vh;
+    position: fixed;
+    /* top: 100%; */
+}
+
+.splash-about__container h1 {
+    font-size: 10em
+}
