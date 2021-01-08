@@ -9,9 +9,11 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
   const history = useHistory()
 
+  const [animate, setAnimate] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [zipCode, setZipCode] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [registeredVoter, setRegisteredVoter] = useState(false);
@@ -22,6 +24,7 @@ const SignUpForm = () => {
   };
 
   return (
+
     <div className='signup-form__container slide-in-bottom'>
       <img src={logo_img} />
       <form className='signup-form' onSubmit={handleSubmit}>
@@ -45,6 +48,13 @@ const SignUpForm = () => {
           placeholder='Email'
           onChange={(e) => setEmail(e.target.value)}
           value={email}
+        ></input>
+        <input
+          type="number"
+          name="zipCode"
+          placeholder='5-Digit Zip Code'
+          onChange={(e) => setZipCode(e.target.value)}
+          value={zipCode}
         ></input>
         <input
           type="password"
