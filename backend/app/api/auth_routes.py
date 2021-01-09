@@ -46,7 +46,10 @@ def logout():
 @auth_routes.route('/register', methods=['POST'])
 def sign_up():
     form = SignUpForm()
+    print('==========IN REGISTER ROUTE==========')
+    print('FORM DATA:', form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
+    print('FORM DATA AFTER CSRF', form.data)
     if form.validate_on_submit():
         user = User(
             first_name=form.data['firstName'],
@@ -54,8 +57,9 @@ def sign_up():
             email=form.data['email'],
             password=form.data['password'],
             zip_code=form.data['zipCode'],
-            is_registered_voter=form.data['isRegisteredVoter']
+            is_registered_voter=form.data['isRegistered']
         )
+        print('USER OBJECT:', user)
         db.session.add(user)
         db.session.commit()
         login_user(user)

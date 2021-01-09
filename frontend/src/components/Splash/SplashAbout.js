@@ -3,41 +3,44 @@ import { useHistory } from 'react-router-dom';
 
 
 const SplashAbout = () => {
-  const history = useHistory()
-  const [animate, setAnimate] = useState(false)
+  const history = useHistory();
+  const [animate, setAnimate] = useState(false);
   const [unhide, setUnhide] = useState(false);
-  const [unhide2, setUnhide2] = useState(false)
-  const [unhide3, setUnhide3] = useState(false)
+  const [unhide2, setUnhide2] = useState(false);
+  const [unhide3, setUnhide3] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setUnhide(true)
-    }, 1500)
+      setTimeout(() => {
+        setUnhide2(true)
+        setTimeout(() => {
+          setUnhide3(true)
+          // setTimeout(() => {
+            setAnimate(true)
+            setTimeout(() => {
+              history.push('/splash/register')
+            }, 480)
+          // }, 1200)
+        }, 1200)
+      }, 1200)
+    }, 1200)
   }, [])
 
   useEffect(() => {
-    setTimeout(() => {
-      setUnhide2(true)
-    }, 3000)
+    
   }, [])
   
   useEffect(() => {
-    setTimeout(() => {
-      setUnhide3(true)
-    }, 4500)
+    
   }, [])
   
   useEffect(() => {
-    setTimeout(() => {
-      setAnimate(true)
-      setTimeout(() => {
-        history.push('/splash/register')
-      }, 480)
-    }, 6500)
+    
   }, [])
 
   return (
-    <div className={`${animate && 'slide-out-top' }`}>
+    <div className={`.splash-about__wrapper ${animate && 'slide-out-top' }`}>
       <div className={`splash-about__container slide-in-bottom
       ${ animate && 'slide-out-top' }`}>
         <div className='splash-about__header'>
@@ -50,14 +53,14 @@ const SplashAbout = () => {
         }
         { unhide2 && 
           <div className='splash-about__footer slide-in-bottom'>
-            Made Simple
+            Made Easy.
           </div>
         }
-        { unhide3 && 
+        {/* { unhide3 && 
           <div className='splash-about__img-container'>
             <img className='slide-in-bottom' src='https://miro.medium.com/max/400/1*q6gzHA3kEeaBEMIFIjtuIQ.jpeg' alt='phew' />
           </div>
-        }
+        } */}
       </div>
     </div>
   )

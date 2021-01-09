@@ -12,17 +12,24 @@ const SignUpForm = () => {
   const history = useHistory()
 
   const [animate, setAnimate] = useState(false);
-  // RESET ISHIDDEN TO FALSE AFTER STYLING VOTER REGISTRATION PAGE!!!!!!!!!!!!!!!!!!!!!!!!
-  const [isHidden, setIsHidden] = useState(true);
+  const [isHidden, setIsHidden] = useState(false);
 
   const [errors, setErrors] = useState([]);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [zipCode, setZipCode] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [zipCode, setZipCode] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordMatch, setPasswordMatch] = useState(false)
   const [isRegistered, setIsRegistered] = useState(false);
+  const [formValidated, setFormValidated] = useState(false);
+
+  const handleValidations = () => {
+    if (firstName && lastName && email && zipCode && passwordMatch()) {
+      setFormValidated(true)
+    }
+  }
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -42,10 +49,11 @@ const SignUpForm = () => {
       isRegistered
     }
     console.log(newUser);
-    // dispatch(registerUser(newUser)).then(res => {
-    //   if (res && res.errors) setErrors(res.errors)
-    //   if (!res.errors) history.push('/dashboard')
-    // })
+    console.log(isRegistered);
+    dispatch(registerUser(newUser)).then(res => {
+      if (res && res.errors) setErrors(res.errors)
+      if (!res.errors) history.push('/dashboard')
+    })
   }
 
   return (
@@ -105,7 +113,12 @@ const SignUpForm = () => {
               value={confirmPassword}
               required={true}
             ></input>
-            <button type="button" onClick={handleClick}>Make an Account</button>
+            <button 
+              type="button" 
+              onClick={handleClick}
+            >
+              Make an Account
+            </button>
           </form>
         </div>
       </div>

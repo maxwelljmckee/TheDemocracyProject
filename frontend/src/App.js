@@ -25,7 +25,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      {!user && <h1>no session user</h1>}
       <Switch>
         {/* ===== SPLASH && AUTH ROUTES ===== */}
         <Route path="/" exact={true}>
@@ -41,14 +40,19 @@ function App() {
           <LoginForm />
         </Route>
 
+
         {/* ===== USER DASHBOARD ROUTES ===== */}
         <Route path='/dashboard'><LogoutButton /></Route>
 
+
         {/* ===== REPRESENTATIVES ROUTES ===== */}
+
 
         {/* ===== BILLS ROUTES ===== */}
 
+
         {/* ===== COMMUNITY ROUTES ===== */}
+
 
       </Switch>
     </BrowserRouter>

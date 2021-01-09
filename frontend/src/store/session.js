@@ -19,7 +19,8 @@ export const loginUser = (email, password) => async (dispatch) => {
 }
 
 export const registerUser = (user) => async (dispatch) => {
-  const { firstName, lastName, email, password, zipCode, isRegistered } = user;
+  console.log('IN SESSION STORE', user);
+  const { firstName, lastName, email, zipCode, password, isRegistered } = user;
   const res = await fetch('/api/auth/register', {
     method: 'POST',
     headers: {

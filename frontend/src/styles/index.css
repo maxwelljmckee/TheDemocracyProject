@@ -1,3 +1,7 @@
+body{
+    background-color: rgba(23, 97, 160, 0.1);
+}
+
 /* ===== MAIN STYLES ===== */
 @import './reset.css';
 @import './splash.css';
@@ -8,4 +12,4 @@
 @import './animations/slide-in-bottom.css';
 @import './animations/slide-out-left.css';
 @import './animations/slide-in-right.css';
-@import './animations/slide-in-fwd.css';
+@import './animations/bounce-in.css';

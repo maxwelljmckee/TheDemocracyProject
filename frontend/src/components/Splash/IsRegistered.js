@@ -13,17 +13,17 @@ const IsRegistered = ({ setIsRegistered, handleSubmit }) => {
         setUnhide2(true)
         setTimeout(() => {
           setUnhide3(true)
-        }, 800)
-      }, 800)
-    }, 800)
+        }, 350)
+      }, 1000)
+    }, 400)
   }, [])
 
-  const handleGreenClick = () => {
+  const handleUpvote = () => {
     setIsRegistered(true)
     handleSubmit()
   }
 
-  const handleRedClick = () => {
+  const handleDownvote = () => {
     handleSubmit()
   }
 
@@ -37,24 +37,18 @@ const IsRegistered = ({ setIsRegistered, handleSubmit }) => {
           Are you a registered voter?
         </div>
       }
-      <div className='is-registered__button-container'>
-        { unhide2 &&
-          // <div className='is-registered__btn1 slide-in-fwd-center' onClick={handleGreenClick}>
+      { unhide2 &&
+        <i 
+          className="fas fa-check-circle bounce-in-fwd"
+          onClick={handleUpvote}
+        />
+      }
+      { unhide3 &&
           <i 
-            className="fas fa-check-circle is-registered__btn1 slide-in-fwd-center"
-            onClick={handleGreenClick}
+            className="fas fa-times-circle bounce-in-fwd"
+            onClick={handleDownvote}
           />
-          // {/* </div> */}
-        }
-        { unhide3 &&
-          // <div className='is-registered__btn2 slide-in-bottom' onClick={handleRedClick}>
-            <i 
-              className="fas fa-times-circle is-registered__btn2 slide-in-bottom"
-              onClick={handleRedClick}
-            />
-          // {/* </div> */}
-        }
-      </div>
+      }
     </div>
   )
 }
