@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import buildingOnly from './building_only.png';
 import starsOnly from './stars_only.png';
+import ProPublicaFooter from '../Splash/ProPublicaFooter';
 
 
 const DynamicLogo = () => {
@@ -38,9 +39,7 @@ const Loader = () => {
   return (
     <div className='loader__container fade-in-fast'>
       <DynamicLogo />
-      <div className='loader__propublica'>
-        <div>propublica logo</div>
-      </div>
+      <ProPublicaFooter />
     </div>
   )
 }

@@ -1,4 +1,6 @@
 
+
+/* ===== DYNAMIC LOGO STYLES ===== */
 .loader__container {
     width: 100vw;
     height: 100vh;
@@ -46,4 +48,29 @@
     bottom: 8vh;
 
     background-color: rgb(232, 242, 248);
+}
+
+
+
+
+/* ===== PROPUBLICA LOGO STYLES ===== */
+.propublica-footer {
+    width: 75%;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    top: 50vh
+}
+
+.propublica-footer__text {
+    width: 50%;
+    font-family: 'Cinzel';
+    font-size: 3.5em;
+    color: #1761a0;
+}
+
+.propublica-footer img {
+    width: 50%;
+    border-radius: 0.8em;
 }
