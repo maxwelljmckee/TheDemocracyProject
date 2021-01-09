@@ -8,27 +8,40 @@ import logo_img from '../../static/image-only_logo.png';
 const LoginForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [transition, setTransition] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(loginUser(email, password)).then(res => {
       if (res && res.errors) setErrors(res.errors)
-      if (!res.errors) history.push('/dashboard')
+      if (!res.errors) {
+        setTransition(true)
+        setTimeout(() => {
+          history.push('/dashboard')
+        }, 480)
+      }
     })
   };
 
   const handleDemo = (e) => {
     e.preventDefault();
     dispatch(loginUser('demo@aa.io', 'password')).then(res => {
-      if (!res.errors) history.push('/dashboard')
+      if (!res.errors) {
+        setTransition(true)
+        setTimeout(() => {
+          history.push('/dashboard')
+        }, 480)
+      }
     })
   }
 
   return (
-    <div className='login-form__container slide-in-right'>
+    <div className={`login-form__container slide-in-right
+         ${ transition && 'slide-out-left'}`}>
       <img src={logo_img} />
       <form className='login-form' onSubmit={handleSubmit}>
         <div>

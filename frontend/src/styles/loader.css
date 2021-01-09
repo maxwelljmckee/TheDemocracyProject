@@ -1,0 +1,43 @@
+
+.loader__container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.loader__dynamic-logo {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.loader__building,
+.loader__building img {
+    width: 75%;
+    position: fixed;
+    top: 20vh;
+    left: 12.5%;
+    right: 12.5%;
+    z-index: 5;
+    /* background-color: rgb(226, 238, 245); */
+}
+
+.loader__stars,
+.loader__stars img {
+    width: 50%;
+    position: fixed;
+    top: 20vh;
+    left: 25%;
+    right: 25%;
+    top: 24vh;
+    z-index: 0;
+}
+
+.loader__whitespace {
+    z-index: 2;
+    width: 100vw;
+    height: 10vh;
+    position: relative;
+    top: 19vh;
+    right: 12vw;
+    background-color: rgb(232, 242, 248);
+}

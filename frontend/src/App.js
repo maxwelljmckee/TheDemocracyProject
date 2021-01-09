@@ -9,6 +9,8 @@ import SignUpForm from './components/auth/SignUpForm';
 import SplashMain from './components/Splash/SplashMain';
 import SplashAbout from './components/Splash/SplashAbout';
 
+import Loader from './components/Loader/Loader'
+
 function App() {
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
@@ -42,7 +44,7 @@ function App() {
 
 
         {/* ===== USER DASHBOARD ROUTES ===== */}
-        <Route path='/dashboard'><LogoutButton /></Route>
+        <Route path='/dashboard'><Loader /></Route>
 
 
         {/* ===== REPRESENTATIVES ROUTES ===== */}

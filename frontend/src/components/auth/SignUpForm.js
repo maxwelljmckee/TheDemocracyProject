@@ -12,6 +12,7 @@ const SignUpForm = () => {
   const history = useHistory()
 
   const [animate, setAnimate] = useState(false);
+  const [transition, setTransition] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
 
   const [errors, setErrors] = useState([]);
@@ -50,7 +51,12 @@ const SignUpForm = () => {
     }
     dispatch(registerUser(newUser)).then(res => {
       if (res && res.errors) setErrors(res.errors)
-      if (!res.errors) history.push('/dashboard')
+      if (!res.errors) {
+        setTransition(true)
+        setTimeout(() => {
+          history.push('/dashboard')
+        }, 480)
+      }
     })
   }
 
@@ -126,7 +132,10 @@ const SignUpForm = () => {
       </div>
       {/* <div> */}
       { isHidden &&
-        <IsRegistered setIsRegistered={setIsRegistered} />
+        <IsRegistered
+          setIsRegistered={setIsRegistered}
+          transition={transition}
+        />
       }
       {/* </div> */}
     </>

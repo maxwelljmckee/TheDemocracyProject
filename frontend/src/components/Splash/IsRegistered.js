@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 
-const IsRegistered = ({ setIsRegistered }) => {
+const IsRegistered = ({ transition, setIsRegistered }) => {
   const [unhide1, setUnhide1] = useState(false);
   const [unhide2, setUnhide2] = useState(false);
   const [unhide3, setUnhide3] = useState(false);
@@ -27,7 +27,8 @@ const IsRegistered = ({ setIsRegistered }) => {
   }
 
   return (
-    <div className='slide-in-bottom'>
+    <div className={`slide-in-bottom
+         ${ transition && 'slide-out-left'}`}>
       <div className='is-registered__header'>
         One More Thing!
           </div>
