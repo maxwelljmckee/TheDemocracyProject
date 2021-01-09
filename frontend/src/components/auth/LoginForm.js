@@ -40,32 +40,33 @@ const LoginForm = () => {
   }
 
   return (
-    <div className={`login-form__container slide-in-right
-         ${ transition && 'slide-out-left'}`}>
-      <img src={logo_img} />
-      <form className='login-form' onSubmit={handleSubmit}>
-        <div>
-          {errors.map((error, i) => (
-            <div key={`error-${i}`}>{error}</div>
-          ))}
-        </div>
-        <input
-          name="email"
-          type="text"
-          placeholder="Enter Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-        <button type="button" onClick={handleDemo}>Demo Login</button>
-      </form>
+    <div className={`${ transition && 'slide-out-left'}`}>
+      <div className='login-form__container slide-in-right'>
+        <img src={logo_img} />
+        <form className='login-form' onSubmit={handleSubmit}>
+          <div>
+            {errors.map((error, i) => (
+              <div key={`error-${i}`}>{error}</div>
+            ))}
+          </div>
+          <input
+            name="email"
+            type="text"
+            placeholder="Enter Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Enter Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit">Login</button>
+          <button type="button" onClick={handleDemo}>Demo Login</button>
+        </form>
+      </div>
     </div>
   );
 };

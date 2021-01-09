@@ -1,6 +1,6 @@
-.fade-in-fwd {
-	-webkit-animation: fade-in-fwd 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: fade-in-fwd 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+.fade-in-fast {
+	-webkit-animation: fade-in-fast 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in-fast 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 
@@ -13,10 +13,10 @@
 
 /**
  * ----------------------------------------
- * animation fade-in-fwd
+ * animation fade-in-fast
  * ----------------------------------------
  */
-@-webkit-keyframes fade-in-fwd {
+@-webkit-keyframes fade-in-fast {
   0% {
     -webkit-transform: translateZ(-80px);
             transform: translateZ(-80px);
@@ -28,7 +28,7 @@
     opacity: 1;
   }
 }
-@keyframes fade-in-fwd {
+@keyframes fade-in-fast {
   0% {
     -webkit-transform: translateZ(-80px);
             transform: translateZ(-80px);

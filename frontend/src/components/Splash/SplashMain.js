@@ -25,11 +25,11 @@ const SplashMain = () => {
 
   return (
     <>
-    <div className='fade-in-fwd'>
+    <div className='fade-in-slow'>
         <div 
           className={`splash-main__container
-          ${ verticalAnimation && 'slide-out-top' } 
-          ${ lateralAnimation && 'slide-out-left' }`}
+          ${ verticalAnimation && 'slide-out-top-beta' } 
+          ${ lateralAnimation && 'slide-out-left-beta' }`}
         >
           <div className='splash-main__main-logo'>
             <img src={logo} alt='The Democracy Project' />

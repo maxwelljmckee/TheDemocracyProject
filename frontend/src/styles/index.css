@@ -1,3 +1,7 @@
+html {
+    background-color: rgb(232, 242, 248);
+}
+
 body{
     background-color: rgb(232, 242, 248);
 }
@@ -9,9 +13,20 @@ body{
 
 
 /* ===== ANIMATIONS ===== */
+/* SLIDERS */
 @import './animations/slide-out-top.css';
+@import './animations/slide-out-top-beta.css';
 @import './animations/slide-in-bottom.css';
 @import './animations/slide-out-left.css';
+@import './animations/slide-out-left-beta.css';
 @import './animations/slide-in-right.css';
+
+/* BOUNCE */
 @import './animations/bounce-in.css';
-@import './animations/fade-in-fwd.css';
+
+/* FADE-IN */
+@import './animations/fade-in-fast.css';
+@import './animations/fade-in-slow.css';
+
+/* ROTATE */
+@import './animations/rotate-center.css';

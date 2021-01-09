@@ -13,9 +13,9 @@ const IsRegistered = ({ transition, setIsRegistered }) => {
         setUnhide2(true)
         setTimeout(() => {
           setUnhide3(true)
-        }, 350)
-      }, 1000)
-    }, 400)
+        }, 280)
+      }, 700)
+    }, 350)
   }, [])
 
   const handleUpvote = () => {
