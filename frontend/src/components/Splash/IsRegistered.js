@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 
-const IsRegistered = ({ setIsRegistered, handleSubmit }) => {
+const IsRegistered = ({ setIsRegistered }) => {
   const [unhide1, setUnhide1] = useState(false);
   const [unhide2, setUnhide2] = useState(false);
   const [unhide3, setUnhide3] = useState(false);
@@ -20,11 +20,10 @@ const IsRegistered = ({ setIsRegistered, handleSubmit }) => {
 
   const handleUpvote = () => {
     setIsRegistered(true)
-    handleSubmit()
   }
 
   const handleDownvote = () => {
-    handleSubmit()
+    setIsRegistered(false)
   }
 
   return (

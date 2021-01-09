@@ -22,7 +22,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordMatch, setPasswordMatch] = useState(false)
-  const [isRegistered, setIsRegistered] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(null);
   const [formValidated, setFormValidated] = useState(false);
 
   const handleValidations = () => {
@@ -48,13 +48,15 @@ const SignUpForm = () => {
       password,
       isRegistered
     }
-    console.log(newUser);
-    console.log(isRegistered);
     dispatch(registerUser(newUser)).then(res => {
       if (res && res.errors) setErrors(res.errors)
       if (!res.errors) history.push('/dashboard')
     })
   }
+
+  useEffect(() => {
+    if (isRegistered !== null) handleSubmit()
+  }, [isRegistered])
 
   return (
     <>
@@ -124,10 +126,7 @@ const SignUpForm = () => {
       </div>
       {/* <div> */}
       { isHidden &&
-        <IsRegistered
-          setIsRegistered={setIsRegistered}
-          handleSubmit={handleSubmit}
-        />
+        <IsRegistered setIsRegistered={setIsRegistered} />
       }
       {/* </div> */}
     </>
