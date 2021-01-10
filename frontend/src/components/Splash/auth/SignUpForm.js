@@ -55,7 +55,7 @@ const SignUpForm = () => {
         setTransition(true)
         setTimeout(() => {
           history.push('/dashboard')
-        }, 480)
+        }, 600)
       }
     })
   }
