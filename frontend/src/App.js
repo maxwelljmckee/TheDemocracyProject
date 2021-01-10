@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { restoreUser } from './store/session';
 
-import LoginForm from "./components/auth/LoginForm";
-import SignUpForm from './components/auth/SignUpForm';
+import LoginForm from "./components/Splash/auth/LoginForm";
+import SignUpForm from './components/Splash/auth/SignUpForm';
 import SplashMain from './components/Splash/SplashMain';
 import SplashAbout from './components/Splash/SplashAbout';
 

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-import logo_img from '../../static/image-only_logo.png';
-import IsRegistered from '../Splash/IsRegistered';
-import { registerUser } from '../../store/session';
+import logo_img from '../../../static/image-only_logo.png';
+import IsRegistered from '../IsRegistered';
+import { registerUser } from '../../../store/session';
 
 
 const SignUpForm = () => {
