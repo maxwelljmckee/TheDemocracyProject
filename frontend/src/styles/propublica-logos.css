@@ -1,0 +1,38 @@
+
+
+/* ===== PROPUBLICA LOGO STYLES ===== */
+.propublica-center,
+.propublica-footer {
+    width: 75%;
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    top: 52vh;
+    z-index: 3;
+}
+
+.propublica-center {
+    display: flex;
+    flex-direction: column;
+}
+
+.propublica-footer {
+    display: flex;
+    flex-direction: row;
+}
+
+.propublica-center__text,
+.propublica-footer__text {
+    width: 50%;
+    font-family: 'Cinzel';
+    font-size: 3.5em;
+    text-align: center;
+    color: #1761a0;
+    padding-bottom: 5px;
+}
+
+.propublica-center img,
+.propublica-footer img {
+    width: 50%;
+    border-radius: 0.8em;
+}

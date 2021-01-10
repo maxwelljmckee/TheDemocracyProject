@@ -1,6 +1,6 @@
-.slide-out-left-beta {
-	-webkit-animation: slide-out-left-beta 0.9s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
-	        animation: slide-out-left-beta 0.9s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+.slide-out-left {
+	-webkit-animation: slide-out-left 0.9s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+	        animation: slide-out-left 0.9s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
 }
 
 
@@ -13,10 +13,10 @@
 
 /**
  * ----------------------------------------
- * animation slide-out-left-beta
+ * animation slide-out-left
  * ----------------------------------------
  */
-@-webkit-keyframes slide-out-left-beta {
+@-webkit-keyframes slide-out-left {
   0% {
     -webkit-transform: translateX(0);
             transform: translateX(0);
@@ -28,7 +28,7 @@
     opacity: 0;
   }
 }
-@keyframes slide-out-left-beta {
+@keyframes slide-out-left {
   0% {
     -webkit-transform: translateX(0);
             transform: translateX(0);

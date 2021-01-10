@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { restoreUser } from './store/session';
 
 import LoginForm from "./components/auth/LoginForm";
-import LogoutButton from "./components/auth/LogoutButton";
 import SignUpForm from './components/auth/SignUpForm';
 import SplashMain from './components/Splash/SplashMain';
 import SplashAbout from './components/Splash/SplashAbout';

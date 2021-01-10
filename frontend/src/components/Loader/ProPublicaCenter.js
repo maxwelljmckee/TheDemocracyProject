@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const ProPublicaFooter = () => {
+const ProPublicaCenter = () => {
   return (
     <div className='propublica-center'>
       <div className='propublica-center__text'>Powered By</div>
@@ -11,4 +11,4 @@ const ProPublicaFooter = () => {
 }
 
 
-export default ProPublicaFooter;
+export default ProPublicaCenter;

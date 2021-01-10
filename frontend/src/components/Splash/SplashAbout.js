@@ -7,7 +7,7 @@ const SplashAbout = () => {
   const [animate, setAnimate] = useState(false);
   const [unhide, setUnhide] = useState(false);
   const [unhide2, setUnhide2] = useState(false);
-  const [unhide3, setUnhide3] = useState(false);
+  // const [unhide3, setUnhide3] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -15,32 +15,21 @@ const SplashAbout = () => {
       setTimeout(() => {
         setUnhide2(true)
         setTimeout(() => {
-          setUnhide3(true)
+          // setUnhide3(true)
           // setTimeout(() => {
             setAnimate(true)
             setTimeout(() => {
               history.push('/splash/register')
-            }, 480)
+            }, 600)
           // }, 1200)
-        }, 1200)
-      }, 1200)
-    }, 1200)
+        }, 900)
+      }, 900)
+    }, 900)
   }, [])
 
-  useEffect(() => {
-    
-  }, [])
-  
-  useEffect(() => {
-    
-  }, [])
-  
-  useEffect(() => {
-    
-  }, [])
 
   return (
-    <div className={`.splash-about__wrapper ${animate && 'slide-out-top' }`}>
+    <div className={`${animate && 'slide-out-top' }`}>
       <div className={`splash-about__container slide-in-bottom
       ${ animate && 'slide-out-top' }`}>
         <div className='splash-about__header'>
@@ -48,7 +37,7 @@ const SplashAbout = () => {
         </div>
         { unhide && 
           <div className='splash-about__body slide-in-bottom'>
-            Civic Engagement
+            Political Action
           </div>
         }
         { unhide2 && 

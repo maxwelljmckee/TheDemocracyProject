@@ -12,12 +12,16 @@ body{
 @import './loader.css';
 
 
+/* ===== BUTTONS AND LOGOS ===== */
+@import './propublica-logos.css';
+
+
 /* ===== ANIMATIONS ===== */
 /* SLIDERS */
-@import './animations/slide-out-top.css';
+/* @import './animations/slide-out-top.css'; */
 @import './animations/slide-out-top-beta.css';
 @import './animations/slide-in-bottom.css';
-@import './animations/slide-out-left.css';
+/* @import './animations/slide-out-left.css'; */
 @import './animations/slide-out-left-beta.css';
 @import './animations/slide-in-right.css';
 

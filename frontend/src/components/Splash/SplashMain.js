@@ -13,14 +13,14 @@ const SplashMain = () => {
     setLateralAnimation(true)
     setTimeout(() => {
       history.push('/login')
-    }, 490)
+    }, 600)
   }
 
   const handleLearnMore = () => {
     setVerticalAnimation(true)
     setTimeout(() => {
       history.push('/splash/about')
-    }, 480)
+    }, 600)
   }
 
   return (
