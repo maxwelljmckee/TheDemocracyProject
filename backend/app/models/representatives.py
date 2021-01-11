@@ -1,21 +1,21 @@
 from .db import db
 
 
-# followers = db.Table('followers',
-#                      db.Column('representative_id', db.Integer, db.ForeignKey(
-#                                'representatives.id'), primary_key=True),
-#                      db.Column('user_id', db.Integer, db.ForeignKey(
-#                                'users.id'), primary_key=True),
-#                      db.Column('is_constituent', db.Boolean, nullable=False)
-#                      )
+followers = db.Table('followers',
+                     db.Column('representative_id', db.Integer, db.ForeignKey(
+                               'representatives.id'), primary_key=True),
+                     db.Column('user_id', db.Integer, db.ForeignKey(
+                               'users.id'), primary_key=True),
+                     db.Column('is_constituent', db.Boolean, nullable=False)
+                     )
 
-class Followers(db.Model):
-    __tablename__ = 'followers'
+# class Followers(db.Model):
+#     __tablename__ = 'followers'
 
-    representative_id = db.Column(db.Integer, db.ForeignKey('representatives.id'),
-                                  primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
-    is_constituent = db.Column(db.Boolean, nullable=False)
+#     representative_id = db.Column(db.Integer, db.ForeignKey('representatives.id'),
+#                                   primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
+#     is_constituent = db.Column(db.Boolean, nullable=False)
 
 
 class Representative(db.Model):
