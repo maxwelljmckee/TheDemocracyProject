@@ -1,9 +1,14 @@
 import React from 'react';
 
+import staticLogo from '../../static/image-only_logo.png';
+
 
 const HeaderMain = () => {
   return (
-    <div>header</div>
+    <div className='header-main'>
+      <img src={staticLogo} alt='logo' />
+      <i className="fas fa-bars"></i>
+    </div>
   )
 }
 

@@ -3,12 +3,16 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { restoreUser } from './store/session';
 
+// SPLASH COMPONENTS
 import LoginForm from "./components/Splash/auth/LoginForm";
 import SignUpForm from './components/Splash/auth/SignUpForm';
 import SplashMain from './components/Splash/SplashMain';
 import SplashAbout from './components/Splash/SplashAbout';
 
-import Loader from './components/Loader/Loader'
+// DASHBOARD COMPONENTS
+import DashboardMain from './components/Dashboard/DashboardMain'
+
+// import Loader from './components/Loader/Loader'
 
 function App() {
   const dispatch = useDispatch();
@@ -43,7 +47,7 @@ function App() {
 
 
         {/* ===== USER DASHBOARD ROUTES ===== */}
-        <Route path='/dashboard'><Loader /></Route>
+        <Route path='/dashboard'><DashboardMain /></Route>
 
 
         {/* ===== REPRESENTATIVES ROUTES ===== */}

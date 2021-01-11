@@ -28,8 +28,9 @@ body{
 /* BOUNCE */
 @import './animations/bounce-in.css';
 
-/* FADE-IN */
+/* FADE */
 @import './animations/fade-in-fast.css';
+@import './animations/fade-out-fast.css';
 @import './animations/fade-in-slow.css';
 
 /* ROTATE */
