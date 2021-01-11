@@ -2,6 +2,7 @@ import React from 'react';
 
 import SectionBreak from '../Layout/SectionBreak';
 import dashboardIcon from './Dashboard-icon.png';
+import FollowRepsBadges from './FollowRepsBadges';
 
 
 const DashboardContent = ({ user }) => {
@@ -12,6 +13,7 @@ const DashboardContent = ({ user }) => {
       </div>
       <SectionBreak sectionTitle='Meet Your Representatives' />
       <SectionBreak sectionTitle='Follow Other Representatives' />
+      <FollowRepsBadges />
       <SectionBreak sectionTitle='Follow Active Bills' />
       <SectionBreak sectionTitle='See what people are saying' />
     </div>

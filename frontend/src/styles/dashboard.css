@@ -18,3 +18,24 @@
     /* width: 100%; */
     margin-top: 10px;
 }
+
+
+
+/* ====== FOLLOW REPS BADGE STYLES ===== */
+.follow-reps-badge__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.follow-reps-badge {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.follow-reps-badge img {
+    width: 100%;
+    margin: 20px auto;
+}
