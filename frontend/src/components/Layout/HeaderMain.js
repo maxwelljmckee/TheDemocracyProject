@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import staticLogo from '../../static/image-only_logo.png';
 
 
 const HeaderMain = ({ fromLoader }) => {
+  const history = useHistory();
+
   const [animate1, setAnimate1] = useState(false);
   const [animate2, setAnimate2] = useState(false);
   const [animate3, setAnimate3] = useState(false);
@@ -20,13 +23,22 @@ const HeaderMain = ({ fromLoader }) => {
     }
   }, [])
 
+  const handleHomeRedirect = () => {
+    history.push('/dashboard');
+  }
+
+  const handleHamburgerMenu = () => {
+
+  }
+
   return (
     <>
       {/* WITHOUT ANIMATIONS */}
       { !fromLoader && 
         <div className='header-main__container'>
-          <img src={staticLogo} alt='logo' />
-          <i className={`fas fa-bars ${ animate3 && 'slide-in-right'}`}></i>
+          <img src={staticLogo} alt='logo' onClick={handleHomeRedirect} />
+          <i className={`fas fa-bars ${ animate3 && 'slide-in-right'}`}
+            onClick={handleHamburgerMenu} ></i>
         </div>
       }
 
@@ -34,9 +46,10 @@ const HeaderMain = ({ fromLoader }) => {
       <div className={`header-main__container
         ${ animate1 && 'slide-in-top-linear'}`}>
 
-        { animate2 && <img src={staticLogo} alt='logo' className='slide-in-left-linear' />}
+        { animate2 && <img src={staticLogo} onClick={handleHomeRedirect} alt='logo' className='slide-in-left-linear' />}
 
-        { animate3 && <i className='fas fa-bars slide-in-right'></i> }
+        { animate3 && <i className='fas fa-bars slide-in-right'
+          onClick={handleHamburgerMenu} ></i> }
 
       </div>
     </>
