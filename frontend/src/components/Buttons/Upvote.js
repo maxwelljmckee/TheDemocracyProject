@@ -1,13 +1,9 @@
 import React from 'react';
 
 
-const Upvote = ({ billId }) => {
-  const handleClick = () => {
-    // dispatch vote post
-  }
-
+const Upvote = ({ handleUpvote }) => {
   return (
-    <div>upvote button</div>
+    <i className="fas fa-check-circle" onClick={handleUpvote} />
   )
 }
 

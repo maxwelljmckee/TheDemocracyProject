@@ -1,13 +1,9 @@
 import React from 'react';
 
 
-const Downvote = ({ billId }) => {
-  const handleClick = () => {
-    // dispatch vote post
-  }
-
+const Downvote = ({ handleDownvote }) => {
   return (
-    <div>downvote button</div>
+    <i className="fas fa-times-circle" onClick={handleDownvote} />
   )
 }
 
