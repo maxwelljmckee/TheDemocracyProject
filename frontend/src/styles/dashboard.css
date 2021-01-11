@@ -1,0 +1,9 @@
+.dashboard__container {
+    width: 100%;
+}
+
+.dashboard__container h1 {
+    position: relative;
+    top: 8.5vh;
+    font-size: 12em;
+}

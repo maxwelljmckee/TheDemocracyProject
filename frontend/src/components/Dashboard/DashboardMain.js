@@ -12,19 +12,21 @@ import { restoreUser } from '../../store/session';
 const DashboardMain = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
+  const [animateMainContent, setAnimateMainContent] = useState(false);
+  // const [animateFooter, setAnimateFooter] = useState(false)
   const [animateCleanup, setAnimateCleanup] = useState(false);
 
   useEffect(() => {
     dispatch(restoreUser()).then(() => {
-      console.log('inside dashboard timeout', animateCleanup);
       setTimeout(() => {
-        setAnimateCleanup(true);
-        console.log('after setting animation', animateCleanup);
+        setAnimateCleanup(true); // initiate loader fade out
         setTimeout(() => {
-          console.log('inside 2nd timeout', animateCleanup);
-          setLoading(false);
-        }, 1000)
-      }, 2500)
+          setLoading(false); // load next page
+          setTimeout(() => {
+            setAnimateMainContent(true); //slide in main content
+          }, 1000) // slide in main content
+        }, 300) // fade out time
+      }, 2500) // extra loading time
     })
   }, [])
   
@@ -33,17 +35,11 @@ const DashboardMain = () => {
       { loading ? <Loader animateCleanup={animateCleanup} /> :
         <>
           <HeaderMain fromLoader={true} />
-          <div> dashboard main</div>
-          <div> dashboard main</div>
-          <div> dashboard main</div>
-          <div> dashboard main</div>
-          <div> dashboard main</div>
-          <div> dashboard main</div>
-          <div> dashboard main</div>
-          <div> dashboard main</div>
-          <div> dashboard main</div>
-          <div> dashboard main</div>
-          <div> dashboard main</div>
+          { animateMainContent && 
+            <div className='dashboard__container slide-in-bottom-rebound' >
+              <h1>Main Page Content</h1>
+            </div>
+          }
           <FooterMain fromLoader={true} />
         </>
         }

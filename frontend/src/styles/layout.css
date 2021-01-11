@@ -21,10 +21,11 @@
 
 .header-main__container i {
     font-size: 5em;
+    color: rgb(71, 71, 71);
     margin-right: 40px;
     margin-top: 10px;
     padding: 15px;
-    border: 1px solid black;
+    border: 2px solid rgb(71, 71, 71);
     border-radius: 15px;
 }
 
