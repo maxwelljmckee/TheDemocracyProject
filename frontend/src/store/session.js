@@ -47,7 +47,12 @@ export const restoreUser = () => async (dispatch) => {
     }
   });
   const data = await res.json();
-  dispatch(setSessionUser(data));
+  console.log(data);
+  if (data.errors && data.errors[0] == 'Unauthorized') {
+    dispatch(setSessionUser(null))
+  } else {
+    dispatch(setSessionUser(data));
+  }
   return data
 }
 
