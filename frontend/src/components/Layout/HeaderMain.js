@@ -19,7 +19,7 @@ const HeaderMain = ({ fromLoader }) => {
         setTimeout(() => {
           setAnimate3(true); // hamburger-right
         }, 100) //slide in right - hamburger
-      }, 150); //slide in left - logo
+      }, 200); //slide in left - logo
     }
   }, [])
 
