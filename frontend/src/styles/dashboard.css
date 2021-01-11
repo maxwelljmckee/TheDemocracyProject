@@ -1,9 +1,20 @@
 .dashboard__container {
     width: 100%;
+    position: relative;
+    top: 8.5vh;
 }
 
 .dashboard__container h1 {
-    position: relative;
-    top: 8.5vh;
     font-size: 12em;
+}
+
+.dashboard__icon-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* margin: 5px auto; */
+}
+.dashboard__icon {
+    /* width: 100%; */
+    margin-top: 10px;
 }

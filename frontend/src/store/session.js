@@ -47,7 +47,6 @@ export const restoreUser = () => async (dispatch) => {
     }
   });
   const data = await res.json();
-  console.log('IN RESTORE THUNK', res, data);
   dispatch(setSessionUser(data));
   return data
 }

@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // import LayoutWrapper from '../Layout/LayoutWrapper';
 // import LoaderWrapper from '../Loader/LoaderWrapper';
 import Loader from '../Loader/Loader'
 import HeaderMain from '../Layout/HeaderMain';
 import FooterMain from '../Layout/FooterMain';
+import DashboardContent from './DashboardContent';
 import { restoreUser } from '../../store/session';
 
 
-const DashboardMain = () => {
+const DashboardLayout = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [animateMainContent, setAnimateMainContent] = useState(false);
   // const [animateFooter, setAnimateFooter] = useState(false)
   const [animateCleanup, setAnimateCleanup] = useState(false);
+
+  const user = useSelector(state => state.session.user)
 
   useEffect(() => {
     dispatch(restoreUser()).then(() => {
@@ -24,8 +27,8 @@ const DashboardMain = () => {
           setLoading(false); // load next page
           setTimeout(() => {
             setAnimateMainContent(true); //slide in main content
-          }, 1000) // slide in main content
-        }, 300) // fade out time
+          }, 900) // slide in main content
+        }, 100) // fade out time
       }, 2500) // extra loading time
     })
   }, [])
@@ -35,11 +38,7 @@ const DashboardMain = () => {
       { loading ? <Loader animateCleanup={animateCleanup} /> :
         <>
           <HeaderMain fromLoader={true} />
-          { animateMainContent && 
-            <div className='dashboard__container slide-in-bottom-rebound' >
-              <h1>Main Page Content</h1>
-            </div>
-          }
+          { animateMainContent && <DashboardContent /> }
           <FooterMain fromLoader={true} />
         </>
         }
@@ -52,4 +51,4 @@ const DashboardMain = () => {
 // }
 
 
-export default DashboardMain;
+export default DashboardLayout;

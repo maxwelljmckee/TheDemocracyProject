@@ -7,8 +7,8 @@ const FooterMain = ({ fromLoader }) => {
   useEffect(() => {
     if (fromLoader) {
       setTimeout(() => {
-        setAnimate(true);
-      }, 1500)
+        setAnimate(true); // slide in left - footer
+      }, 1300)
     }
   })
 

@@ -10,7 +10,7 @@ import SplashMain from './components/Splash/SplashMain';
 import SplashAbout from './components/Splash/SplashAbout';
 
 // DASHBOARD COMPONENTS
-import DashboardMain from './components/Dashboard/DashboardMain'
+import DashboardLayout from './components/Dashboard/DashboardLayout'
 
 // import Loader from './components/Loader/Loader'
 
@@ -47,7 +47,7 @@ function App() {
 
 
         {/* ===== USER DASHBOARD ROUTES ===== */}
-        <Route path='/dashboard'><DashboardMain /></Route>
+        <Route path='/dashboard'><DashboardLayout /></Route>
 
 
         {/* ===== REPRESENTATIVES ROUTES ===== */}

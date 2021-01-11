@@ -15,8 +15,8 @@ const HeaderMain = ({ fromLoader }) => {
         setAnimate2(true); // logo-left
         setTimeout(() => {
           setAnimate3(true); // hamburger-right
-        }, 150) //slide in right - hamburger
-      }, 200); //slide in left - logo
+        }, 100) //slide in right - hamburger
+      }, 150); //slide in left - logo
     }
   }, [])
 
