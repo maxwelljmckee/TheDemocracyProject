@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import buildingOnly from './building_only.png';
 import starsOnly from './stars_only.png';
-import staticLogo from '../../static/image-only_logo.png';
 import ProPublicaCenter from './ProPublicaCenter';
 
 

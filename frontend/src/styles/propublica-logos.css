@@ -6,19 +6,25 @@
     width: 75%;
     margin: 0 auto;
     align-items: center;
-    position: relative;
-    top: 52vh;
+
     z-index: 3;
 }
 
 .propublica-center {
     display: flex;
     flex-direction: column;
+    position: relative;
+    top: 52vh;
 }
 
 .propublica-footer {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+    margin-top: 10px;
 }
 
 .propublica-center__text,
