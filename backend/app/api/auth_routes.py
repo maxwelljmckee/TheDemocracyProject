@@ -72,7 +72,7 @@ def sign_up():
         # GET SENATORS ASSOCIATED WITH STATE AND ASSIGN TO USER.FOLLOWING
         user_senators = Representative.query.filter_by(short_title='Sen.',
                                                     state_id=user_state).all()
-        new_user.following = user_senators
+        # new_user.following = user_senators
 
         # GET HOUSE MEMBER ASSOCIATED WITH ZIP AND ASSIGN TO USER.FOLLOWING
         API_KEY = os.environ.get('GOOGLE_CIVICS_API_KEY')
@@ -81,7 +81,7 @@ def sign_up():
         if data['officials']:
             house_rep_phone = data['officials'][-1]['phones'][0]
             house_rep_instance = Representative.query.filter_by(phone=parse_phone(house_rep_phone)).one()
-            new_user.following.append(house_rep_instance)
+            # new_user.following.append(house_rep_instance)
 
         pp.pprint(new_user.to_dict_full())
         # db.session.add(new_user)
