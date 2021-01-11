@@ -1,11 +1,16 @@
 from flask import Blueprint, jsonify, session, request
 from flask_login import current_user, login_user, logout_user, login_required
 import datetime
+import requests
+import os
 
 from app.models import User, Representative, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
-from app.utils import state_from_zip
+from app.utils import state_from_zip, parse_phone
+
+import pprint
+pp = pprint.PrettyPrinter(indent=4)
 
 auth_routes = Blueprint('auth', __name__)
 
@@ -43,7 +48,6 @@ def login():
 def logout():
     logout_user()
     return {'message': 'User logged out'}
-    # return None
 
 
 @auth_routes.route('/register', methods=['POST'])
@@ -52,7 +56,7 @@ def sign_up():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         # REGISTER A NEW USER MODEL INSTANCE
-        user = User(
+        new_user = User(
             first_name=form.data['firstName'],
             last_name=form.data['lastName'],
             email=form.data['email'],
@@ -60,21 +64,30 @@ def sign_up():
             zip_code=form.data['zipCode'],
             is_registered_voter=form.data['isRegistered']
         )
-        print('USER OBJECT:', user)
+        print('USER OBJECT:', new_user)
 
         # GET USER STATE FROM ZIP
-        user_state = state_from_zip(form.data['zipCode'])
-        # GET SENATORS ASSOCIATED WITH STATE
+        user_zip = form.data['zipCode']
+        user_state = state_from_zip(user_zip)
+        # GET SENATORS ASSOCIATED WITH STATE AND ASSIGN TO USER.FOLLOWING
         user_senators = Representative.query.filter_by(short_title='Sen.',
-                                                       state_id=user_state)
-        print(user_senators)
+                                                    state_id=user_state).all()
+        new_user.following = user_senators
 
-        # GET HOUSE MEMBER ASSOCIATED WITH ZIP
+        # GET HOUSE MEMBER ASSOCIATED WITH ZIP AND ASSIGN TO USER.FOLLOWING
+        API_KEY = os.environ.get('GOOGLE_CIVICS_API_KEY')
+        res = requests.get(f'https://www.googleapis.com/civicinfo/v2/representatives?address={user_zip}&levels=country&key={API_KEY}')
+        data = res.json()
+        if data['officials']:
+            house_rep_phone = data['officials'][-1]['phones'][0]
+            house_rep_instance = Representative.query.filter_by(phone=parse_phone(house_rep_phone)).one()
+            new_user.following.append(house_rep_instance)
 
-        # db.session.add(user)
+        pp.pprint(new_user.to_dict_full())
+        # db.session.add(new_user)
         # db.session.commit()
-        # login_user(user)
-        return user.to_dict()
+        # login_user(new_user)
+        return new_user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
 
@@ -84,4 +97,3 @@ def unauthorized():
     Returns unauthorized JSON when flask-login authentication fails
     """
     return {'errors': ['Unauthorized']}, 401
-    # return None
