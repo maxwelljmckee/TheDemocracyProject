@@ -8,7 +8,7 @@ const FooterMain = ({ fromLoader }) => {
     if (fromLoader) {
       setTimeout(() => {
         setAnimate(true); // slide in left - footer
-      }, 1700)
+      }, 1880)
     }
   })
 

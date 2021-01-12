@@ -1,9 +1,9 @@
 html {
-    background-color: rgb(232, 242, 248);
+    background-color: rgb(235, 247, 255);
 }
 
 body{
-    background-color: rgb(232, 242, 248);
+    background-color: rgb(235, 247, 255);
 }
 
 /* ===== MAIN STYLES ===== */
@@ -12,6 +12,7 @@ body{
 @import './loader.css';
 @import './layout.css';
 @import './dashboard.css';
+@import './representatives.css';
 
 
 /* ===== BUTTONS AND LOGOS ===== */

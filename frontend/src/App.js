@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { restoreUser } from './store/session';
 
@@ -10,7 +10,14 @@ import SplashMain from './components/Splash/SplashMain';
 import SplashAbout from './components/Splash/SplashAbout';
 
 // DASHBOARD COMPONENTS
-import DashboardLayout from './components/Dashboard/DashboardLayout'
+import DashboardLayout from './components/Dashboard/DashboardLayout';
+
+// REPRESENTATIVE COMPONENTS
+import RepIndex from './components/Representatives/RepIndex';
+import RepDetail from './components/Representatives/RepDetail';
+
+// STORE DISPATCH FUNCTIONS
+import { deleteSession } from './store/session'
 
 // import Loader from './components/Loader/Loader'
 
@@ -33,24 +40,42 @@ function App() {
       <Switch>
         {/* ===== SPLASH && AUTH ROUTES ===== */}
         <Route path="/" exact={true}>
-          <SplashMain />
+          { user ? <Redirect to='/dashboard' /> : <SplashMain /> }
         </Route>
         <Route path='/splash/about'>
-          <SplashAbout />
+          { user ? <Redirect to='/dashboard' /> : <SplashAbout /> }
         </Route>
         <Route path='/splash/register'>
-          <SignUpForm />
+          { user ? <Redirect to='/dashboard' /> : <SignUpForm /> }
         </Route>
         <Route path="/login" exact={true}>
-          <LoginForm />
+          { user ? <Redirect to='/dashboard' /> : <LoginForm /> }
         </Route>
+        <Route path='/logout' render={() => {
+          dispatch(deleteSession());
+          return <Redirect to='/' />
+        }} />
 
 
         {/* ===== USER DASHBOARD ROUTES ===== */}
-        <Route path='/dashboard'><DashboardLayout /></Route>
+        <Route path='/dashboard'>
+          { user ? <DashboardLayout /> : <Redirect to='/' /> }
+        </Route>
 
 
         {/* ===== REPRESENTATIVES ROUTES ===== */}
+        <Route path='/representatives/:repId'>
+          { user ? <RepDetail /> : <Redirect to='/' /> }
+        </Route>
+        <Route path='/representatives/executive'>
+          { user ? <RepIndex branch='executive' /> : <Redirect to='/' /> }
+        </Route>
+        <Route path='/representatives/house'>
+          { user ? <RepIndex branch='house' /> : <Redirect to='/' /> }
+        </Route>
+        <Route path='/representatives/senate'>
+          { user ? <RepIndex branch='senate' /> : <Redirect to='/' /> }
+        </Route>
 
 
         {/* ===== BILLS ROUTES ===== */}

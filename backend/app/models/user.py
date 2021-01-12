@@ -1,7 +1,9 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from .representatives import followers
+# from .representatives import followers
+from .bill import bill_follows
+
 
 
 class User(db.Model, UserMixin):
@@ -19,8 +21,9 @@ class User(db.Model, UserMixin):
     bill_comments = db.relationship('BillComment', back_populates='user')
     # threads = db.relationship('Thread', back_populates='user')
     # thread_comments = db.relationship('ThreadComment', back_populates='user')
-    following = db.relationship('Representative', secondary='followers',
-                                back_populates='followers')
+    rep_follows = db.relationship('RepFollow', back_populates='user')
+    bills_followed = db.relationship('Bill', secondary=bill_follows, 
+                                     back_populates='followers')
 
     @property
     def password(self):
@@ -55,5 +58,6 @@ class User(db.Model, UserMixin):
             'billComments': self.bill_comments,
             # 'threads': self.threads,
             # 'threadComments': self.thread_comments,
-            'following': [rep.to_dict() for rep in self.following]
+            'repFollows': [follow.to_dict_rep() for follow in self.rep_follows],
+            'billsFollowed': [bill.to_dict() for bill in self.bills_followed]
         }

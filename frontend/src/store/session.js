@@ -19,7 +19,6 @@ export const loginUser = (email, password) => async (dispatch) => {
 }
 
 export const registerUser = (user) => async (dispatch) => {
-  console.log('IN SESSION STORE', user);
   const { firstName, lastName, email, zipCode, password, isRegistered } = user;
   const res = await fetch('/api/auth/register', {
     method: 'POST',
@@ -47,7 +46,11 @@ export const restoreUser = () => async (dispatch) => {
     }
   });
   const data = await res.json();
-  dispatch(setSessionUser(data));
+  if (data.errors && data.errors[0] == 'Unauthorized') {
+    dispatch(setSessionUser(null))
+  } else {
+    dispatch(setSessionUser(data));
+  }
   return data
 }
 
