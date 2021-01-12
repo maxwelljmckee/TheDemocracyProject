@@ -1,6 +1,14 @@
 from .db import db
 
 
+bill_follows = db.Table('bill_follows',
+                        db.Column('bill_id', db.Integer, db.ForeignKey('bills.id'),
+                        primary_key=True),
+                        db.Column('user_id', db.Integer, db.ForeignKey('users.id'),
+                        primary_key=True)
+                        )
+
+
 class BillVote(db.Model):
     __tablename__ = 'bill_votes'
 
@@ -102,6 +110,8 @@ class Bill(db.Model):
                               back_populates='bills_sponsored')
     bill_votes = db.relationship('BillVote', back_populates='bill')
     bill_comments = db.relationship('BillComment', back_populates='bill')
+    followers = db.relationship('User', secondary=bill_follows,
+                                back_populates='bills_followed')
 
     def to_dict(self):
         return {
@@ -154,4 +164,5 @@ class Bill(db.Model):
             'billVotes': [vote.to_dict() for vote in self.bill_votes],
             'billComments': [comment.to_dict()
                              for comment in self.bill_comments],
+            'followers'
         }
