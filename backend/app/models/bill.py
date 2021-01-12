@@ -164,5 +164,5 @@ class Bill(db.Model):
             'billVotes': [vote.to_dict() for vote in self.bill_votes],
             'billComments': [comment.to_dict()
                              for comment in self.bill_comments],
-            'followers'
+            'followers': [user.to_dict() for user in self.followers]
         }

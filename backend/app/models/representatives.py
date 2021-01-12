@@ -18,8 +18,8 @@ class RepFollow(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
     is_constituent = db.Column(db.Boolean, nullable=False)
 
-    representative = db.relationship('Representative', back_populates='followers')
-    user = db.relationship('User', back_populates='following')
+    representative = db.relationship('Representative', back_populates='rep_follow')
+    user = db.relationship('User', back_populates='rep_follows')
 
     def to_dict(self):
         return {
@@ -34,7 +34,6 @@ class RepFollow(db.Model):
             'user': self.user_id,
             'isConstituent': self.is_constituent
         }
-
 
 
 class Representative(db.Model):
@@ -67,7 +66,7 @@ class Representative(db.Model):
     bills_sponsored = db.relationship('Bill', back_populates='sponsor')
     # followers = db.relationship('User', secondary='followers', back_populates=
     #                             'following')
-    followers = db.relationship('RepFollow', back_populates='representative')
+    rep_follow = db.relationship('RepFollow', back_populates='representative')
 
     def to_dict(self):
         return {
