@@ -20,16 +20,26 @@ def seed_senate_images():
             res = requests.get(f'https://www.googleapis.com/civicinfo/v2/representatives/{OCDID}?levels=country&key={API_KEY}')
             data = res.json()
 
+            # pp.pprint(data['officials'])
+            # print('=============HAS OFFICIALS?', hasattr(data, 'officials'))
+
             # LIST IMAGEURLS FOR EACH SENATOR IN DATA
             member_images = [official.get('photoUrl', None) for official in
                              data['officials']]
+            # print('=============image urls', member_images)
+            
             # LIST AND PARSE PHONE NUMBERS FOR EACH SENATOR IN DATA
             phone_numbers = [official['phones'][0] for official in
                              data['officials']]
+            # print('=============phone_numbers', phone_numbers)
+
             parsed_phone_numbers = [parse_phone(number) for number in
                                     phone_numbers]
+
             # ZIP TOGETHER IMAGEURLS AND PHONE NUMBERS
             zipped = list(zip(parsed_phone_numbers, member_images))
+
+            # print('==============ZIPPED', zipped)
 
             # IDENTIFY EACH SENATOR USING PHONE NUMBER
             # AND ASSIGN THEM THE ASSOCIATED IMAGEURL
