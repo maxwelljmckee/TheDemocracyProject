@@ -1,5 +1,6 @@
 from app.models import db, Representative
 import requests
+import time
 import os
 from app.utils import parse_ocdid
 import pprint
@@ -11,6 +12,7 @@ def seed_house_images():
     all_house = Representative.query.filter_by(short_title='Rep.').all()
 
     for member in all_house:
+        time.sleep(1.5)
         if not member.image_url:
             OCDID = parse_ocdid(member.ocd_id)
             res = requests.get(f'https://www.googleapis.com/civicinfo/v2/representatives/{OCDID}?levels=country&key={API_KEY}')

@@ -10,10 +10,11 @@ import SplashMain from './components/Splash/SplashMain';
 import SplashAbout from './components/Splash/SplashAbout';
 
 // DASHBOARD COMPONENTS
-import DashboardLayout from './components/Dashboard/DashboardLayout'
+import DashboardLayout from './components/Dashboard/DashboardLayout';
 
 // REPRESENTATIVE COMPONENTS
-import RepIndex from './components/Representatives/RepIndex'
+import RepIndex from './components/Representatives/RepIndex';
+import RepDetail from './components/Representatives/RepDetail';
 
 // STORE DISPATCH FUNCTIONS
 import { deleteSession } from './store/session'
@@ -63,6 +64,9 @@ function App() {
 
 
         {/* ===== REPRESENTATIVES ROUTES ===== */}
+        <Route path='/representatives/:repId'>
+          { user ? <RepDetail /> : <Redirect to='/' /> }
+        </Route>
         <Route path='/representatives/executive'>
           { user ? <RepIndex branch='executive' /> : <Redirect to='/' /> }
         </Route>

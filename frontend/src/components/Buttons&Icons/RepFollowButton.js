@@ -1,41 +1,55 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 const RepFollowButton = ({ user, rep }) => {
-  const isFollowing = () => {
-    let isFollowing = false;
+  const [isFollowing, setIsFollowing] = useState(true);
+  const [isConstituent, setIsConstituent] = useState(false);
+  
+  useEffect(() => {
     user.repFollows.forEach(follow => {
-      if (follow.representative.id == rep.id) isFollowing = true;
+      if (follow.representative.id == rep.id) {
+        setIsFollowing(true)
+        if (follow.isConstituent) setIsConstituent(true)
+      }
     })
-    return isFollowing;
-  }
+  })
 
-  const isConstituent = () => {
-    let isConstituent = false;
-    user.repFollows.forEach()
+  const handleFollow = async () => {
+    setIsFollowing(!isFollowing)
+    // TEST FETCH REQUEST TO FOLLOW
+    // const res = await fetch('/api/representatives/follow', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: { representative_id: rep.id, user_id: user.id }
+    // })
   }
   
-  const handleClick = () => {
-    // dispatch follow post
+  const handleUnfollow = async () => {
+    setIsFollowing(!isFollowing)
+    // TEST FETCH REQUEST TO UNFOLLOW
+    // s = await fetch('/api/representatives/unfollow', {
+    //   method: 'DELETE',
+    //   headers: { 'Content-Type': 'application/json' }
+    // })
   }
 
   return (
     <>
-    { isConstituent ? 
-      <div className='following-button'>Following</div>
-      :
-      <>
-        { isFollowing ? 
-          <div className='follow-button'>
-            follow button
-          </div>
+      { isConstituent ? 
+        <div></div>
         :
-          <div className='unfollow-button'>
-            follow button
-          </div>
-        }
-      </>
-    }
+        <>
+          { isFollowing ? 
+            <div className='follow-button' onClick={handleFollow}>
+              follow
+            </div>
+          :
+            <div className='unfollow-button' onClick={handleUnfollow}>
+              unfollow
+            </div>
+          }
+        </>
+      }
     </>
   )
 }

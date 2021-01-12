@@ -1,7 +1,14 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
+import RepFollowButton from '../Buttons&Icons/RepFollowButton';
 
 
-const RepCard = ({ user, rep }) => {
+const RepCard = ({ user, rep, setForwardAnimate }) => {
+  const history = useHistory();
+
+  const avatarUrl = 'https://cahsi.utep.edu/wp-content/uploads/kisspng-computer-icons-user-clip-art-user-5abf13db5624e4.1771742215224718993529.png';
+
   let chamber;
   switch (rep.shortTitle) {
     case 'Rep.':
@@ -15,18 +22,21 @@ const RepCard = ({ user, rep }) => {
       break;
   }
 
-  const isConstituent = () => {
-    
-  }
-
-  const handleClick = () => {
-
-  }
+  const handleClick = (() => {
+    setForwardAnimate(true);
+    setTimeout(() => {
+      history.push(`/representatives/${rep.id}`)
+    }, 600)
+  })
 
   return (
     <div className='rep-card__container' onClick={handleClick}>
       <div className='rep-card__img-container'>
-        <img src={rep.imageUrl ? rep.imageUrl : 'https://cahsi.utep.edu/wp-content/uploads/kisspng-computer-icons-user-clip-art-user-5abf13db5624e4.1771742215224718993529.png' } alt='representative' />
+        { rep.imageUrl ? 
+          <img className='rep-card__img' src={rep.imageUrl} alt='representative' />
+          :
+          <img className='rep-card__avatar' src={avatarUrl} alt='representative' />
+        }
       </div>
       <div className='rep-card__text'>
         <div className='rep-card__title'>{rep.firstName} {rep.lastName}</div>
@@ -34,7 +44,7 @@ const RepCard = ({ user, rep }) => {
         <div className='rep-card__party-state'>{rep.party} – {rep.stateId}</div>
       </div>
       <div className='rep-card__follow'>
-
+        <RepFollowButton user={user} rep={rep} />
       </div>
     </div>
   )

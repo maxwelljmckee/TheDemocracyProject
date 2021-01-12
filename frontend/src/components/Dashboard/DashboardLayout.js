@@ -27,7 +27,7 @@ const DashboardLayout = () => {
           setLoading(false); // load next page
           setTimeout(() => {
             setAnimateMainContent(true); //slide in main content
-          }, 900) // slide in main content
+          }, 1000) // slide in main content
         }, 100) // fade out time
       }, 2500) // extra loading time
     })

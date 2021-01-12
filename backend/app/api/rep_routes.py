@@ -5,7 +5,7 @@ from app.models import db, Representative
 rep_routes = Blueprint('representatives', __name__)
 
 
-#  ===== GET ALL MEMBERS BY DESIGNATION =====
+#  ===== GET ALL MEMBERS BY CHAMBER =====
 @rep_routes.route('/executive')
 def get_all_executive():
     pres = Representative.query.filter_by(short_title='Pres.').first()
@@ -33,3 +33,15 @@ def get_rep_by_id(id):
         return member.to_dict_full()
     else:
         return {'error': 'member does not exist'}
+
+
+# ===== POST AND DELETE FOLLOWS =====
+@rep_routes.route('/follow', methods=['POST'])
+def post_follow():
+    pass
+
+
+@rep_routes.route('/unfollow', methods=['DELETE'])
+def delete_follow():
+    pass
+

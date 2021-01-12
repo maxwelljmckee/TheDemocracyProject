@@ -6,6 +6,8 @@ import staticLogo from '../../static/image-only_logo.png';
 
 const HeaderMain = ({ fromLoader }) => {
   const history = useHistory();
+  console.log('from loader =', fromLoader);
+  console.log('not from loader =', !fromLoader);
 
   const [animate1, setAnimate1] = useState(false);
   const [animate2, setAnimate2] = useState(false);
@@ -18,8 +20,8 @@ const HeaderMain = ({ fromLoader }) => {
         setAnimate2(true); // logo-left
         setTimeout(() => {
           setAnimate3(true); // hamburger-right
-        }, 100) //slide in right - hamburger
-      }, 150); //slide in left - logo
+        }, 150) //slide in right - hamburger
+      }, 200); //slide in left - logo
     }
   }, [])
 
@@ -37,21 +39,21 @@ const HeaderMain = ({ fromLoader }) => {
       { !fromLoader && 
         <div className='header-main__container'>
           <img src={staticLogo} alt='logo' onClick={handleHomeRedirect} />
-          <i className={`fas fa-bars ${ animate3 && 'slide-in-right'}`}
-            onClick={handleHamburgerMenu} ></i>
+          <i className='fas fa-bars' onClick={handleHamburgerMenu} ></i>
         </div>
       }
 
       {/* WITH ANIMATIONS */}
-      <div className={`header-main__container
-        ${ animate1 && 'slide-in-top-linear'}`}>
+      { animate1 && 
+        <div className='header-main__container slide-in-top-linear'>
 
-        { animate2 && <img src={staticLogo} onClick={handleHomeRedirect} alt='logo' className='slide-in-left-linear' />}
+          { animate2 && <img src={staticLogo} onClick={handleHomeRedirect} alt='logo' className='slide-in-left-linear' />}
 
-        { animate3 && <i className='fas fa-bars slide-in-right'
-          onClick={handleHamburgerMenu} ></i> }
+          { animate3 && <i className='fas fa-bars slide-in-right'
+            onClick={handleHamburgerMenu} ></i> }
 
-      </div>
+        </div>
+      }
     </>
   )
 }

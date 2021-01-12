@@ -23,8 +23,8 @@ def seed():
     # seed_executive()
     # seed_senators()
     # seed_house()
-    # seed_house_images()
-    seed_senate_images()
+    seed_house_images()
+    # seed_senate_images()
     # seed_bills()
     # seed_bills_2()
     # seed_bills_3()
@@ -35,8 +35,8 @@ def seed():
 def undo():
     # pass
     # undo_bills()
-    undo_senate_images()
-    # undo_house_images()
+    # undo_senate_images()
+    undo_house_images()
     # undo_executive()
     # undo_senators()
     # undo_house()
