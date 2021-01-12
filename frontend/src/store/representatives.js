@@ -5,9 +5,13 @@ const FETCH_ALL_REPS = 'FETCH_ALL_REPS';
 
 // DEFINE ACTION CREATORS - ASYNC/THUNK //
 export const fetchAllReps = ({ chamber }) => async (dispatch) => {
+<<<<<<< HEAD
   const res = await fetch(`/api/representatives/${chamber}`);
   const data = res.json();
   dispatch(setAllReps(data))
+=======
+  const res = await fetch()
+>>>>>>> dashboard
 }
 
 

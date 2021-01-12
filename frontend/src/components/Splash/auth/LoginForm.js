@@ -16,27 +16,27 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setTransition(true)
+    setTimeout(() => {
     dispatch(loginUser(email, password)).then(res => {
       if (res && res.errors) setErrors(res.errors)
       if (!res.errors) {
-        setTransition(true)
-        setTimeout(() => {
           history.push('/dashboard')
-        }, 700)
-      }
-    })
+        }
+      })
+    }, 500) // extra time for slide-out transition before rerouting
   };
 
   const handleDemo = (e) => {
     e.preventDefault();
+    setTransition(true)
+    setTimeout(() => {
     dispatch(loginUser('demo@aa.io', 'password')).then(res => {
       if (!res.errors) {
-        setTransition(true)
-        setTimeout(() => {
           history.push('/dashboard')
-        }, 700)
-      }
-    })
+        }
+      })
+    }, 500) // extra time for slide-out transition before rerouting
   }
 
   return (

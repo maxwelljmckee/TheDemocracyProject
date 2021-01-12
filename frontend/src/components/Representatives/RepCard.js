@@ -3,7 +3,7 @@ import React from 'react';
 
 const RepCard = ({ rep }) => {
   return (
-    <div>rep card</div>
+    
   )
 }
 

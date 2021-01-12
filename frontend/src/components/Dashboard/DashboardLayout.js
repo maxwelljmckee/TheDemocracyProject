@@ -38,7 +38,7 @@ const DashboardLayout = () => {
       { loading ? <Loader animateCleanup={animateCleanup} /> :
         <>
           <HeaderMain fromLoader={true} />
-          { animateMainContent && <DashboardContent /> }
+          { animateMainContent && <DashboardContent user={user} /> }
           <FooterMain fromLoader={true} />
         </>
         }

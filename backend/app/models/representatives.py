@@ -1,13 +1,39 @@
 from .db import db
 
 
-followers = db.Table('followers',
-                     db.Column('representative_id', db.Integer, db.ForeignKey(
-                               'representatives.id'), primary_key=True),
-                     db.Column('user_id', db.Integer, db.ForeignKey(
-                               'users.id'), primary_key=True),
-                     db.Column('is_constituent', db.Boolean, nullable=False)
-                     )
+# followers = db.Table('followers',
+#                      db.Column('representative_id', db.Integer, db.ForeignKey(
+#                                'representatives.id'), primary_key=True),
+#                      db.Column('user_id', db.Integer, db.ForeignKey(
+#                                'users.id'), primary_key=True),
+#                      db.Column('is_constituent', db.Boolean, nullable=False)
+#                      )
+
+
+class RepFollow(db.Model):
+    __tablename__ = 'rep_follows'
+
+    representative_id = db.Column(db.Integer, db.ForeignKey('representatives.id'),
+                                  primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
+    is_constituent = db.Column(db.Boolean, nullable=False)
+
+    representative = db.relationship('Representative', back_populates='rep_follow')
+    user = db.relationship('User', back_populates='rep_follows')
+
+    def to_dict_rep(self):
+        return {
+            'representativeId': self.representative.to_dict(),
+            'userId': self.user_id,
+            'isConstituent': self.is_constituent
+        }
+
+    def to_dict_user(self):
+        return {
+            'representative': self.representative,
+            'user': self.user.to_dict(),
+            'isConstituent': self.is_constituent
+        }
 
 
 class Representative(db.Model):
@@ -38,8 +64,9 @@ class Representative(db.Model):
 
     state = db.relationship('State', back_populates='representatives')
     bills_sponsored = db.relationship('Bill', back_populates='sponsor')
-    followers = db.relationship('User', secondary='followers', back_populates=
-                                'following')
+    # followers = db.relationship('User', secondary='followers', back_populates=
+    #                             'following')
+    rep_follow = db.relationship('RepFollow', back_populates='representative')
 
     def to_dict(self):
         return {
@@ -90,5 +117,5 @@ class Representative(db.Model):
             'votesWithPartyPct': self.votes_with_party_pct,
             'votesAgainstPartyPct': self.votes_against_party_pct,
             'billsSponsored': [bill.to_dict() for bill in self.bills_sponsored],
-            'followers': [follower.to_dict() for follower in self.followers]
+            'repFollows': [follow.to_dict() for follow in self.followers]
         }
