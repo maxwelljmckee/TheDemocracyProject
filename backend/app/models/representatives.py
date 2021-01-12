@@ -23,14 +23,14 @@ class RepFollow(db.Model):
 
     def to_dict_rep(self):
         return {
-            'representativeId': self.representative.to_dict(),
+            'representative': self.representative.to_dict(),
             'userId': self.user_id,
             'isConstituent': self.is_constituent
         }
 
     def to_dict_user(self):
         return {
-            'representative': self.representative,
+            'representativeId': self.representative,
             'user': self.user.to_dict(),
             'isConstituent': self.is_constituent
         }

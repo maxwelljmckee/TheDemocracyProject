@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import SectionBreak from '../Layout/SectionBreak';
 import dashboardIcon from './Dashboard-icon.png';
 import FollowRepsBadges from './FollowRepsBadges';
+import RepCard from '../Representatives/RepCard';
 
 
 const DashboardContent = ({ user }) => {
@@ -27,6 +28,9 @@ const DashboardContent = ({ user }) => {
       </div>
       <SectionBreak sectionTitle='Meet Your Representatives' />
       {/* for rep in followedReps, map RepCard */}
+      { user.repFollows.map(repFollow => {
+        return <RepCard rep={repFollow.representative} />
+      })}
       <SectionBreak sectionTitle='Follow Other Representatives' />
       <FollowRepsBadges />
       <SectionBreak sectionTitle="Bills You're Following" />
