@@ -10,11 +10,12 @@ pp = pprint.PrettyPrinter(indent=4)
 # SEED SENATE IMAGES
 def seed_senate_images():
     API_KEY = os.environ.get('GOOGLE_CIVICS_API_KEY')
+    # GET ALL SENATE ENTRIES ALREADY IN DATABASE
     all_senate = Representative.query.filter_by(short_title='Sen.').all()
 
     for member in all_senate:
         if member.image_url is None:
-            # IF MEMBER DOES NOT HAVE IMAGE ALREADY, FETCH DATA FROM
+            # IF MEMBER DOES NOT HAVE IMAGEURL ALREADY, FETCH DATA FROM
             # GOOGLE CIVICS INFORMATION API
             OCDID = parse_ocdid(member.ocd_id)
             res = requests.get(f'https://www.googleapis.com/civicinfo/v2/representatives/{OCDID}?levels=country&key={API_KEY}')

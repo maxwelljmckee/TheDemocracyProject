@@ -58,6 +58,6 @@ class User(db.Model, UserMixin):
             'billComments': self.bill_comments,
             # 'threads': self.threads,
             # 'threadComments': self.thread_comments,
-            'rep_follows': [follow.to_dict() for follow in self.rep_follows],
-            'bills_followed': [bill.to_dict() for bill in self.bills_followed]
+            'repFollows': [follow.to_dict_rep() for follow in self.rep_follows],
+            'billsFollowed': [bill.to_dict() for bill in self.bills_followed]
         }

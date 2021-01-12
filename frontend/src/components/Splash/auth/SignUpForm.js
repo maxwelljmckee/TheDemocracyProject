@@ -49,15 +49,15 @@ const SignUpForm = () => {
       password,
       isRegistered
     }
+    setTransition(true)
+    setTimeout(() => {
     dispatch(registerUser(newUser)).then(res => {
       if (res && res.errors) setErrors(res.errors)
       if (!res.errors) {
-        setTransition(true)
-        setTimeout(() => {
           history.push('/dashboard')
-        }, 600)
-      }
-    })
+        }
+      })
+    }, 300) // extra time for slide-out transition before rerouting
   }
 
   useEffect(() => {

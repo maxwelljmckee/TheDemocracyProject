@@ -4,7 +4,7 @@ const FETCH_ALL_REPS = 'FETCH_ALL_REPS';
 
 
 // DEFINE ACTION CREATORS - ASYNC/THUNK //
-export const fetchAllReps = () => async (dispatch) => {
+export const fetchAllReps = ({ chamber }) => async (dispatch) => {
   const res = await fetch()
 }
 
