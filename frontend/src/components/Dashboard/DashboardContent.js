@@ -7,7 +7,7 @@ import FollowRepsBadges from './FollowRepsBadges';
 import RepCard from '../Representatives/RepCard';
 
 
-const DashboardContent = ({ user }) => {
+const DashboardContent = ({ user, animate }) => {
   const [followedReps, setFollowedReps] = useState([]);
   const [followedBills, setFollowedBills] = useState([]);
 
@@ -22,7 +22,9 @@ const DashboardContent = ({ user }) => {
   }, [])
 
   return (
-    <div className='dashboard__container slide-in-bottom-rebound' >
+    <div className={`dashboard__container 
+    ${ !animate && 'hidden' }
+    ${ animate && 'slide-in-bottom-rebound'}`} >
       <div className='dashboard__icon-container'>
         <img className='dashboard__icon' src={dashboardIcon} alt='dashboard' />
       </div>
