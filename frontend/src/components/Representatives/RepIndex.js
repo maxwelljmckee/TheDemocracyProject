@@ -20,7 +20,7 @@ const RepIndex = () => {
   const [forwardAnimate, setForwardAnimate] = useState(false);
 
   const user = useSelector(state => state.session.user);
-  const reps = useSelector(state => state.representatives.reps);
+  const reps = useSelector(state => state.reps);
   const [following, setFollowing] = useState([])
 
 
@@ -57,19 +57,38 @@ const RepIndex = () => {
           {/* RENDER PAGE CONDITIONALLY DEPENDENT ON WHETHER IT'S A FOLLOWERS LIST OR A FULL CONGRESSIONAL MEMBER LIST */}
           { chamber === 'following' ?
             <div className='rep-index__container slide-in-right'>
-              <BackArrow />
-              <i className="fas fa-search"></i>
-              <SectionBreak sectionTitle="Here's who you're following" />
-              { following.map(follow => {
-                return <RepCard user={user} rep={follow} setForwardAnimate={setForwardAnimate} />
-              })}
+              <div className='rep-index__header'>
+                <BackArrow />
+                <i className="fas fa-search"></i>
+                <SectionBreak sectionTitle="Here's who you're following" />
+              </div>
+              <div className='rep-index__body'>
+                { following.map(follow => {
+                  return <RepCard user={user} rep={follow} setForwardAnimate={setForwardAnimate} />
+                })}
+                <SectionBreak />
+              </div>
             </div>
           :
+          <>
+          { reps && 
             <div className={`rep-index__container 
             ${ !animateMainContent && 'hidden' }
             ${ animateMainContent && 'slide-in-bottom-rebound' }`}>
-              
+              <div className='rep-index__header'>
+                <BackArrow />
+                <i className="fas fa-search"></i>
+                <SectionBreak sectionTitle={`Follow ${chamber} Members`} />
+              </div>
+              <div className='rep-index__body'>
+                {reps.map(rep => {
+                  return <RepCard user={user} rep={rep} setForwardAnimate={setForwardAnimate} />
+                })}
+                <SectionBreak />
+              </div>
             </div>
+          }
+          </>
           }
 
           <FooterMain fromLoader={chamber !== 'following'} />

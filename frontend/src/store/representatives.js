@@ -28,7 +28,7 @@ const setRepsByChamber = (reps) => {
 export const representativesReducer = (state = [], action) => {
   switch (action.type) {
     case FETCH_REPS_BY_CHAMBER:
-      return [...state, ...action.reps]
+      return [...action.reps]
     default:
       return state;
   }

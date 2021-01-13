@@ -133,7 +133,29 @@
 .rep-index__container {
     width: 100%;
     position: relative;
-    top: 9vh;
+    top: 8vh;
+}
+
+.rep-index__header-following {
+    width: 100%;
+    position: fixed;
+    top: -1vh;
+    z-index: 3;
+    background-color: rgb(235, 247, 255);
+}
+
+.rep-index__header {
+    width: 100%;
+    /* position: fixed;
+    top: -1vh; */
+    z-index: 3;
+    background-color: rgb(235, 247, 255);
+}
+
+.rep-index__body {
+    /* position: relative;
+    top: 540px;
+    height: 100% */
 }
 
 .fa-search {
@@ -141,7 +163,7 @@
     font-size: 20em;
     text-align: center;
     /* color: #1761a0; */
-    margin: 20px auto;
+    margin-bottom: 20px;
 }
 
 

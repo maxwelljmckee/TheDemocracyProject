@@ -59,8 +59,10 @@ const DashboardContent = ({ user, animate }) => {
         <SectionBreak sectionTitle='Find More Bills' />
         {/* load 4 unfollowed bills */}
 
-        <SectionBreak sectionTitle='See what people are saying' />
+        <SectionBreak sectionTitle='Community' />
         {/* Community Forum */}
+
+        <SectionBreak />
       </div>
     </div>
   )
