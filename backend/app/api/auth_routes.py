@@ -82,16 +82,20 @@ def sign_up():
         API_KEY = os.environ.get('GOOGLE_CIVICS_API_KEY')
         res = requests.get(f'https://www.googleapis.com/civicinfo/v2/representatives?address={user_zip}&levels=country&key={API_KEY}')
         data = res.json()
-        if hasattr(data, 'officials'):
-            house_rep_phone = data['officials'][-1]['phones'][0]
-            house_rep_instance = Representative.query.filter_by(phone=parse_phone(house_rep_phone)).one()
+
+        # pp.pprint(data)
+        if 'officials' in data:
+            pp.pprint(data['officials'][-1])
+            phone_number = data['officials'][-1]['phones'][0]
+            parsed_number = parse_phone(phone_number)
+            house_rep_instance = Representative.query.filter_by(phone=parsed_number).one()
             new_follow = RepFollow(
                 representative_id=house_rep_instance.id,
                 user_id=new_user.id,
                 is_constituent=True
             )
+            db.session.add(new_follow)
 
-        pp.pprint(new_user.to_dict_full())
         db.session.commit()
         login_user(new_user)
         return new_user.to_dict_full()

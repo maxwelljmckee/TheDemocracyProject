@@ -64,18 +64,18 @@ function App() {
 
 
         {/* ===== REPRESENTATIVES ROUTES ===== */}
-        <Route path='/representatives/:repId'>
+        <Route path='/representatives/:repId/detail'>
           { user ? <RepDetail /> : <Redirect to='/' /> }
         </Route>
-        <Route path='/representatives/executive'>
-          { user ? <RepIndex branch='executive' /> : <Redirect to='/' /> }
+        <Route path='/representatives/:chamber'>
+          { user ? <RepIndex /> : <Redirect to='/' /> }
         </Route>
-        <Route path='/representatives/house'>
+        {/* <Route path='/representatives/house'>
           { user ? <RepIndex branch='house' /> : <Redirect to='/' /> }
         </Route>
         <Route path='/representatives/senate'>
           { user ? <RepIndex branch='senate' /> : <Redirect to='/' /> }
-        </Route>
+        </Route> */}
 
 
         {/* ===== BILLS ROUTES ===== */}

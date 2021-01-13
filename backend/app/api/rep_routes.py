@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import db, Representative
+from app.models import db, Representative, RepFollow
 
 
 rep_routes = Blueprint('representatives', __name__)
@@ -38,10 +38,20 @@ def get_rep_by_id(id):
 # ===== POST AND DELETE FOLLOWS =====
 @rep_routes.route('/follow', methods=['POST'])
 def post_follow():
-    pass
+    new_follow = RepFollow(
+        representative_id=request.json['representativeId'],
+        user_id=request.json['userId'],
+        is_constituent=False
+    )
+    db.session.add(new_follow)
+    db.session.commit()
+    return new_follow.to_dict_rep()
 
 
 @rep_routes.route('/unfollow', methods=['DELETE'])
 def delete_follow():
-    pass
-
+    print('===============HIT UNFOLLOW:', request.json)
+    target_follow = RepFollow.query.filter_by(representative_id=request.json['representativeId'], user_id=request.json['userId']).one()
+    db.session.delete(target_follow)
+    db.session.commit()
+    return {'message': 'target follow successfully deleted'}

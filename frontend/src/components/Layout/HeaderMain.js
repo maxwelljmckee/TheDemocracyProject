@@ -6,8 +6,6 @@ import staticLogo from '../../static/image-only_logo.png';
 
 const HeaderMain = ({ fromLoader }) => {
   const history = useHistory();
-  console.log('from loader =', fromLoader);
-  console.log('not from loader =', !fromLoader);
 
   const [animate1, setAnimate1] = useState(false);
   const [animate2, setAnimate2] = useState(false);
