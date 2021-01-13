@@ -4,6 +4,7 @@ html {
 
 body{
     background-color: rgb(235, 247, 255);
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* ===== MAIN STYLES ===== */
@@ -32,6 +33,7 @@ body{
 @import './animations/slide-out-left-beta.css';
 @import './animations/slide-in-left-linear.css';
 @import './animations/slide-in-right.css';
+@import './animations/slide-out-right.css';
 
 /* BOUNCE */
 @import './animations/bounce-in.css';

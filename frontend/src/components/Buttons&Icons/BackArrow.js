@@ -1,9 +1,19 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 
-const BackArrow = () => {
+const BackArrow = ({ setAnimation }) => {
+  const history = useHistory();
+
+  const handleClick = () => {
+    setAnimation(true)
+    setTimeout(() => {
+      history.goBack();
+    }, 600)
+  }
+
   return (
-    <div>back arrow</div>
+    <i className="fas fa-arrow-left" onClick={handleClick}></i>
   )
 }
 

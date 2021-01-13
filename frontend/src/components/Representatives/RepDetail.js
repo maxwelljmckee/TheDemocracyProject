@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import HeaderMain from '../Layout/HeaderMain';
 import FooterMain from '../Layout/FooterMain';
 import BackArrow from '../Buttons&Icons/BackArrow';
+import RepFollowButton from '../Buttons&Icons/RepFollowButton';
+import { useSelector } from 'react-redux';
 
 
 const RepSocials = ({ rep }) => {
@@ -54,6 +56,9 @@ const RepConventionals = ({ rep }) => {
 
 const RepDetail = () => {
   const { repId } = useParams();
+  const user = useSelector(state => state.session.user)
+
+  const [animateBack, setAnimateBack] = useState(false);
   const [rep, setRep] = useState({});
   const [loaded, setLoaded] = useState(false);
 
@@ -65,7 +70,6 @@ const RepDetail = () => {
       const data = await res.json();
       setRep(data);
       setLoaded(true);
-      console.log(data);
     })()
   }, []) 
 
@@ -74,45 +78,49 @@ const RepDetail = () => {
     { loaded && 
       <>
         <HeaderMain fromLoader={false} />
-        <div className='rep-detail__container slide-in-right'>
-          <BackArrow />
+        <div className={`${animateBack && 'slide-out-left'}`}>
+          <div className='rep-detail__container slide-in-right'>
+            <BackArrow setAnimation={setAnimateBack} />
 
-          {/* PROFILE IMAGE */}
-          <div className='rep-detail__image'>
-            {rep.imageUrl ?
-              <img className='rep-detail__img' src={rep.imageUrl} alt='representative' />
-              :
-              <img className='rep-detail__avatar' src={avatarUrl} alt='representative' />
-            }
-          </div>
+            {/* PROFILE IMAGE */}
+            <div className='rep-detail__image'>
+              {rep.imageUrl ?
+                <img className='rep-detail__img' src={rep.imageUrl} alt='representative' />
+                :
+                <img className='rep-detail__avatar' src={avatarUrl} alt='representative' />
+              }
+            </div>
 
-          {/* TITLE */}
-          <div className={`rep-detail__title-group__${rep.party}`}>
-            <div className='rep-detail__title'>
-              <div className='rep-card__text'>
-                {rep.shortTitle} {rep.firstName} {rep.lastName}
+            {/* TITLE */}
+            <div className={`rep-detail__title-group__${rep.party}`}>
+              <div className='rep-detail__title'>
+                <div className='rep-card__text'>
+                  {rep.shortTitle} {rep.firstName} {rep.lastName}
+                </div>
+              </div>
+
+              {/* SUBTITLE */}
+              <div className='rep-detail__subtitle'>
+                {rep.party} – {rep.stateId}
               </div>
             </div>
 
-            {/* SUBTITLE */}
-            <div className='rep-detail__subtitle'>
-              {rep.party} – {rep.stateId}
+            {/* SOCIAL LINKS */}
+            <RepSocials rep={rep} />
+
+            {/* CONVENTIONAL LINKS */}
+            <RepConventionals rep={rep} />
+            
+            {/* FOLLOW BUTTON */}
+            <RepFollowButton user={user} rep={rep} />
+            
+            {/* STATISTICS */}
+            <div className={`rep-detail__stats-title__${rep.party}`}>
+              Vote Stats
             </div>
-          </div>
+            <div className='rep-detail__stats'>
 
-          {/* SOCIAL LINKS */}
-          <RepSocials rep={rep} />
-
-          {/* CONVENTIONAL LINKS */}
-          <RepConventionals rep={rep} />
-          {/* <div className='rep-detail__conventionals'>
-
-          </div> */}
-          
-          {/* STATISTICS */}
-          <div className={`rep-detail__stats-title__${rep.party}`}>Statistics</div>
-          <div className='rep-detail__stats'>
-
+            </div>
           </div>
         </div>
         <FooterMain fromLoader={false} />

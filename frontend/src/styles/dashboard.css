@@ -19,6 +19,16 @@
     margin-top: 10px;
 }
 
+.dashboard__welcome {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5em;
+    margin: 35px 0;
+}
+
 
 
 /* ====== FOLLOW REPS BADGE STYLES ===== */

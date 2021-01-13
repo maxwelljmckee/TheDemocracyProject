@@ -61,3 +61,13 @@
     text-transform: uppercase;
     color: white;
 }
+
+
+
+/* ===== BACK ARROW BUTTON ===== */
+.fa-arrow-left {
+    font-size: 5em;
+    position: relative;
+    top: 30px;
+    left: 40px;
+}

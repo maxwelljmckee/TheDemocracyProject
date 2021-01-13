@@ -27,21 +27,32 @@ const DashboardContent = ({ user, animate }) => {
       <div className={`dashboard__container 
       ${ !animate && 'hidden' }
       ${ animate && 'slide-in-bottom-rebound'}`} >
+        
+        {/* HEADER */}
         <div className='dashboard__icon-container'>
           <img className='dashboard__icon' src={dashboardIcon} alt='dashboard' />
         </div>
+        <div className='dashboard__welcome'>
+          Welcome {user.firstName}
+        </div>
+
+        {/* SECTIONS */}
         <SectionBreak sectionTitle='Meet Your Representatives' />
         {/* for rep in followedReps, map RepCard */}
         { user.repFollows.map(repFollow => {
           return <RepCard rep={repFollow.representative} user={user} key={`repCard-${repFollow.representative.id}`}
           setForwardAnimate={setForwardAnimate} />
         })}
+
         <SectionBreak sectionTitle='Follow Other Representatives' />
         <FollowRepsBadges />
+
         <SectionBreak sectionTitle="Bills You're Following" />
         {/* for bill in followedBills, map BillCard */}
+
         <SectionBreak sectionTitle='See More Bills' />
         {/* load 4 unfollowed bills */}
+        
         <SectionBreak sectionTitle='See what people are saying' />
         {/* Community Forum */}
       </div>
