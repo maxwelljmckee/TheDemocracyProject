@@ -40,12 +40,14 @@ const DashboardContent = ({ user, animate }) => {
         <SectionBreak sectionTitle='Meet Your Representatives' />
         {/* for rep in followedReps, map RepCard */}
         { user.repFollows.map(repFollow => {
-          return <RepCard rep={repFollow.representative} user={user} key={`repCard-${repFollow.representative.id}`}
-          setForwardAnimate={setForwardAnimate} />
+          if (repFollow.isConstituent) {
+            return <RepCard rep={repFollow.representative} user={user} key={`repCard-${repFollow.representative.id}`}
+            setForwardAnimate={setForwardAnimate} />
+          }
         })}
         <SectionFooter 
           footerText='See All Following'
-          onClick={repCardFooterClick} />
+          handleClick={repCardFooterClick} />
         
 
         <SectionBreak sectionTitle='Follow Other Representatives' />

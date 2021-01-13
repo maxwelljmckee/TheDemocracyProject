@@ -6,7 +6,7 @@ const BackArrow = ({ setAnimation }) => {
   const history = useHistory();
 
   const handleClick = () => {
-    setAnimation(true)
+    if (setAnimation) setAnimation(true)
     setTimeout(() => {
       history.goBack();
     }, 600)

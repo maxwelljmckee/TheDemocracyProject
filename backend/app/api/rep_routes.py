@@ -30,7 +30,7 @@ def get_all_senate():
 def get_rep_by_id(id):
     member = Representative.query.get(id)
     if member:
-        return member.to_dict()
+        return member.to_dict_full()
     else:
         return {'error': 'member does not exist'}
 

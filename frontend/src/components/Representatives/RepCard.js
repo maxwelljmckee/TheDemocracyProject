@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import useForceUpdate from 'use-force-update'
 
 import RepFollowButton from '../Buttons&Icons/RepFollowButton';
 
@@ -23,29 +24,31 @@ const RepCard = ({ user, rep, setForwardAnimate }) => {
   }
 
   const handleClick = (() => {
-    setForwardAnimate(true);
+    if (setForwardAnimate) setForwardAnimate(true);
     setTimeout(() => {
       history.push(`/representatives/${rep.id}/detail`)
     }, 600)
   })
 
   return (
-    <div className='rep-card__container' onClick={handleClick}>
-      <div className='rep-card__img-container'>
+    <div className='rep-card__container'>
+      <div className='rep-card__img-container' onClick={handleClick}>
         { rep.imageUrl ? 
           <img className='rep-card__img' src={rep.imageUrl} alt='representative' />
           :
           <img className='rep-card__avatar' src={avatarUrl} alt='representative' />
         }
       </div>
-      <div className='rep-card__text'>
+      <div className='rep-card__text' onClick={handleClick}>
         <div className='rep-card__title'>{rep.firstName} {rep.lastName}</div>
         <div className='rep-card__chamber'>{chamber}</div>
         <div className='rep-card__party-state'>{rep.party} – {rep.stateId}</div>
       </div>
-      <div className='rep-card__follow'>
+      
+      {/* FOLLOW BUTTON TEMPORARILY HIDDEN DUE TO BUG */}
+      {/* <div className='rep-card__follow'>
         <RepFollowButton user={user} rep={rep} />
-      </div>
+      </div> */}
     </div>
   )
 }

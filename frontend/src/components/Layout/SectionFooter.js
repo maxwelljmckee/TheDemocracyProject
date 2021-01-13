@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-const SectionFooter = ({ footerText }) => {
+const SectionFooter = ({ footerText, handleClick }) => {
   return (
-    <div className='section-footer'>
-      { footerText}
+    <div className='section-footer' onClick={handleClick}>
+      { footerText }
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// import useForceUpdate from 'use-force-update';
 
 
 const RepFollowButton = ({ user, rep }) => {
@@ -16,7 +17,7 @@ const RepFollowButton = ({ user, rep }) => {
   })
 
   const handleFollow = async () => {
-    setIsFollowing(!isFollowing)
+    setIsFollowing(!isFollowing);
     const res = await fetch('/api/representatives/follow', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -27,7 +28,7 @@ const RepFollowButton = ({ user, rep }) => {
   }
   
   const handleUnfollow = async () => {
-    setIsFollowing(!isFollowing)
+    setIsFollowing(!isFollowing);
     const res = await fetch('/api/representatives/unfollow', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
