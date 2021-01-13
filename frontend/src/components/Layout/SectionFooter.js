@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-const SectionFooter = () => {
+const SectionFooter = ({ footerText }) => {
   return (
     <div className='section-footer'>
-      
+      { footerText}
     </div>
   )
 }

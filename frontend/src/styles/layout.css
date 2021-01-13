@@ -32,6 +32,8 @@
 }
 
 
+
+
 /* ===== FOOTER MAIN STYLES ===== */
 .footer-main__container {
     width: 100%;
@@ -46,7 +48,9 @@
 }
 
 
-/* ===== SECTION BREAK STYLES ===== */
+
+
+/* ===== SECTION BREAK/FOOTER STYLES ===== */
 .section-break {
     display: flex;
     justify-content: center;
@@ -61,6 +65,24 @@
     text-transform: uppercase;
     color: white;
 }
+
+.section-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 5vh;
+    margin: 15px 0;
+    box-shadow: 0 0 10px 5px rgb(151, 151, 151, 0.5);
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8em;
+    text-transform: uppercase;
+    color:  #1761a0;
+    background-color: white;
+}
+
+
 
 
 

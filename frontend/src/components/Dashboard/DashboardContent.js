@@ -2,25 +2,25 @@ import React, { useEffect, useState } from 'react';
 // import { useSelector } from 'react-redux';
 
 import SectionBreak from '../Layout/SectionBreak';
+import SectionFooter from '../Layout/SectionFooter';
 import dashboardIcon from './Dashboard-icon.png';
 import FollowRepsBadges from './FollowRepsBadges';
 import RepCard from '../Representatives/RepCard';
+import { useHistory } from 'react-router-dom';
 
 
 const DashboardContent = ({ user, animate }) => {
+  const history = useHistory();
+
   const [forwardAnimate, setForwardAnimate] = useState(false);
-  // const [followedReps, setFollowedReps] = useState([]);
-  // const [followedBills, setFollowedBills] = useState([]);
+  
+  const repCardFooterClick = () => {
+    setForwardAnimate(true);
+    setTimeout(() => {
+      history.push('/representatives/following')
+    }, 600)
+  }
 
-  // FETCH FOLLOWED REPS AND STORE IN STATE
-  // useEffect(() => {
-    
-  // }, [])
-
-  // // FETCH FOLLOWED BILLS AND STORE IN STATE
-  // useEffect(() => {
-    
-  // }, [])
 
   return (
     <div className={`${ forwardAnimate && 'slide-out-left'}`}>
@@ -43,6 +43,9 @@ const DashboardContent = ({ user, animate }) => {
           return <RepCard rep={repFollow.representative} user={user} key={`repCard-${repFollow.representative.id}`}
           setForwardAnimate={setForwardAnimate} />
         })}
+        <SectionFooter 
+          footerText='See All Following'
+          onClick={repCardFooterClick} />
         
 
         <SectionBreak sectionTitle='Follow Other Representatives' />
