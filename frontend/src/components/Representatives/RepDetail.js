@@ -37,7 +37,7 @@ const RepConventionals = ({ rep }) => {
     <div className='rep-detail__conventionals'>
       { rep.websiteUrl &&
         <a target='_blank' href={rep.websiteUrl}>
-        <img src='https://lh3.googleusercontent.com/proxy/ZBfKrmHP026azEsqkIuvrwnKhYjuZZLsIg5EY1OcV0XFdufydhVNesArCcKhkVIk2LjEQ0HVPh2WcgXkDXRa7zgQknCYGNUyxObEJUhyDPx2FPstJJfsOJjW1-K0er3uEQ' />
+        <img src='https://www.freepnglogos.com/uploads/logo-website-png/logo-website-website-icon-with-png-and-vector-format-for-unlimited-22.png' />
         </a>
       }
       { rep.contactUrl &&
