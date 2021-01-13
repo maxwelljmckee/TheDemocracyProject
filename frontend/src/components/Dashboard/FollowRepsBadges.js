@@ -20,14 +20,19 @@ const FollowRepsBadges = () => {
 
   return (
     <div className='follow-reps-badge__container'>
+      <div className='follow-reps-badge__title'>Executive</div>
       <div className='follow-reps-badge'>
-        <img src={executiveUrl} alt='executive' />
+        <img src={executiveUrl} alt='executive' onClick={handleExecutiveClick} />
       </div>
+
+      <div className='follow-reps-badge__title'>House</div>
       <div className='follow-reps-badge'>
-        <img src={houseUrl} alt='house' />
+        <img src={houseUrl} alt='house' onClick={handleHouseClick} />
       </div>
+
+      <div className='follow-reps-badge__title'>Senate</div>
       <div className='follow-reps-badge'>
-        <img src={senateUrl} alt='senate' />
+        <img src={senateUrl} alt='senate' onClick={handleSenateClick} />
       </div>
     </div>
   )

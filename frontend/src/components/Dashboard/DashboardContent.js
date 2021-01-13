@@ -50,9 +50,9 @@ const DashboardContent = ({ user, animate }) => {
         <SectionBreak sectionTitle="Bills You're Following" />
         {/* for bill in followedBills, map BillCard */}
 
-        <SectionBreak sectionTitle='See More Bills' />
+        <SectionBreak sectionTitle='Find More Bills' />
         {/* load 4 unfollowed bills */}
-        
+
         <SectionBreak sectionTitle='See what people are saying' />
         {/* Community Forum */}
       </div>
