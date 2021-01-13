@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import useForceUpdate from 'use-force-update'
 
 import RepFollowButton from '../Buttons&Icons/RepFollowButton';
 
