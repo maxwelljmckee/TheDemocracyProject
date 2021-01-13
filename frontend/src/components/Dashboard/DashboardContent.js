@@ -43,6 +43,7 @@ const DashboardContent = ({ user, animate }) => {
           return <RepCard rep={repFollow.representative} user={user} key={`repCard-${repFollow.representative.id}`}
           setForwardAnimate={setForwardAnimate} />
         })}
+        
 
         <SectionBreak sectionTitle='Follow Other Representatives' />
         <FollowRepsBadges />

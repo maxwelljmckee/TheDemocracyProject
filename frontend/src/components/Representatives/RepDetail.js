@@ -5,6 +5,7 @@ import HeaderMain from '../Layout/HeaderMain';
 import FooterMain from '../Layout/FooterMain';
 import BackArrow from '../Buttons&Icons/BackArrow';
 import RepFollowButton from '../Buttons&Icons/RepFollowButton';
+import VotesPctChart from './VotesPctChart';
 import { useSelector } from 'react-redux';
 
 
@@ -36,7 +37,7 @@ const RepConventionals = ({ rep }) => {
     <div className='rep-detail__conventionals'>
       { rep.websiteUrl &&
         <a target='_blank' href={rep.websiteUrl}>
-        <img src='https://lh3.googleusercontent.com/proxy/-Gede7e9d8kEhQOozt7JqDC7ygcpaggHNE3CSdwxDJwGPM6s27nAuzs60EWDqAeix6lqOUVsDIwDZspPBJVdF0WeKurUJ3ZefPs0bT-avQeMcFVbyekepoegn6i_w4favg' />
+        <img src='https://lh3.googleusercontent.com/proxy/ZBfKrmHP026azEsqkIuvrwnKhYjuZZLsIg5EY1OcV0XFdufydhVNesArCcKhkVIk2LjEQ0HVPh2WcgXkDXRa7zgQknCYGNUyxObEJUhyDPx2FPstJJfsOJjW1-K0er3uEQ' />
         </a>
       }
       { rep.contactUrl &&
@@ -78,7 +79,7 @@ const RepDetail = () => {
     { loaded && 
       <>
         <HeaderMain fromLoader={false} />
-        <div className={`${animateBack && 'slide-out-left'}`}>
+        <div className={`${animateBack && 'slide-out-right'}`}>
           <div className='rep-detail__container slide-in-right'>
             <BackArrow setAnimation={setAnimateBack} />
 
@@ -89,6 +90,11 @@ const RepDetail = () => {
                 :
                 <img className='rep-detail__avatar' src={avatarUrl} alt='representative' />
               }
+            </div>
+            
+            {/* FOLLOW BUTTON */}
+            <div className='rep-detail__follow'>
+              <RepFollowButton user={user} rep={rep} />
             </div>
 
             {/* TITLE */}
@@ -111,15 +117,12 @@ const RepDetail = () => {
             {/* CONVENTIONAL LINKS */}
             <RepConventionals rep={rep} />
             
-            {/* FOLLOW BUTTON */}
-            <RepFollowButton user={user} rep={rep} />
-            
             {/* STATISTICS */}
             <div className={`rep-detail__stats-title__${rep.party}`}>
-              Vote Stats
+              Congressional Voting Stats
             </div>
-            <div className='rep-detail__stats'>
-
+            <div className='rep-detail__votes-pct-chart'>
+              <VotesPctChart rep={rep} />
             </div>
           </div>
         </div>

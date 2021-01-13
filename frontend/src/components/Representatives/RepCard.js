@@ -25,7 +25,7 @@ const RepCard = ({ user, rep, setForwardAnimate }) => {
   const handleClick = (() => {
     setForwardAnimate(true);
     setTimeout(() => {
-      history.push(`/representatives/${rep.id}`)
+      history.push(`/representatives/${rep.id}/detail`)
     }, 600)
   })
 

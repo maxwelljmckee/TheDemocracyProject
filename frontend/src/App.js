@@ -64,7 +64,7 @@ function App() {
 
 
         {/* ===== REPRESENTATIVES ROUTES ===== */}
-        <Route path='/representatives/:repId'>
+        <Route path='/representatives/:repId/detail'>
           { user ? <RepDetail /> : <Redirect to='/' /> }
         </Route>
         <Route path='/representatives/executive'>
