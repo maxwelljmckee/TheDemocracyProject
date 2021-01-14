@@ -10,17 +10,18 @@ import BackArrow from '../Buttons&Icons/BackArrow';
 import SectionBreak from '../Layout/SectionBreak';
 import billCategories from './billCategories';
 import BillCard from './BillCard';
+import BillSearch from './BillSearch';
 
 
 const BillIndex = () => {
   const { category } = useParams();
-  let categoryImageUrl;
-  billCategories.filter(item => item.shortTitle === category)
+  const categoryObj = billCategories.filter(item => item.shortTitle === category)[0]
 
   const history = useHistory();
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
 
+  const [searchTerm, setSearchTerm] = useState('');
   const bills = useSelector(state => state.bills);
 
   useEffect(() => {
@@ -39,11 +40,15 @@ const BillIndex = () => {
       <>
         <HeaderMain fromLoader={true} />
         { bills &&
-          <div className={`bill-index__container `}>
+          <div className={`bill-index__container`}>
+            <BackArrow />
             <div className='bill-index__header'>
-              <BackArrow />
-              <img src={categoryImageUrl} alt='category image' />
+              <img className='bill-index__image' src={categoryObj.imageUrl} alt='category image' />
             </div>
+            <BillSearch
+              category={categoryObj}
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm} />
             <div className='bill-index__body'>
               {bills.map(bill => {
                 return <BillCard 

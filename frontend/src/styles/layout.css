@@ -85,8 +85,9 @@
 }
 
 
-/* ===== REP SEARCH SECTION BREAK ===== */
-.rep-search__container {
+/* ===== REP & BILL SEARCH SECTION BREAK ===== */
+.rep-search__container,
+.bill-search__container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -103,24 +104,37 @@
     color: white;
 }
 
-.rep-search__title {
+.rep-search__title,
+.bill-search__title {
     width: 100%;
     text-align: center;
 }
 
-.rep-search__filters {
+.rep-search__filters,
+.bill-search__filters {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
 
-.rep-search__searchbar {
+.rep-search__searchbar,
+.bill-search__searchbar {
     width: 450px;
     height: 1.7em;
     margin: 0 20px;
     
     border-radius: 2em;
     padding-left: 20px;
+    text-align: center;
+}
+
+.rep-search__searchbar ::placeholder,
+.bill-search__searchbar ::placeholder {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bill-search__searchbar {
+    width: 700px;
 }
 
 .rep-search__dropdown {
