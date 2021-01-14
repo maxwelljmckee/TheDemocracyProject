@@ -17,9 +17,68 @@ def get_all_active_bills():
 def get_bill_by_category(category):
     all_bills = Bill.query.filter_by(active=True).all()
 
+    def match(array, target):
+        for item in array:
+            if item in target:
+                return True
+        return False
+
     if category == 'all':
         return jsonify([bill.to_dict() for bill in all_bills])
-    return 'hello'
+
+    if category == 'economy':
+        keywords = ['economics', 'finance', 'financial', 'commerce']
+        return jsonify([bill.to_dict() for bill in all_bills if
+                        match(keywords, bill.primary_subject.lower())])
+
+    if category == 'education':
+        keywords = ['education']
+        return jsonify([bill.to_dict() for bill in all_bills if
+                        match(keywords, bill.primary_subject.lower())])
+
+    if category == 'science':
+        keywords = ['science', 'technology', 'communications', 'energy']
+        return jsonify([bill.to_dict() for bill in all_bills if
+                        match(keywords, bill.primary_subject.lower())])
+
+    if category == 'security':
+        keywords = ['armed forces', 'national security', 'crime',
+                    'law enforcement', 'emergency management']
+        return jsonify([bill.to_dict() for bill in all_bills if
+                        match(keywords, bill.primary_subject.lower())])
+
+    if category == 'environment':
+        keywords = ['environment', 'environmental protection', 'public lands',
+                    'natural resources', 'sports', 'recreation', 'animals'
+                    'water']
+        return jsonify([bill.to_dict() for bill in all_bills if
+                        match(keywords, bill.primary_subject.lower())])
+
+    if category == 'health':
+        keywords = ['health', 'housing', 'community development',
+                    'transportation', 'public works', 'social welfare',
+                    'families']
+        return jsonify([bill.to_dict() for bill in all_bills if
+                        match(keywords, bill.primary_subject.lower())])
+
+    if category == 'international':
+        keywords = ['international', 'international affairs']
+        return jsonify([bill.to_dict() for bill in all_bills if
+                        match(keywords, bill.primary_subject.lower())])
+
+    if category == 'taxes':
+        keywords = ['taxation', 'law', 'government operations', 'congress']
+        return jsonify([bill.to_dict() for bill in all_bills if
+                        match(keywords, bill.primary_subject.lower())])
+
+    if category == 'civil-rights':
+        keywords = ['civil rights', 'native americans', 'civil rights',
+                    'minority issues']
+        return jsonify([bill.to_dict() for bill in all_bills if
+                        match(keywords, bill.primary_subject.lower())])
+
+    else:
+        return jsonify({'error': 'category not found'})
 
 
 # ===== GET BILL BY ID =====

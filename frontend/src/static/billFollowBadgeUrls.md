@@ -2,29 +2,23 @@
         <li>All</li>
 
     {/* ECONOMY & FINANCE */}
-        <li>Economics, Finance, Financial, Commerce</li>
+        economics, finance, financial, commerce
 
 
     <!-- EDUCATION -->
-        <li>Education</li>
+        Education
 
 
     <!-- SCIENCE & TECHNOLOGY -->
-        <li>Science, Technology, Communications</li>
-        <li>Energy</li>
+        science, technology, communications, energy
 
 
     <!-- NATIONAL SECURITY & LAW ENFORCEMENT -->
-        <li>Armed Forces, National Security</li>
-        <li>Crime, Law Enforcement</li>
-        <li>Emergency Management</li>
+        armed forces, national security, crime, law enforcement, emergency management
 
 
     <!-- ENVIRONMENT & PUBLIC LANDS -->
-        <li>Environment, Environmental Protection</li>
-        <li>Public Lands, Natural Resources</li>
-        <li>Sports, Recreation</li>
-        <li>Animals</li>
+        environment, environmental protection, public lands, natural resources, sports, recreation, animals
 
 
     <!-- FOOD AND WATER -->

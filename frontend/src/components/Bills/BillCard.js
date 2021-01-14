@@ -1,13 +1,27 @@
 import React from 'react';
 
 
-const BillCard = ({ billId }) => {
+const BillCard = ({ bill }) => {
+  
+
   const handleClick = () => {
-    // redirect to bill detail
+    
   }
 
   return (
-    <div>bill card</div>
+    <div className='bill-card__container'>
+      <div className='bill-card__img-container' onClick={handleClick}>
+        <img />
+      </div>
+      <div className='bill-card__text' onClick={handleClick}>
+        
+      </div>
+
+      {/* FOLLOW BUTTON TEMPORARILY HIDDEN DUE TO BUG */}
+      {/* <div className='rep-card__follow'>
+        <RepFollowButton user={user} rep={rep} />
+      </div> */}
+    </div>
   )
 }
 

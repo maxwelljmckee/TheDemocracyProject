@@ -76,7 +76,7 @@ const RepIndex = () => {
         <div className={`${forwardAnimate && 'slide-out-left'}`}>
           <HeaderMain fromLoader={chamber !== 'following'}/>
           
-          {/* RENDER PAGE CONDITIONALLY DEPENDENT ON WHETHER IT'S A FOLLOWERS LIST OR A FULL CONGRESSIONAL MEMBER LIST */}
+          {/* 'FOLLOWING' RENDERS A DIFFERENT VIEW THAN OTHER CHAMBERS*/}
           { chamber === 'following' ?
             <div className='rep-index__container slide-in-right'>
               <div className='rep-index__header'>
@@ -95,6 +95,7 @@ const RepIndex = () => {
               </div>
             </div>
           :
+          // VIEW FOR ALL OTHER CHAMBERS
           <>
           { reps && 
             <div className={`rep-index__container 

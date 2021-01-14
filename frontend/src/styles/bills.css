@@ -1,0 +1,318 @@
+
+
+/* ===== BILL CARD STYLES ===== */
+.rep-card__container {
+    width: 100%;
+    height: 250px;
+    margin: 20px auto;
+
+    display: grid;
+    grid-template-columns: 250px 1fr 260px;
+    grid-template-areas: 'image text button';
+
+    background-color: white;
+    box-shadow: 0 0 10px 5px rgb(151, 151, 151, 0.5)
+}
+
+.rep-card__img-container {
+    grid-area: image;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    border-radius: 50%;
+}
+
+.rep-card__img {
+    height: 220px;
+    width: 220px;
+    object-fit: fill;
+    border-radius: 50%;
+}
+
+.rep-card__avatar {
+    width: 230px;
+    margin: 0 7px;
+}
+
+.rep-card__text {
+    grid-area: text;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 10px;
+}
+
+.rep-card__title {
+    font-size: 3.2em;
+    padding: 8px 0;
+}
+
+.rep-card__chamber {
+    font-size: 2em;
+    padding: 8px 0;
+}
+
+.rep-card__party-state {
+    font-size: 2.3em;
+    padding: 8px 0;
+}
+
+
+
+
+
+
+
+/* ===== FOLLOW BUTTON STYLES ===== */
+.rep-card__follow {
+    grid-area: button;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 10px;
+}
+
+.rep-detail__follow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 50px;
+}
+
+/* .following-button {
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgb(77, 77, 77);
+    padding: 12px;
+
+    border: 5px solid rgb(77, 77, 77);
+    border-radius: 20px;
+} */
+
+.follow-button {
+    font-size: 2em;
+    text-transform: uppercase;
+    /* font-weight: bold; */
+    color: white;
+    background-color: #1761a0;
+    padding: 18px 15px;
+    box-sizing: border-box;
+
+    /* border: 5px solid rgb(77, 77, 77); */
+    border-radius: 20px;
+}
+
+.unfollow-button {
+    font-size: 2em;
+    text-transform: uppercase;
+    /* font-weight: bold; */
+    color: #1761a0;
+    padding: 13px 10px;
+
+    border: 5px solid #1761a0;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== REP INDEX STYLES ===== */
+.rep-index__container {
+    width: 100%;
+    position: relative;
+    top: 8vh;
+}
+
+.rep-index__header-following {
+    width: 100%;
+    position: fixed;
+    top: -1vh;
+    z-index: 3;
+    background-color: rgb(235, 247, 255);
+}
+
+.rep-index__header {
+    width: 100%;
+    /* position: fixed;
+    top: -1vh; */
+    z-index: 3;
+    background-color: rgb(235, 247, 255);
+}
+
+.rep-index__body {
+    /* position: relative;
+    top: 540px;
+    height: 100% */
+}
+
+.fa-search {
+    width: 100%;
+    font-size: 20em;
+    text-align: center;
+    /* color: #1761a0; */
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ===== REP DETAIL STYLES ===== */
+.rep-detail__container {
+    width: 100%;
+    position: relative;
+    top: 8.5vh;
+}
+
+.rep-detail__image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.rep-detail__image img,
+.rep-detail__avatar img {
+    width: 700px;
+    height: 700px;
+    object-fit: fill;
+
+    box-shadow: 0 0 15px 10px rgba(124, 124, 124, 0.5);
+    border-radius: 50%;
+}
+
+.rep-detail__title-group__D {
+    padding: 2px;
+    margin-top: 20px;
+    background-color: #1761a0;
+    color: white;
+}
+
+.rep-detail__title-group__R {
+    padding: 2px;
+    margin-top: 20px;
+    background-color: #ec4c4c;
+    color: white;
+}
+
+.rep-detail__title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 5em;
+    margin: 25px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.rep-detail__subtitle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+    
+    font-size: 3.5em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.rep-detail__socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 40px;
+}
+
+.rep-detail__socials i {
+    font-size: 8em;
+    color: #1761a0;
+    margin: 0 50px;
+}
+
+.rep-detail__conventionals {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 40px;
+}
+
+.rep-detail__conventionals img {
+    width: 130px;
+    height: 130px;
+    margin: 0 50px;
+}
+
+.rep-detail__stats-title__D {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 5vh;
+    margin: 15px 0;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8em;
+    text-transform: uppercase;
+    color: white;
+    background-color: #1761a0;
+    color: white;
+}
+
+.rep-detail__stats-title__R {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 5vh;
+    margin: 15px 0;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8em;
+    text-transform: uppercase;
+    color: white;
+    background-color: #ec4c4c;
+    color: white;
+}
+
+
+.rep-detail__title-group__D {
+    padding: 2px;
+    margin-top: 20px;
+    background-color: rgb(23, 97, 160);
+    color: white;
+}
+
+.rep-detail__title-group__R {
+    padding: 2px;
+    margin-top: 20px;
+    background-color: #ec4c4c;
+    color: white;
+}
+
+.rep-detail__votes-pct-chart {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding-bottom: 8vh;
+}
