@@ -23,7 +23,7 @@ import BillDetail from './components/Bills/BillDetail';
 // STORE DISPATCH FUNCTIONS
 import { deleteSession } from './store/session'
 
-// import Loader from './components/Loader/Loader'
+
 
 function App() {
   const dispatch = useDispatch();

@@ -9,6 +9,7 @@ import logger from 'redux-logger';
 import { sessionReducer } from './session';
 import { representativesReducer } from './representatives';
 import { statesReducer } from './states';
+import { billsReducer } from './bills';
 
 
 let enhancer;
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   session: sessionReducer,
   reps: representativesReducer,
   states: statesReducer,
+  bills: billsReducer,
 });
 
 
