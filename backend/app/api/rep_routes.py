@@ -61,4 +61,4 @@ def delete_follow():
 @rep_routes.route('/states')
 def get_united_states():
     united_states = State.query.all()
-    return [state.to_dict() for state in united_states]
+    return jsonify([state.to_dict() for state in united_states])
