@@ -96,10 +96,11 @@
 .follow-button {
     font-size: 2em;
     text-transform: uppercase;
-    font-weight: bold;
+    /* font-weight: bold; */
     color: white;
     background-color: #1761a0;
     padding: 18px 15px;
+    box-sizing: border-box;
 
     /* border: 5px solid rgb(77, 77, 77); */
     border-radius: 20px;
@@ -108,9 +109,9 @@
 .unfollow-button {
     font-size: 2em;
     text-transform: uppercase;
-    font-weight: 700;
+    /* font-weight: bold; */
     color: #1761a0;
-    padding: 12px;
+    padding: 13px 10px;
 
     border: 5px solid #1761a0;
     box-sizing: border-box;

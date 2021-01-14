@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { sessionReducer } from './session';
 import { representativesReducer } from './representatives';
+import { statesReducer } from './states';
 
 
 let enhancer;
@@ -21,7 +22,8 @@ if (process.env.NODE_ENV === 'production') {
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  reps: representativesReducer
+  reps: representativesReducer,
+  states: statesReducer,
 });
 
 

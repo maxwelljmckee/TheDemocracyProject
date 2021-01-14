@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import db, Representative, RepFollow
+from app.models import db, Representative, RepFollow, State
 
 
 rep_routes = Blueprint('representatives', __name__)
@@ -55,3 +55,10 @@ def delete_follow():
     db.session.delete(target_follow)
     db.session.commit()
     return {'message': 'target follow successfully deleted'}
+
+
+# GET LIST OF UNITED STATES
+@rep_routes.route('/states')
+def get_united_states():
+    united_states = State.query.all()
+    return jsonify([state.to_dict() for state in united_states])

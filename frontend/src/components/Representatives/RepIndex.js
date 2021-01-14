@@ -8,45 +8,67 @@ import Loader from '../Loader/Loader';
 import RepCard from '../Representatives/RepCard';
 import { fetchRepsByChamber } from '../../store/representatives';
 import SectionBreak from '../Layout/SectionBreak';
+import RepSearch from './RepSearch';
 import BackArrow from '../Buttons&Icons/BackArrow';
+import { fetchUnitedStates } from '../../store/states';
 
 
 const RepIndex = () => {
-  const { chamber } = useParams();
+
+  // UTILITY HOOKS AND ANIMATION STATES
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
   const [animateCleanup, setAnimateCleanup] = useState(false);
   const [animateMainContent, setAnimateMainContent] = useState(false);
   const [forwardAnimate, setForwardAnimate] = useState(false);
-
+  
+  // REDUX GLOBAL STATE // LOCAL STATE // PARAMS
+  const { chamber } = useParams();
   const user = useSelector(state => state.session.user);
-  const reps = useSelector(state => state.reps);
-  const [following, setFollowing] = useState([])
+  let reps = useSelector(state => state.reps);
+  const unitedStates = useSelector(state => state.states);
+  const [following, setFollowing] = useState([]);
+
+  // QUERY PARAMETERS FOR SEARCH BAR
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectValue, setSelectValue] = useState('');
+
+  // ON RERENDER, FILTER REPS-LIST BY QUERY PARAMETERS
+  if (searchTerm) {
+    reps = reps.filter(rep => {
+      const fullName = `${rep.firstName} ${rep.lastName}`
+      return fullName.toLowerCase().includes(searchTerm.toLowerCase())
+    })
+  }
+
+  if (selectValue) {
+    reps = reps.filter(rep => rep.stateId == selectValue)
+  }
 
 
-  // ON PAGE LOAD, CONDITIONALLY LOAD FOLLOWED REPS INTO STATE FROM USER.REP_FOLLOWS OR DISPATCH A REP_FETCH_BY_CHAMBER TO REDUX STORE
+  // ON PAGE LOAD, CONDITIONALLY LOAD REPS FROM USER.REP_FOLLOWS OR REDUX GLOBAL STATE, ALONG WITH UNITED STATES DATA
   useEffect(() => {
     if (chamber === 'following') {
       setFollowing(user.repFollows.map(follow => follow.representative));
       setLoaded(true);
     } else {
       dispatch(fetchRepsByChamber(chamber)).then(() => {
-        setTimeout(() => {
-          setAnimateCleanup(true); // initiate loader fade out
+        dispatch(fetchUnitedStates()).then(() => {
           setTimeout(() => {
-            setLoaded(true); // load next page
+            setAnimateCleanup(true); // initiate loader fade out
             setTimeout(() => {
-              setAnimateMainContent(true); //slide in main content
-            }, 1000) // slide in main content
-          }, 100) // fade out time
-        }, 1500) // extra loading time
+              setLoaded(true); // load next page
+              setTimeout(() => {
+                setAnimateMainContent(true); //slide in main content
+              }, 1000) // slide in main content
+            }, 100) // fade out time
+          }, 1500) // extra loading time
+        })
       })
     }
   }, [])
 
-
   return (
-
     <>
       { !loaded ?
         <Loader animateCleanup={animateCleanup}/>
@@ -64,7 +86,10 @@ const RepIndex = () => {
               </div>
               <div className='rep-index__body'>
                 { following.map(follow => {
-                  return <RepCard user={user} rep={follow} setForwardAnimate={setForwardAnimate} />
+                  return <RepCard 
+                          key={`representative-${follow.representative.id}`} 
+                          user={user} rep={follow} 
+                          setForwardAnimate={setForwardAnimate} />
                 })}
                 <SectionBreak />
               </div>
@@ -78,11 +103,19 @@ const RepIndex = () => {
               <div className='rep-index__header'>
                 <BackArrow />
                 <i className="fas fa-search"></i>
-                <SectionBreak sectionTitle={`Follow ${chamber} Members`} />
+                <RepSearch
+                  chamber={chamber}
+                  unitedStates={unitedStates}
+                  searchTerm={searchTerm}
+                  setSearchTerm={setSearchTerm}
+                  setSelectValue={setSelectValue} />
               </div>
               <div className='rep-index__body'>
                 {reps.map(rep => {
-                  return <RepCard user={user} rep={rep} setForwardAnimate={setForwardAnimate} />
+                  return <RepCard 
+                          key={`representative-${rep.id}`} 
+                          user={user} rep={rep} 
+                          setForwardAnimate={setForwardAnimate} />
                 })}
                 <SectionBreak />
               </div>
