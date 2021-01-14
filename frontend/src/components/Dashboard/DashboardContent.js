@@ -5,6 +5,7 @@ import SectionBreak from '../Layout/SectionBreak';
 import SectionFooter from '../Layout/SectionFooter';
 import dashboardIcon from './Dashboard-icon.png';
 import FollowRepsBadges from './FollowRepsBadges';
+import BillFollowBadges from './BillFollowBadges';
 import RepCard from '../Representatives/RepCard';
 import { useHistory } from 'react-router-dom';
 
@@ -56,8 +57,8 @@ const DashboardContent = ({ user, animate }) => {
         <SectionBreak sectionTitle="Bills You're Following" />
         {/* for bill in followedBills, map BillCard */}
 
-        <SectionBreak sectionTitle='Find More Bills' />
-        {/* load 4 unfollowed bills */}
+        <SectionBreak sectionTitle='Follow More Bills' />
+        <BillFollowBadges />
 
         <SectionBreak sectionTitle='Community' />
         {/* Community Forum */}

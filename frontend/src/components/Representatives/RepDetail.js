@@ -13,18 +13,18 @@ const RepSocials = ({ rep }) => {
   return (
     <div className='rep-detail__socials'>
       { rep.facebookHandle &&
-        <a target='_blank' href={`https://www.facebook.com/${rep.facebookHandle}`}>
+        <a target='_blank' href={`https://www.facebook.com/${rep.facebookHandle}`} rel="noopener noreferrer">
           <i className="fab fa-facebook"></i>
         </a>
       }
       { rep.twitterHandle &&
-        <a target='_blank' href={`https://twitter.com/${rep.twitterHandle}`}>
+        <a target='_blank' href={`https://twitter.com/${rep.twitterHandle}`} rel="noopener noreferrer">
           <i className="fab fa-twitter"></i>
         </a>
       }
       { rep.youtubeHandle &&
         <a target='_blank' href={`https://www.youtube.com/
-        ${rep.youtubeHandle}`}>
+        ${rep.youtubeHandle}`} rel="noopener noreferrer">
           <i className="fab fa-youtube"></i>
         </a>
       }
@@ -36,17 +36,17 @@ const RepConventionals = ({ rep }) => {
   return (
     <div className='rep-detail__conventionals'>
       { rep.websiteUrl &&
-        <a target='_blank' href={rep.websiteUrl}>
+        <a target='_blank' href={rep.websiteUrl} rel="noopener noreferrer">
         <img src='https://www.freepnglogos.com/uploads/logo-website-png/logo-website-website-icon-with-png-and-vector-format-for-unlimited-22.png' />
         </a>
       }
       { rep.contactUrl &&
-        <a target='_blank' href={rep.contactUrl}>
+        <a target='_blank' href={rep.contactUrl} rel="noopener noreferrer">
           <img src='https://www.pngkit.com/png/full/152-1528166_phone-icon-circle-ltblue-mail-web-logo.png' />
         </a>
       }
       { rep.phone &&
-        <a target='_blank' href={rep.phone}>
+        <a target='_blank' href={rep.phone} rel="noopener noreferrer">
           <img src='https://www.pikpng.com/pngl/m/13-130814_phone-icon-circle-ltblue-png-call-icon-vector.png' />
         </a>
       }

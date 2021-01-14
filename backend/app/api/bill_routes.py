@@ -13,6 +13,11 @@ def get_all_active_bills():
     return jsonify([bill.to_dict() for bill in all_bills])
 
 
+@bill_routes.route('/<category>')
+def get_bill_by_category():
+    pass
+
+
 # ===== GET BILL BY ID =====
 @bill_routes.route('/<int:id>')
 def get_bill_by_id(id):

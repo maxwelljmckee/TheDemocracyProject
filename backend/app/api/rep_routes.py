@@ -50,7 +50,6 @@ def post_follow():
 
 @rep_routes.route('/unfollow', methods=['DELETE'])
 def delete_follow():
-    print('===============HIT UNFOLLOW:', request.json)
     target_follow = RepFollow.query.filter_by(representative_id=request.json['representativeId'], user_id=request.json['userId']).one()
     db.session.delete(target_follow)
     db.session.commit()

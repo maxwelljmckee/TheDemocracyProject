@@ -16,6 +16,10 @@ import DashboardLayout from './components/Dashboard/DashboardLayout';
 import RepIndex from './components/Representatives/RepIndex';
 import RepDetail from './components/Representatives/RepDetail';
 
+// BILL COMPONENTS
+import BillIndex from './components/Bills/BillIndex';
+import BillDetail from './components/Bills/BillDetail';
+
 // STORE DISPATCH FUNCTIONS
 import { deleteSession } from './store/session'
 
@@ -70,15 +74,15 @@ function App() {
         <Route path='/representatives/:chamber'>
           { user ? <RepIndex /> : <Redirect to='/' /> }
         </Route>
-        {/* <Route path='/representatives/house'>
-          { user ? <RepIndex branch='house' /> : <Redirect to='/' /> }
-        </Route>
-        <Route path='/representatives/senate'>
-          { user ? <RepIndex branch='senate' /> : <Redirect to='/' /> }
-        </Route> */}
 
 
         {/* ===== BILLS ROUTES ===== */}
+        <Route path='/bills/:billId/detail'>
+          {user ? <BillDetail /> : <Redirect to='/' />}
+        </Route>
+        <Route path='/bills/:category'>
+          {user ? <BillIndex /> : <Redirect to='/' />}
+        </Route>
 
 
         {/* ===== COMMUNITY ROUTES ===== */}

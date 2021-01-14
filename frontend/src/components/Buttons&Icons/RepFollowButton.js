@@ -9,7 +9,7 @@ const RepFollowButton = ({ user, rep }) => {
   // ON PAGE LOAD, CHECK IF CURRENT REP IS FOLLOWED BY SESSION USER
   useEffect(() => {
     user.repFollows.forEach(follow => {
-      if (follow.representative.id == rep.id) {
+      if (follow.representative.id === rep.id) {
         setIsFollowing(true)
         if (follow.isConstituent) setIsConstituent(true)
       }
