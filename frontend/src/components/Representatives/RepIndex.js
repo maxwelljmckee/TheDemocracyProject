@@ -87,7 +87,7 @@ const RepIndex = () => {
               <div className='rep-index__body'>
                 { following.map(follow => {
                   return <RepCard 
-                          key={`representative-${follow.representative.id}`} 
+                          key={`representative-${follow.id}`} 
                           user={user} rep={follow} 
                           setForwardAnimate={setForwardAnimate} />
                 })}
