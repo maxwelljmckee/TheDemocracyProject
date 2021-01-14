@@ -8,6 +8,7 @@ import Loader from '../Loader/Loader';
 import RepCard from '../Representatives/RepCard';
 import { fetchRepsByChamber } from '../../store/representatives';
 import SectionBreak from '../Layout/SectionBreak';
+import RepSearch from './RepSearch';
 import BackArrow from '../Buttons&Icons/BackArrow';
 
 
@@ -78,7 +79,7 @@ const RepIndex = () => {
               <div className='rep-index__header'>
                 <BackArrow />
                 <i className="fas fa-search"></i>
-                <SectionBreak sectionTitle={`Follow ${chamber} Members`} />
+                <RepSearch user={user} reps={reps} chamber={chamber} />
               </div>
               <div className='rep-index__body'>
                 {reps.map(rep => {
