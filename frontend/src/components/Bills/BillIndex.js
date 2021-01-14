@@ -22,7 +22,16 @@ const BillIndex = () => {
   const [loaded, setLoaded] = useState(false);
 
   const [searchTerm, setSearchTerm] = useState('');
-  const bills = useSelector(state => state.bills);
+  let bills = useSelector(state => state.bills);
+
+  if (searchTerm) {
+    bills = bills.filter(bill => {
+      return bill.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      bill.primarySubject.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      bill.summary.toLowerCase().includes(searchTerm.toLowerCase())
+
+    })
+  }
 
   useEffect(() => {
     dispatch(fetchBillsByCategory(category)).then(() => setLoaded(true));
