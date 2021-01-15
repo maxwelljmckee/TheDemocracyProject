@@ -1,13 +1,16 @@
 from .db import db
 
 
-# followers = db.Table('followers',
-#                      db.Column('representative_id', db.Integer, db.ForeignKey(
-#                                'representatives.id'), primary_key=True),
-#                      db.Column('user_id', db.Integer, db.ForeignKey(
-#                                'users.id'), primary_key=True),
-#                      db.Column('is_constituent', db.Boolean, nullable=False)
-#                      )
+class RepVote(db.Model):
+    __tablename__ = 'rep_votes'
+
+    representative_id = db.Column(db.Integer, db.ForeignKey('representatives.id'),
+                                  primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
+    is_downvote = db.Column(db.Boolean, nullable=False)
+
+    representative = db.relationship('Representative', back_populates='rep_votes')
+    user = db.relationship('User', back_populates='rep_votes')
 
 
 class RepFollow(db.Model):
@@ -65,6 +68,7 @@ class Representative(db.Model):
     state = db.relationship('State', back_populates='representatives')
     bills_sponsored = db.relationship('Bill', back_populates='sponsor')
     rep_follows = db.relationship('RepFollow', back_populates='representative')
+    rep_votes = db.relationship('RepVote', back_populates='representative')
 
     def to_dict(self):
         return {
@@ -115,5 +119,6 @@ class Representative(db.Model):
             'votesWithPartyPct': self.votes_with_party_pct,
             'votesAgainstPartyPct': self.votes_against_party_pct,
             'billsSponsored': [bill.to_dict() for bill in self.bills_sponsored],
-            # 'repFollows': [follow.to_dict_user() for follow in self.rep_follows]
+            'repFollows': [follow.to_dict_user() for follow in self.rep_follows],
+            'repVotes': [vote.to_dict() for vote in self.rep_votes]
         }

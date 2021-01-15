@@ -23,7 +23,6 @@ const BillDetail = () => {
 
   const [bill, setBill] = useState({});
   const [billType, setBillType] = useState('');
-  const [selected, setSelected] = useState(0);
   // const [chartRender, setChartRender] = useState(false);
   
   // ON PAGE LOAD, PARSE VOTE INFO FROM USER OBJECT && FETCH BILL DATA FROM BACKEND USING BILL-ID PARAM
@@ -47,9 +46,11 @@ const BillDetail = () => {
       setBillType(billIdParser(data.billId));
     })()
   }, [])
-
+  
   // ==================== VOTE ASYNC HANDLERS ====================
-  const handleUpvote = async (e) => {
+  const [selected, setSelected] = useState(0);
+
+  const handleUpvote = async () => {
     if (!selected) {
       setSelected(1);
       const res = await fetch('/api/bills/post-vote', {

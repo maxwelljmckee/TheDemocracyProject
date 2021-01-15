@@ -1,5 +1,5 @@
 from werkzeug.security import generate_password_hash
-from app.models import db, User, RepFollow, Bill, BillVote
+from app.models import db, User, Representative, RepFollow, RepVote, Bill, BillVote
 from app.utils import random_bool
 
 
@@ -37,6 +37,7 @@ def seed_additional_users():
     db.session.add(user3)
 
     all_bills = Bill.query.all()
+    all_reps = Representative.query.all()
     for user in [user1, user2, user3]:
         for id in [6, 36, 398]:
             new_follow = RepFollow(
@@ -53,6 +54,14 @@ def seed_additional_users():
                 is_downvote=random_bool()
             )
             db.session.add(new_billvote)
+
+        for rep in all_reps:
+            new_repvote = RepVote(
+                representative_id=rep.id,
+                user_id=user.id,
+                is_downvote=random_bool()
+            )
+            db.session.add(new_repvote)
 
     db.session.commit()
 

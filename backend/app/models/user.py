@@ -21,6 +21,7 @@ class User(db.Model, UserMixin):
     # threads = db.relationship('Thread', back_populates='user')
     # thread_comments = db.relationship('ThreadComment', back_populates='user')
     rep_follows = db.relationship('RepFollow', back_populates='user')
+    rep_votes = db.relationship('RepVote', back_populates='user')
     bills_followed = db.relationship('Bill', secondary=bill_follows, 
                                      back_populates='followers')
 
@@ -59,5 +60,6 @@ class User(db.Model, UserMixin):
             # 'threads': self.threads,
             # 'threadComments': self.thread_comments,
             'repFollows': [follow.to_dict_rep() for follow in self.rep_follows],
+            'repVotes': [vote.to_dict() for vote in self.rep_votes],
             'billsFollowed': [bill.to_dict() for bill in self.bills_followed]
         }
