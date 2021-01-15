@@ -1,10 +1,10 @@
-FROM node:12 AS build-stage
+FROM node:15.4.0 AS build-stage
 
 WORKDIR /frontend
 COPY frontend/. .
 
 # You have to set this because it should be set during build time.
-ENV REACT_APP_BASE_URL=https://thedemocracyproject.herokuapp.com/
+ENV REACT_APP_BASE_URL=http://thedemocracyproject.herokuapp.com/
 
 # Build our React App
 RUN npm install
@@ -20,8 +20,8 @@ ENV SQLALCHEMY_ECHO=True
 EXPOSE 8000
 
 WORKDIR /var/www
-COPY /backend .
-COPY --from=build-stage /react-app/build/* app/static/
+COPY backend/.  .
+COPY --from=build-stage /frontend/build/* app/static/
 
 # Install Python Dependencies
 RUN pip install -r requirements.txt

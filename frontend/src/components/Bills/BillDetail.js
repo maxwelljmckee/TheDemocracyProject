@@ -12,24 +12,30 @@ import billIdParser from '../../utils/billIdParser';
 import billCategories from './billCategories';
 import BillFollowButton from '../Buttons&Icons/BillFollowButton';
 import UpvoteDownvoteCard from '../Buttons&Icons/UpvoteDownvoteCard';
+import BillVoteChart from './BillVoteChart';
 
 
 const BillDetail = () => {
   const history = useHistory();
   const { billId } = useParams();
   const user = useSelector(state => state.session.user);
-  const [bill, setBill] = useState({});
-  const [billType, setBillType] = useState('');
   const avatarUrl = billCategories[0].imageUrl
 
+  const [bill, setBill] = useState({});
+  const [billType, setBillType] = useState('');
   const [selected, setSelected] = useState(0);
+  // const [chartRender, setChartRender] = useState(false);
   
+  // ON PAGE LOAD, PARSE VOTE INFO FROM USER OBJECT && FETCH BILL DATA FROM BACKEND USING BILL-ID PARAM
   useEffect(() => {
     (async () => {
       user.billVotes.forEach(vote => {
+        console.log('hit useEffect');
         if (vote.billId === parseInt(billId, 10) && !vote.isDownvote) {
+          console.log('conditin 1');
           setSelected(1)
-        } else if (vote.billId === billId && vote.isDownvote) {
+        } else if (vote.billId === parseInt(billId, 10) && vote.isDownvote) {
+          console.log('condition 2');
           setSelected(2)
         }
       })
@@ -42,6 +48,7 @@ const BillDetail = () => {
     })()
   }, [])
 
+  // ==================== VOTE ASYNC HANDLERS ====================
   const handleUpvote = async (e) => {
     if (!selected) {
       setSelected(1);
@@ -104,6 +111,8 @@ const BillDetail = () => {
       return data
     }
   }
+  // ==================== END VOTE ASYNC HANDLERS ====================
+
 
   return (
     <>
@@ -148,9 +157,10 @@ const BillDetail = () => {
           <SectionBreak sectionTitle='latest major action' />
           <BlankCard text={bill.latestMajorAction} subtext={`Action date: ${bill.latestMajorActionDate.split(' ').slice(0, 4).join(' ')}`} />
 
-          {/* VOTING STATS AND BUTTONS */}
+          {/* VOTING STATS AND VOTE BUTTONS */}
           <SectionBreak sectionTitle='how others are voting' />
-          {/* Pie Graph */}
+          { bill.billVotes.length ? <BillVoteChart billVotes={bill.billVotes} /> : <SectionFooter footerText='no vote data available' /> }
+          
           <SectionBreak sectionTitle='cast your vote' />
           <UpvoteDownvoteCard 
             handleUpvote={handleUpvote} 

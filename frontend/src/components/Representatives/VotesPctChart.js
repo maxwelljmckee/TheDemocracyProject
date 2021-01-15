@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pie, defaults } from 'react-chartjs-2';
+import { Doughnut, defaults } from 'react-chartjs-2';
 
 // defaults.global.legend.align = 'center'
 
@@ -8,11 +8,11 @@ const VotesPctChart = ({ rep }) => {
   const color2 = (rep.party == 'D') ? 'rgba(236, 76, 76, 0.5)' : 'rgba(23, 97, 160, 0.5)';
 
   return (
-    <Pie 
+    <Doughnut 
       data={{
         labels: ['Votes with Party', 'Votes against Party', 'Votes Missed'],
         datasets: [{
-          labels: 'stuff',
+          // labels: 'stuff',
           data: [rep.votesWithPartyPct, rep.votesAgainstPartyPct, rep.missedVotesPct],
           backgroundColor: [
             color1,

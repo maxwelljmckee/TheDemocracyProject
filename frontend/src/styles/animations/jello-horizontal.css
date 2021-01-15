@@ -1,6 +1,6 @@
 .jello-horizontal {
-	-webkit-animation: jello-horizontal 0.7s cubic-bezier(0.445, 0.050, 0.550, 0.950) both;
-	        animation: jello-horizontal 0.7s cubic-bezier(0.445, 0.050, 0.550, 0.950) both;
+	-webkit-animation: jello-horizontal 0.5s cubic-bezier(0.445, 0.050, 0.550, 0.950) both;
+	        animation: jello-horizontal 0.5s cubic-bezier(0.445, 0.050, 0.550, 0.950) both;
 }
 
 
