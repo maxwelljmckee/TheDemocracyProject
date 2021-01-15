@@ -62,10 +62,10 @@
 
 
 
-
+/* 
 
 /* ===== FOLLOW BUTTON STYLES ===== */
-.bill-card__follow {
+/* .bill-card__follow {
     grid-area: button;
     display: flex;
     justify-content: center;
@@ -80,7 +80,7 @@
     align-items: center;
 
     margin: 50px;
-}
+} */
 
 /* .following-button {
     font-size: 2em;
@@ -92,31 +92,31 @@
     border: 5px solid rgb(77, 77, 77);
     border-radius: 20px;
 } */
-
+/* 
 .follow-button {
     font-size: 2em;
     text-transform: uppercase;
-    /* font-weight: bold; */
+    font-weight: bold;
     color: white;
     background-color: #1761a0;
     padding: 18px 15px;
     box-sizing: border-box;
 
-    /* border: 5px solid rgb(77, 77, 77); */
+    border: 5px solid rgb(77, 77, 77);
     border-radius: 20px;
 }
 
 .unfollow-button {
     font-size: 2em;
     text-transform: uppercase;
-    /* font-weight: bold; */
+    font-weight: bold;
     color: #1761a0;
     padding: 13px 10px;
 
     border: 5px solid #1761a0;
     box-sizing: border-box;
     border-radius: 20px;
-}
+}  */
 
 
 
@@ -202,11 +202,6 @@
     display: flex;
     justify-content: center;
 }
-
-/* .bill-type {
-    border-bottom: 2px solid black;
-    padding: 8px;
-} */
 
 .bill-detail__title {
     width: 100%;

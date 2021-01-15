@@ -1,5 +1,5 @@
 from .db import db
-import datetime
+from datetime import datetime
 
 
 bill_follows = db.Table('bill_follows',
@@ -134,7 +134,7 @@ class Bill(db.Model):
             'primarySubject': self.primary_subject,
             'summary': self.summary,
             'shortSummary': self.short_summary,
-            'latestMajorActionDate': self.latest_major_action_date.strftime('Y-m-d'),
+            'latestMajorActionDate': self.latest_major_action_date,
             'latestMajorAction': self.latest_major_action,
             'clicks': self.clicks,
         }

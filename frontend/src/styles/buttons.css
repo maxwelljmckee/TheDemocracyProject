@@ -1,0 +1,63 @@
+
+
+/* ===== BACK ARROW BUTTON ===== */
+.fa-arrow-left {
+    font-size: 5em;
+    position: relative;
+    top: 30px;
+    left: 40px;
+}
+
+
+
+
+
+
+
+/* ===== FOLLOW BUTTON STYLES ===== */
+.rep-card__follow {
+    grid-area: button;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 10px;
+}
+
+.rep-detail__follow,
+.bill-detail__follow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 50px;
+}
+
+.follow-button {
+    font-size: 2em;
+    text-transform: uppercase;
+    /* font-weight: bold; */
+    color: white;
+    background-color: #1761a0;
+    padding: 18px 15px;
+    box-sizing: border-box;
+
+    /* border: 5px solid rgb(77, 77, 77); */
+    border-radius: 20px;
+}
+
+.unfollow-button {
+    font-size: 2em;
+    text-transform: uppercase;
+    /* font-weight: bold; */
+    color: #1761a0;
+    padding: 13px 10px;
+
+    border: 5px solid #1761a0;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+
+
+

@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import db, Bill, BillVote, BillComment
+from app.models import db, Bill, BillVote, BillComment, User
 from flask_login import current_user
 
 
@@ -92,18 +92,41 @@ def get_bill_by_id(id):
         return {'error': 'bill does not exist'}
 
 
-# ===== POST A BILLVOTE =====
-@bill_routes.route('/bill-votes', methods=['POST'])
+# ===== POST AND UPDATE A BILLVOTE =====
+@bill_routes.route('/bill-votes', methods=['POST', 'PUT'])
 def post_bill_vote():
     # user_id, bill_id = request.json
-    print(request.json)
+    # print(request.json)
     return 'hello'
 
 
 # ===== UPDATE A BILLVOTE =====
-@bill_routes.route('/bill-votes', methods=['put'])
-def update():
-    pass
+# @bill_routes.route('/bill-vote', methods=['PUT'])
+# def update_bill_vote():
+#     pass
+
+
+# ===== POST A BILLFOLLOW =====
+@bill_routes.route('/follow', methods=['POST'])
+def post_bill_follow():
+    bill = Bill.query.get(request.json['billId'])
+    user = User.query.get(request.json['userId'])
+    if bill not in user.bills_followed:
+        user.bills_followed.append(bill)
+    db.session.add(user)
+    db.session.commit()
+    return user.to_dict_full()
+
+
+# ===== DELETE A BILLFOLLOW =====
+@bill_routes.route('/unfollow', methods=['DELETE'])
+def delete_bill_follow():
+    bill = Bill.query.get(request.json['billId'])
+    user = User.query.get(request.json['userId'])
+    user.bills_followed.remove(bill)
+    db.session.add(user)
+    db.session.commit()
+    return user.to_dict_full()
 
 
 # ===== POST A BILLCOMMENT =====

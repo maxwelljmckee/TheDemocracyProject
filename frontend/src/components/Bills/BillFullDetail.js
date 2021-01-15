@@ -1,11 +1,58 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+import HeaderMain from '../Layout/HeaderMain';
+import FooterMain from '../Layout/FooterMain';
+import BackArrow from '../Buttons&Icons/BackArrow';
+import SectionBreak from '../Layout/SectionBreak';
+import BlankCard from '../Layout/BlankCard';
+import billIdParser from '../../utils/billIdParser';
+import billCategories from './billCategories';
 
 
-const BillFullDetail = ({ billId }) => {
+const BillDetail = () => {
+  const { billId } = useParams();
+  const [bill, setBill] = useState({});
+  const [billType, setBillType] = useState('');
+  const avatarUrl = billCategories[0].imageUrl
+
+  useEffect(() => {
+    (async () => {
+      const res = await fetch(`/api/bills/${billId}`, {
+        headers: { 'Content-Type': 'application/json' }
+      })
+      const data = await res.json();
+      setBill(data);
+      setBillType(billIdParser(data.billId));
+    })()
+  }, [])
+
   return (
-    <div>bill detail</div>
+    <>
+      <HeaderMain fromLoader={false} />
+      { billType &&
+        <div className='bill-detail__container'>
+          <BackArrow />
+          <div className='bill-detail__avatar'>
+            <img src={avatarUrl} alt='bill' />
+          </div>
+          <div className='bill-detail__bill-type'>
+            <span className='bill-type'>{billType[0]} {billType[1]}</span>
+          </div>
+
+          <SectionBreak sectionTitle='Full Title' />
+          <BlankCard text={bill.title} />
+
+          <SectionBreak sectionTitle='Full Summary' />
+          <BlankCard text={bill.summary || 'Summary not available'} />
+
+          <SectionBreak />
+        </div>
+      }
+      <FooterMain fromLoader={false} />
+    </>
   )
 }
 
 
-export default BillFullDetail;
+export default BillDetail;

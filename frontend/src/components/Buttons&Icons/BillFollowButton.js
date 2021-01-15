@@ -3,17 +3,19 @@ import React, { useEffect, useState } from 'react';
 
 const BillFollowButton = ({ user, bill }) => {
   const [isFollowing, setIsFollowing] = useState(false);
-  const [isConstituent, setIsConstituent] = useState(false);
 
-  // ON PAGE LOAD, CHECK IF CURRENT bill IS FOLLOWED BY SESSION USER
+  // ON PAGE LOAD, CHECK IF CURRENT BILL IS FOLLOWED BY SESSION USER
   useEffect(() => {
-    
-  
+    user.billsFollowed.forEach(follow => {
+      if (follow.billId === bill.billId) {
+        setIsFollowing(true)
+      }
+    })
   }, [])
 
   const handleFollow = async () => {
     setIsFollowing(!isFollowing);
-    const res = await fetch('/api/bill/follow', {
+    const res = await fetch('/api/bills/follow', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ billId: bill.id, userId: user.id })
@@ -24,7 +26,7 @@ const BillFollowButton = ({ user, bill }) => {
 
   const handleUnfollow = async () => {
     setIsFollowing(!isFollowing);
-    const res = await fetch('/api/bill/unfollow', {
+    const res = await fetch('/api/bills/unfollow', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ billId: bill.id, userId: user.id })

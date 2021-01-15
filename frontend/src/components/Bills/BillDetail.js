@@ -45,15 +45,18 @@ const BillDetail = () => {
           <div className='bill-detail__bill-type'>
             <span className='bill-type'>{billType[0]} {billType[1]}</span>
           </div>
+          <div className='bill-detail__follow'>
+            <BillFollowButton user={user} bill={bill} />
+          </div>
 
           <SectionBreak sectionTitle='Title' />
           <BlankCard text={bill.shortTitle} />
 
           <SectionBreak sectionTitle='Summary' />
-          <BlankCard text={bill.shortSummary} />
+          <BlankCard text={bill.shortSummary || 'Summary not available'} />
           <SectionFooter 
             footerText='See Full Title and Summary' 
-            handleClick={() => history.push(`bills/${billId}/full-detail`)} />
+            handleClick={() => history.push(`/bills/${billId}/full-detail`)} />
 
           <SectionBreak sectionTitle='topic' />
           <BlankCard text={bill.primarySubject} />
@@ -62,8 +65,8 @@ const BillDetail = () => {
           <BlankCard text={bill.committees} />
 
           <SectionBreak sectionTitle='latest major action' />
-          <BlankCard text={bill.latestMajorAction} />
-          <BlankCard text={bill.latestMajorActionDate} />
+          <BlankCard text={bill.latestMajorAction} subtext={`Action date: ${bill.latestMajorActionDate.split(' ').slice(0, 4).join(' ')}`} />
+
 
           <SectionBreak />
         </div>
