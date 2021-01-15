@@ -268,24 +268,3 @@
     position: relative;
     top: 0.4em;
 }
-
-/* .is-registered__button-container {
-    width:100%;
-    position: relative;
-} */
-
-.fa-check-circle {
-    margin: 0.35em;
-    font-size: 15em;
-    color: rgb(57, 185, 57);
-    position: fixed;
-    left: 0.3em;
-}
-
-.fa-times-circle {
-    margin: 0.35em;
-    font-size: 15em;
-    color: rgb(228, 21, 21);
-    position: fixed;
-    right: 0.3em;
-}

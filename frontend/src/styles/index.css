@@ -15,11 +15,11 @@ body{
 @import './dashboard.css';
 @import './representatives.css';
 @import './bills.css';
-@import './buttons.css';
 
 
 
 /* ===== BUTTONS AND LOGOS ===== */
+@import './buttons.css';
 @import './propublica-logos.css';
 
 
@@ -47,3 +47,6 @@ body{
 
 /* ROTATE */
 @import './animations/rotate-center.css';
+
+/* JELLO */
+@import './animations/jello-horizontal.css';
