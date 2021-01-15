@@ -92,7 +92,7 @@ def get_bill_by_id(id):
         return {'error': 'bill does not exist'}
 
 
-# ===== POST AND UPDATE A BILLVOTE =====
+# ===== POST A BILLVOTE =====
 @bill_routes.route('/post-vote', methods=['POST'])
 def post_bill_vote():
     user_id = request.json['userId']
@@ -116,12 +116,13 @@ def update_bill_vote():
     bill_vote = BillVote.query.get((user_id, bill_id))
 
     bill_vote.is_downvote = not bill_vote.is_downvote
-    
+
     db.session.add(bill_vote)
     db.session.commit()
     return bill_vote.to_dict_full()
 
 
+# ===== DELETE A BILLVOTE =====
 @bill_routes.route('/delete-vote', methods=['DELETE'])
 def delete_bill_vote():
     user_id = request.json['userId']

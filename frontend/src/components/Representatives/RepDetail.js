@@ -74,6 +74,78 @@ const RepDetail = () => {
     })()
   }, []) 
 
+
+
+  // ==================== VOTE ASYNC HANDLERS ====================
+  // ELEMENT MUST HAVE SELECTED STATE TO IMPLEMENT UPVOTE-DOWNVOTE-CARD
+  const [selected, setSelected] = useState(0);
+
+  const handleUpvote = async () => {
+    if (!selected) {
+      setSelected(1);
+      const res = await fetch('/api/representatives/post-vote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ repId, userId: user.id, isDownvote: false })
+      })
+      const data = await res.json();
+      return data
+    } else if (selected === 1) {
+      setSelected(0);
+      const res = await fetch('/api/representatives/delete-vote', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ repId, userId: user.id })
+      })
+      const data = await res.json();
+      return data
+    } else if (selected === 2) {
+      setSelected(1);
+      const res = await fetch('/api/representatives/update-vote', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ repId, userId: user.id, isDownvote: false })
+      })
+      const data = await res.json();
+      return data
+    }
+  }
+
+  const handleDownvote = async () => {
+    if (!selected) {
+      setSelected(2);
+      const res = await fetch('/api/representatives/post-vote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ repId, userId: user.id, isDownvote: true })
+      })
+      const data = await res.json();
+      return data
+    }
+    if (selected === 1) {
+      setSelected(2);
+      const res = await fetch('/api/representatives/update-vote', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ repId, userId: user.id, isDownvote: true })
+      })
+      const data = await res.json();
+      return data
+    } else if (selected === 2) {
+      setSelected(0);
+      const res = await fetch('/api/representatives/delete-vote', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ repId, userId: user.id })
+      })
+      const data = await res.json();
+      return data
+    }
+  }
+  // ==================== END VOTE ASYNC HANDLERS ====================
+
+
+
   return (
     <>
     { loaded && 

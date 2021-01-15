@@ -25,6 +25,7 @@ const BillDetail = () => {
   const [billType, setBillType] = useState('');
   // const [chartRender, setChartRender] = useState(false);
   
+  
   // ON PAGE LOAD, PARSE VOTE INFO FROM USER OBJECT && FETCH BILL DATA FROM BACKEND USING BILL-ID PARAM
   useEffect(() => {
     (async () => {
@@ -48,6 +49,7 @@ const BillDetail = () => {
   }, [])
   
   // ==================== VOTE ASYNC HANDLERS ====================
+  // ELEMENT MUST HAVE SELECTED STATE TO IMPLEMENT UPVOTE-DOWNVOTE-CARD
   const [selected, setSelected] = useState(0);
 
   const handleUpvote = async () => {
