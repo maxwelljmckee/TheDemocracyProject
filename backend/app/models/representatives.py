@@ -64,8 +64,6 @@ class Representative(db.Model):
 
     state = db.relationship('State', back_populates='representatives')
     bills_sponsored = db.relationship('Bill', back_populates='sponsor')
-    # followers = db.relationship('User', secondary='followers', back_populates=
-    #                             'following')
     rep_follows = db.relationship('RepFollow', back_populates='representative')
 
     def to_dict(self):

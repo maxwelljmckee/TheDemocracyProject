@@ -40,12 +40,14 @@ const IsRegistered = ({ transition, setIsRegistered }) => {
       { unhide2 &&
         <i 
           className="fas fa-check-circle bounce-in-fwd"
+          id='splash__upvote'
           onClick={handleUpvote}
         />
       }
       { unhide3 &&
           <i 
             className="fas fa-times-circle bounce-in-fwd"
+            id='splash__downvote'
             onClick={handleDownvote}
           />
       }

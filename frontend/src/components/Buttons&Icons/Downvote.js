@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-const Downvote = ({ handleDownvote }) => {
+const Downvote = ({ selected, handleDownvote }) => {
   return (
-    <i className="fas fa-times-circle" onClick={handleDownvote} />
+    <i className={`fas fa-times-circle ${ selected === 2 && 'active' }`} onClick={handleDownvote} />
   )
 }
 

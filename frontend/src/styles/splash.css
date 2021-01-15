@@ -268,3 +268,26 @@
     position: relative;
     top: 0.4em;
 }
+
+
+
+
+
+
+/* CUSTOM UPVOTE-DOWNVOTE STYLES */
+
+#splash__upvote {
+    margin: 0.35em;
+    font-size: 15em;
+    color: rgb(57, 185, 57);
+    position: fixed;
+    left: 0.3em;
+}
+
+#splash__downvote {
+    margin: 0.35em;
+    font-size: 15em;
+    color: rgb(228, 21, 21);
+    position: fixed;
+    right: 0.3em;
+}

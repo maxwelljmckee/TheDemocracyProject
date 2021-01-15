@@ -93,17 +93,43 @@ def get_bill_by_id(id):
 
 
 # ===== POST AND UPDATE A BILLVOTE =====
-@bill_routes.route('/bill-votes', methods=['POST', 'PUT'])
+@bill_routes.route('/post-vote', methods=['POST'])
 def post_bill_vote():
-    # user_id, bill_id = request.json
-    # print(request.json)
-    return 'hello'
+    user_id = request.json['userId']
+    bill_id = request.json['billId']
+    new_vote = BillVote(
+        user_id=user_id,
+        bill_id=bill_id,
+        is_downvote=request.json['isDownvote']
+    )
+
+    db.session.add(new_vote)
+    db.session.commit()
+    return new_vote.to_dict_full()
 
 
 # ===== UPDATE A BILLVOTE =====
-# @bill_routes.route('/bill-vote', methods=['PUT'])
-# def update_bill_vote():
-#     pass
+@bill_routes.route('/update-vote', methods=['PUT'])
+def update_bill_vote():
+    user_id = request.json['userId']
+    bill_id = request.json['billId']
+    bill_vote = BillVote.query.get((user_id, bill_id))
+
+    bill_vote.is_downvote = not bill_vote.is_downvote
+    db.session.add(bill_vote)
+    db.session.commit()
+    return bill_vote.to_dict_full()
+
+
+@bill_routes.route('/delete-vote', methods=['DELETE'])
+def delete_bill_vote():
+    user_id = request.json['userId']
+    bill_id = request.json['billId']
+    bill_vote = BillVote.query.get((user_id, bill_id))
+
+    db.session.delete(bill_vote)
+    db.session.commit()
+    return {'message': 'billvote deletion successful'}
 
 
 # ===== POST A BILLFOLLOW =====

@@ -21,9 +21,18 @@ const BillDetail = () => {
   const [bill, setBill] = useState({});
   const [billType, setBillType] = useState('');
   const avatarUrl = billCategories[0].imageUrl
+
+  const [selected, setSelected] = useState(0);
   
   useEffect(() => {
     (async () => {
+      user.billVotes.forEach(vote => {
+        if (vote.billId === parseInt(billId, 10) && !vote.isDownvote) {
+          setSelected(1)
+        } else if (vote.billId === billId && vote.isDownvote) {
+          setSelected(2)
+        }
+      })
       const res = await fetch(`/api/bills/${billId}`, {
         headers: { 'Content-Type': 'application/json' }
       })
@@ -33,12 +42,67 @@ const BillDetail = () => {
     })()
   }, [])
 
-  const handleUpvote = () => {
-    
+  const handleUpvote = async (e) => {
+    if (!selected) {
+      setSelected(1);
+      const res = await fetch('/api/bills/post-vote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ billId, userId: user.id, isDownvote: false })
+      })
+      const data = await res.json();
+      return data
+    } else if (selected === 1) {
+      setSelected(0);
+      const res = await fetch('/api/bills/delete-vote', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ billId, userId: user.id })
+      })
+      const data = await res.json();
+      return data
+    } else if (selected === 2) {
+      setSelected(1);
+      const res = await fetch('/api/bills/update-vote', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ billId, userId: user.id, isDownvote: false })
+      })
+      const data = await res.json();
+      return data
+    }
   }
 
-  const handleDownvote = () => {
-
+  const handleDownvote = async () => {
+    if (!selected) {
+      setSelected(2);
+      const res = await fetch('/api/bills/post-vote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ billId, userId: user.id, isDownvote: true })
+      })
+      const data = await res.json();
+      return data
+    }
+    if (selected === 1) {
+      setSelected(2);
+      const res = await fetch('/api/bills/update-vote', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ billId, userId: user.id, isDownvote: true })
+      })
+      const data = await res.json();
+      return data
+    } else if (selected === 2) {
+      setSelected(0);
+      const res = await fetch('/api/bills/delete-vote', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ billId, userId: user.id })
+      })
+      const data = await res.json();
+      return data
+    }
   }
 
   return (
@@ -52,9 +116,6 @@ const BillDetail = () => {
           <div className='bill-detail__avatar'>
             <img  src={avatarUrl} alt='bill' />
           </div>
-          <UpvoteDownvoteCard 
-            handleUpvote={handleUpvote} 
-            handleDownvote={handleDownvote}/>
           <div className='bill-detail__bill-type'>
             <span className='bill-type'>{billType[0]} {billType[1]}</span>
           </div>
@@ -87,6 +148,17 @@ const BillDetail = () => {
           <SectionBreak sectionTitle='latest major action' />
           <BlankCard text={bill.latestMajorAction} subtext={`Action date: ${bill.latestMajorActionDate.split(' ').slice(0, 4).join(' ')}`} />
 
+          {/* VOTING STATS AND BUTTONS */}
+          <SectionBreak sectionTitle='how others are voting' />
+          {/* Pie Graph */}
+          <SectionBreak sectionTitle='cast your vote' />
+          <UpvoteDownvoteCard 
+            handleUpvote={handleUpvote} 
+            handleDownvote={handleDownvote}
+            selected={selected} />
+
+          <SectionBreak sectionTitle='Comments' />
+          {/* Comments */}
 
           <SectionBreak />
         </div>

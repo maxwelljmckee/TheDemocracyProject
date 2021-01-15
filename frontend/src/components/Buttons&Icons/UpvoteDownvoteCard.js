@@ -3,12 +3,11 @@ import React from 'react';
 import Upvote from './Upvote';
 import Downvote from './Downvote';
 
-const UpvoteDownvoteCard = ({ handleUpvote, handleDownvote }) => {
-
+const UpvoteDownvoteCard = ({ selected, handleUpvote, handleDownvote }) => {
   return (
     <div className='upvote-downvote-card'>
-      <Upvote handleUpvote={handleUpvote} />
-      <Downvote handleDownvote={handleDownvote} />
+      <Upvote handleUpvote={handleUpvote} selected={selected} />
+      <Downvote handleDownvote={handleDownvote} selected={selected} />
     </div>
   )
 }

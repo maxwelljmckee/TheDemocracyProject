@@ -69,9 +69,10 @@
 
 .upvote-downvote-card {
     display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
+    justify-content: space-evenly;
+    /* margin-bottom: 30px; */
 
+    
     width: 100%;
     min-height: 150px;
     margin: 20px auto;
@@ -80,8 +81,6 @@
     /* font-size: 3em; */
     line-height: 1.3em;
 
-    display: flex;
-
     background-color: white;
     box-shadow: 0 0 10px 5px rgb(151, 151, 151, 0.5)
 
@@ -89,12 +88,18 @@
 
 .fa-check-circle {
     font-size: 12em;
-    color: rgb(57, 185, 57);
-    margin: 0 50px;
+    color: rgba(57, 185, 57, 0.5);
 }
 
 .fa-times-circle {
     font-size: 12em;
+    color: rgba(228, 21, 21, 0.5);
+}
+
+.fa-check-circle.active {
+    color: rgb(57, 185, 57);
+}
+
+.fa-times-circle.active {
     color: rgb(228, 21, 21);
-    margin: 0 50px;
 }

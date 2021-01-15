@@ -5,7 +5,6 @@ from flask_login import UserMixin
 from .bill import bill_follows
 
 
-
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
@@ -54,8 +53,9 @@ class User(db.Model, UserMixin):
             "email": self.email,
             'zipCode': self.zip_code,
             'isRegisteredVoter': self.is_registered_voter,
-            'billVotes': self.bill_votes,
-            'billComments': self.bill_comments,
+            'billVotes': [vote.to_dict() for vote in self.bill_votes],
+            'billComments': [comment.to_dict() for comment
+                             in self.bill_comments],
             # 'threads': self.threads,
             # 'threadComments': self.thread_comments,
             'repFollows': [follow.to_dict_rep() for follow in self.rep_follows],

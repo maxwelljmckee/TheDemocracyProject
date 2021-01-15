@@ -1,9 +1,10 @@
 import React from 'react';
 
 
-const Upvote = ({ handleUpvote }) => {
+const Upvote = ({ selected, handleUpvote }) => {
   return (
-    <i className="fas fa-check-circle" onClick={handleUpvote} />
+    <i className={`fas fa-check-circle ${ selected === 1 && 'active' }`}
+    onClick={handleUpvote} />
   )
 }
 
