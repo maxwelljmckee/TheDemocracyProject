@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import db, Representative, RepFollow, State
+from app.models import db, Representative, RepFollow, RepVote, State
 
 
 rep_routes = Blueprint('representatives', __name__)
@@ -54,6 +54,49 @@ def delete_follow():
     db.session.delete(target_follow)
     db.session.commit()
     return {'message': 'target follow successfully deleted'}
+
+
+# ===== POST A REPVOTE =====
+@rep_routes.route('/post-vote', methods=['POST'])
+def post_rep_vote():
+    print('=================HIT POST', request.json)
+    user_id = request.json['userId']
+    representative_id = request.json['repId']
+    new_vote = RepVote(
+        user_id=user_id,
+        representative_id=representative_id,
+        is_downvote=request.json['isDownvote']
+    )
+
+    db.session.add(new_vote)
+    db.session.commit()
+    return new_vote.to_dict_rep()
+
+
+# ===== UPDATE A REPVOTE =====
+@rep_routes.route('/update-vote', methods=['PUT'])
+def update_rep_vote():
+    user_id = request.json['userId']
+    representative_id = request.json['repId']
+    rep_vote = RepVote.query.get((representative_id, user_id))
+
+    rep_vote.is_downvote = not rep_vote.is_downvote
+
+    db.session.add(rep_vote)
+    db.session.commit()
+    return rep_vote.to_dict_rep()
+
+
+# ===== DELETE A REPVOTE =====
+@rep_routes.route('/delete-vote', methods=['DELETE'])
+def delete_bill_vote():
+    user_id = request.json['userId']
+    representative_id = request.json['repId']
+    rep_vote = RepVote.query.get((representative_id, user_id))
+
+    db.session.delete(rep_vote)
+    db.session.commit()
+    return {'message': 'billvote deletion successful'}
 
 
 # GET LIST OF UNITED STATES

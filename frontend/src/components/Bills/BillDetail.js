@@ -12,7 +12,7 @@ import billIdParser from '../../utils/billIdParser';
 import billCategories from './billCategories';
 import BillFollowButton from '../Buttons&Icons/BillFollowButton';
 import UpvoteDownvoteCard from '../Buttons&Icons/UpvoteDownvoteCard';
-import BillVoteChart from './BillVoteChart';
+import BillApprovalChart from './BillApprovalChart';
 
 
 const BillDetail = () => {
@@ -30,12 +30,9 @@ const BillDetail = () => {
   useEffect(() => {
     (async () => {
       user.billVotes.forEach(vote => {
-        console.log('hit useEffect');
         if (vote.billId === parseInt(billId, 10) && !vote.isDownvote) {
-          console.log('conditin 1');
           setSelected(1)
         } else if (vote.billId === parseInt(billId, 10) && vote.isDownvote) {
-          console.log('condition 2');
           setSelected(2)
         }
       })
@@ -161,8 +158,8 @@ const BillDetail = () => {
           <BlankCard text={bill.latestMajorAction} subtext={`Action date: ${bill.latestMajorActionDate.split(' ').slice(0, 4).join(' ')}`} />
 
           {/* VOTING STATS AND VOTE BUTTONS */}
-          <SectionBreak sectionTitle='how others are voting' />
-          { bill.billVotes.length ? <BillVoteChart billVotes={bill.billVotes} /> : <SectionFooter footerText='no vote data available' /> }
+          <SectionBreak sectionTitle='Approval Ratings' />
+          { bill.billVotes.length ? <BillApprovalChart billVotes={bill.billVotes} /> : <SectionFooter footerText='vote data unavailable' /> }
           
           <SectionBreak sectionTitle='cast your vote' />
           <UpvoteDownvoteCard 

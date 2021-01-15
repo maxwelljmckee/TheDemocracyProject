@@ -12,6 +12,20 @@ class RepVote(db.Model):
     representative = db.relationship('Representative', back_populates='rep_votes')
     user = db.relationship('User', back_populates='rep_votes')
 
+    def to_dict_rep(self):
+        return {
+            'representative': self.representative.to_dict(),
+            'userId': self.user_id,
+            'isDownvote': self.is_downvote
+        }
+
+    def to_dict_user(self):
+        return {
+            'representativeId': self.representative_id,
+            'user': self.user.to_dict(),
+            'isDownvote': self.is_downvote
+        }
+
 
 class RepFollow(db.Model):
     __tablename__ = 'rep_follows'
@@ -33,7 +47,7 @@ class RepFollow(db.Model):
 
     def to_dict_user(self):
         return {
-            'representativeId': self.representative,
+            'representativeId': self.representative_id,
             'user': self.user.to_dict(),
             'isConstituent': self.is_constituent
         }
@@ -120,5 +134,5 @@ class Representative(db.Model):
             'votesAgainstPartyPct': self.votes_against_party_pct,
             'billsSponsored': [bill.to_dict() for bill in self.bills_sponsored],
             'repFollows': [follow.to_dict_user() for follow in self.rep_follows],
-            'repVotes': [vote.to_dict() for vote in self.rep_votes]
+            'repVotes': [vote.to_dict_user() for vote in self.rep_votes]
         }

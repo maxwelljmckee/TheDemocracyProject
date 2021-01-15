@@ -4,8 +4,12 @@ import { useParams } from 'react-router-dom';
 import HeaderMain from '../Layout/HeaderMain';
 import FooterMain from '../Layout/FooterMain';
 import BackArrow from '../Buttons&Icons/BackArrow';
+import SectionBreak from '../Layout/SectionBreak';
+import SectionFooter from '../Layout/SectionFooter';
 import RepFollowButton from '../Buttons&Icons/RepFollowButton';
+import UpvoteDownvoteCard from '../Buttons&Icons/UpvoteDownvoteCard';
 import VotesPctChart from './VotesPctChart';
+import RepApprovalChart from './RepApprovalChart';
 import { useSelector } from 'react-redux';
 
 
@@ -67,6 +71,14 @@ const RepDetail = () => {
 
   useEffect(() => {
     (async () => {
+      user.repVotes.forEach(vote => {
+        console.log(vote);
+        if (vote.representative.id === parseInt(repId, 10) && !vote.isDownvote) {
+          setSelected(1)
+        } else if (vote.representative.id === parseInt(repId, 10) && vote.isDownvote) {
+          setSelected(2)
+        }
+      })
       const res = await fetch(`/api/representatives/${repId}`);
       const data = await res.json();
       setRep(data);
@@ -196,6 +208,17 @@ const RepDetail = () => {
             <div className='rep-detail__votes-pct-chart'>
               <VotesPctChart rep={rep} />
             </div>
+
+            <SectionBreak sectionTitle='Approval Ratings' />
+            {rep.repVotes.length ? <RepApprovalChart repVotes={rep.repVotes} /> : <SectionFooter footerText='vote data unavailable' />}
+
+            <SectionBreak sectionTitle='cast your vote' />
+            <UpvoteDownvoteCard
+              handleUpvote={handleUpvote}
+              handleDownvote={handleDownvote}
+              selected={selected} />
+
+            <SectionBreak />
           </div>
         </div>
         <FooterMain fromLoader={false} />

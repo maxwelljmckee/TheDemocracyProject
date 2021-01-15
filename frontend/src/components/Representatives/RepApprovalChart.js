@@ -3,11 +3,12 @@ import { Pie, defaults } from 'react-chartjs-2';
 
 // defaults.global.legend.align = 'center'
 
-const BillVoteChart = ({ billVotes }) => {
-  const upvotes = billVotes.filter(vote => !vote.isDownvote);
-  const downvotes = billVotes.filter(vote => vote.isDownvote);
-  const upvotePct = upvotes.length / billVotes.length;
-  const downvotePct = downvotes.length / billVotes.length;
+const RepApprovalChart = ({ repVotes }) => {
+  console.log('in chart', repVotes);
+  const upvotes = repVotes.filter(vote => !vote.isDownvote);
+  const downvotes = repVotes.filter(vote => vote.isDownvote);
+  const upvotePct = upvotes.length / repVotes.length;
+  const downvotePct = downvotes.length / repVotes.length;
 
   return (
     <Pie
@@ -37,4 +38,4 @@ const BillVoteChart = ({ billVotes }) => {
 }
 
 
-export default BillVoteChart;
+export default RepApprovalChart;

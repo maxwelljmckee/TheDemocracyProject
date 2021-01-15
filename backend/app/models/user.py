@@ -60,6 +60,6 @@ class User(db.Model, UserMixin):
             # 'threads': self.threads,
             # 'threadComments': self.thread_comments,
             'repFollows': [follow.to_dict_rep() for follow in self.rep_follows],
-            'repVotes': [vote.to_dict() for vote in self.rep_votes],
+            'repVotes': [vote.to_dict_rep() for vote in self.rep_votes],
             'billsFollowed': [bill.to_dict() for bill in self.bills_followed]
         }
