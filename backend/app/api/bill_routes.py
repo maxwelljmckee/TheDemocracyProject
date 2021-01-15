@@ -13,6 +13,7 @@ def get_all_active_bills():
     return jsonify([bill.to_dict() for bill in all_bills])
 
 
+# ===== GET BILLS BY CATEGORY =====
 @bill_routes.route('/<category>')
 def get_bill_by_category(category):
     all_bills = Bill.query.filter_by(active=True).all()
@@ -95,7 +96,6 @@ def get_bill_by_id(id):
 @bill_routes.route('/bill-votes', methods=['POST'])
 def post_bill_vote():
     # user_id, bill_id = request.json
-    print('=================HIT BILLVOTES=============')
     print(request.json)
     return 'hello'
 

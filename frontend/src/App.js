@@ -80,6 +80,9 @@ function App() {
         <Route path='/bills/:billId/detail'>
           {user ? <BillDetail /> : <Redirect to='/' />}
         </Route>
+        <Route path='/bills/:billId/full-detail'>
+          {user ? <BillDetail /> : <Redirect to='/' />}
+        </Route>
         <Route path='/bills/:category'>
           {user ? <BillIndex /> : <Redirect to='/' />}
         </Route>

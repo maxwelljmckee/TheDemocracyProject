@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import useForceUpdate from 'use-force-update';
 
 
 const RepFollowButton = ({ user, rep }) => {
@@ -14,7 +13,7 @@ const RepFollowButton = ({ user, rep }) => {
         if (follow.isConstituent) setIsConstituent(true)
       }
     })
-  })
+  }, [])
 
   const handleFollow = async () => {
     setIsFollowing(!isFollowing);

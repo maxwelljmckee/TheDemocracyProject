@@ -27,11 +27,7 @@
 
 
     <!-- HEALTH & PUBLIC WORKS -->
-        <li>Health</li>
-        <li>Housing, Community Development</li>
-        <li>Transportation, Public Works</li>
-        <li>Social Welfare</li>
-        <li>Families</li>
+        health, housing, community development, transportation, public works, social welfare, families
 
 
     <!-- INTERNATIONAL AFFAIRS -->

@@ -130,7 +130,7 @@
 
 
 
-/* ===== bill INDEX STYLES ===== */
+/* ===== BILL INDEX STYLES ===== */
 .bill-index__container {
     width: 100%;
     position: relative;
@@ -172,51 +172,58 @@
 
 
 
-/* ===== bill DETAIL STYLES ===== */
+/* ===== BILL DETAIL STYLES ===== */
 .bill-detail__container {
     width: 100%;
     position: relative;
     top: 8.5vh;
 }
 
-.bill-detail__image {
+.bill-detail__avatar { 
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-bottom: 40px;
 }
-.bill-detail__image img,
+
 .bill-detail__avatar img {
-    width: 700px;
-    height: 700px;
-    object-fit: fill;
-
-    box-shadow: 0 0 15px 10px rgba(124, 124, 124, 0.5);
+    width: 40%;
     border-radius: 50%;
+    box-shadow: 0 0 10px 5px rgb(151, 151, 151, 0.5)
 }
 
-.bill-detail__title-group__D {
-    padding: 2px;
-    margin-top: 20px;
-    background-color: #1761a0;
-    color: white;
+.bill-detail__bill-type {
+    width: 75%;
+    font-size: 4.5em;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.3em;
+
+    display: flex;
+    justify-content: center;
 }
 
-.bill-detail__title-group__R {
-    padding: 2px;
-    margin-top: 20px;
-    background-color: #ec4c4c;
-    color: white;
-}
+/* .bill-type {
+    border-bottom: 2px solid black;
+    padding: 8px;
+} */
 
 .bill-detail__title {
     width: 100%;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 5em;
+    font-size: 3em;
+    line-height: 1.3em;
     margin: 25px 0;
     font-family: 'Montserrat', sans-serif;
+}
+
+.bill-title {
+    width: 75%;
+    margin: 0 auto;
 }
 
 .bill-detail__subtitle {

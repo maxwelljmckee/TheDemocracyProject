@@ -88,7 +88,6 @@
 /* ===== REP & BILL SEARCH SECTION BREAK ===== */
 .rep-search__container,
 .bill-search__container {
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -158,4 +157,25 @@
     position: relative;
     top: 30px;
     left: 40px;
+}
+
+
+
+
+
+
+/* ===== BLANK CARD ===== */
+.blank-card {
+    width: 100%;
+    min-height: 150px;
+    margin: 20px auto;
+    padding: 30px;
+    box-sizing: border-box;
+    font-size: 3em;
+    line-height: 1.3em;
+
+    display: flex;
+
+    background-color: white;
+    box-shadow: 0 0 10px 5px rgb(151, 151, 151, 0.5)
 }
