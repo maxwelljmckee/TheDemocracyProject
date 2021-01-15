@@ -116,6 +116,7 @@ def update_bill_vote():
     bill_vote = BillVote.query.get((user_id, bill_id))
 
     bill_vote.is_downvote = not bill_vote.is_downvote
+    
     db.session.add(bill_vote)
     db.session.commit()
     return bill_vote.to_dict_full()

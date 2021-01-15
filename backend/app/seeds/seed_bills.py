@@ -12,7 +12,7 @@ def seed_bills():
     API_KEY = os.environ.get('PROPUBLICA_API_KEY')
     # incrementor = 0
     all_bills = []
-    for i in range(0, 301, 20):
+    for i in range(0, 1000, 20):
         res = requests.get(
             f'https://api.propublica.org/congress/v1/116/both/bills/active.json?offset= {i}',
             headers={'X-API-Key': API_KEY})

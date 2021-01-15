@@ -31,7 +31,7 @@ const LoginForm = () => {
     e.preventDefault();
     setTransition(true)
     setTimeout(() => {
-    dispatch(loginUser('demo@aa.io', 'password')).then(res => {
+    dispatch(loginUser('demo@user.io', 'password')).then(res => {
       if (!res.errors) {
           history.push('/dashboard')
         }

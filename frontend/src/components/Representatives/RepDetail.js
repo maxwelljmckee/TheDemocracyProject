@@ -107,7 +107,7 @@ const RepDetail = () => {
 
               {/* SUBTITLE */}
               <div className='rep-detail__subtitle'>
-                {rep.party} – {rep.stateId}
+                {rep.party} – {rep.state.abbreviation}
               </div>
             </div>
 
