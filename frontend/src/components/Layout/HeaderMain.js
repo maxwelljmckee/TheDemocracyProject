@@ -12,6 +12,9 @@ const HeaderMain = ({ fromLoader }) => {
   const [animate2, setAnimate2] = useState(false);
   const [animate3, setAnimate3] = useState(false);
 
+  const [showHamburger, setShowHamburger] = useState(false);
+  const [hideHamburger, setHideHamburger] = useState(true);
+
   useEffect(() => {
     if (fromLoader) {
       setAnimate1(true); // header container
@@ -29,7 +32,8 @@ const HeaderMain = ({ fromLoader }) => {
   }
 
   const handleHamburgerMenu = () => {
-
+    setShowHamburger(!showHamburger)
+    setHideHamburger(!hideHamburger)
   }
 
   return (
@@ -51,7 +55,9 @@ const HeaderMain = ({ fromLoader }) => {
           { animate3 && <i className='fas fa-bars slide-in-right'
             onClick={handleHamburgerMenu} ></i> }
 
-          <HamburgerMenu />
+          <HamburgerMenu 
+          showHamburger={showHamburger}
+          hideHamburger={hideHamburger} />
 
         </div>
       }

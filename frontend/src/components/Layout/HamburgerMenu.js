@@ -1,15 +1,23 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
+import HamburgerCard from './HamburgerCard';
 
-const HamburgerMenu = () => {
 
+const HamburgerMenu = ({ showHamburger, hideHamburger }) => {
+  const history = useHistory();
 
   return (
-    <div className='hamburger-menu__wrapper'>
-      <div className='hamburger-menu'>
+    <div className={`hamburger-menu 
+    ${hideHamburger && 'scale-out-tr'}
+    ${showHamburger && 'scale-in-tr'}`}>
 
-      </div>
+      <HamburgerCard text='Settings' 
+      handleClick={() => history.push('/logout')} />
+
+      <HamburgerCard text='Logout' 
+      handleClick={() => history.push('/logout')} />
+
     </div>
   )
 }
