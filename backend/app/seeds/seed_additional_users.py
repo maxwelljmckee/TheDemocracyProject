@@ -9,7 +9,7 @@ def seed_additional_users():
     user1 = User(
         first_name='Demo',
         last_name='User',
-        email='demo@user.com',
+        email='demo@aa.io',
         password='password',
         zip_code='80305',
         is_registered_voter=True
@@ -62,6 +62,24 @@ def seed_additional_users():
                 is_downvote=random_bool()
             )
             db.session.add(new_repvote)
+
+    user4 = User(
+        first_name='Demo',
+        last_name='Test',
+        email='demo@user.com',
+        password='password',
+        zip_code='80305',
+        is_registered_voter=True
+    )
+    db.session.add(user4)
+
+    for id in [6, 36, 398]:
+        new_follow = RepFollow(
+            representative_id=id,
+            user_id=4,
+            is_constituent=True
+        )
+        db.session.add(new_follow)
 
     db.session.commit()
 

@@ -16,7 +16,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setTransition(true)
+    setTransition(true);
     setTimeout(() => {
     dispatch(loginUser(email, password)).then(res => {
       if (res && res.errors) setErrors(res.errors)
@@ -24,19 +24,19 @@ const LoginForm = () => {
           history.push('/dashboard')
         }
       })
-    }, 500) // extra time for slide-out transition before rerouting
+    }, 600) // extra time for slide-out transition before rerouting
   };
 
   const handleDemo = (e) => {
     e.preventDefault();
-    setTransition(true)
+    setTransition(true);
     setTimeout(() => {
-    dispatch(loginUser('demo@user.io', 'password')).then(res => {
+    dispatch(loginUser('demo@user.com', 'password')).then(res => {
       if (!res.errors) {
-          history.push('/dashboard')
+          history.push('/dashboard');
         }
       })
-    }, 500) // extra time for slide-out transition before rerouting
+    }, 600) // extra time for slide-out transition before rerouting
   }
 
   return (

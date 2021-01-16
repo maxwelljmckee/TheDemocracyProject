@@ -72,7 +72,6 @@ const RepDetail = () => {
   useEffect(() => {
     (async () => {
       user.repVotes.forEach(vote => {
-        console.log(vote);
         if (vote.representative.id === parseInt(repId, 10) && !vote.isDownvote) {
           setSelected(1)
         } else if (vote.representative.id === parseInt(repId, 10) && vote.isDownvote) {

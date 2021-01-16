@@ -59,15 +59,17 @@
     box-shadow: 0 0 15px 10px rgba(124, 124, 124, 0.5);
     border-radius: 80%;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 .follow-reps-badge__title,
 .bill-category-badge__title {
-    max-width: 75%;
+    max-width: 80%;
     font-size: 4em;
     text-align: center;
+    /* text-decoration: underline; */
     line-height: 1.2em;
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
     /* border-bottom: 2px solid black; */
     margin-top: 50px;
     margin-bottom: 20px;
