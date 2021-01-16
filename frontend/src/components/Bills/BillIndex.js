@@ -29,7 +29,6 @@ const BillIndex = () => {
       return bill.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       bill.primarySubject.toLowerCase().includes(searchTerm.toLowerCase()) ||
       bill.summary.toLowerCase().includes(searchTerm.toLowerCase())
-
     })
   }
 

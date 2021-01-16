@@ -82,7 +82,7 @@ const RepIndex = () => {
               <div className='rep-index__header'>
                 <BackArrow />
                 <i className="fas fa-search"></i>
-                <SectionBreak sectionTitle="Here's who you're following" />
+                <SectionBreak sectionTitle="See who you're following" />
               </div>
               <div className='rep-index__body'>
                 { following.map(follow => {

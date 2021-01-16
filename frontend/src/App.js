@@ -20,6 +20,7 @@ import RepDetail from './components/Representatives/RepDetail';
 import BillIndex from './components/Bills/BillIndex';
 import BillDetail from './components/Bills/BillDetail';
 import BillFullDetail from './components/Bills/BillFullDetail';
+import BillsFollowing from './components/Bills/BillsFollowing';
 
 // STORE DISPATCH FUNCTIONS
 import { deleteSession } from './store/session'
@@ -83,6 +84,9 @@ function App() {
         </Route>
         <Route path='/bills/:billId/full-detail'>
           {user ? <BillFullDetail /> : <Redirect to='/' />}
+        </Route>
+        <Route exact path='/bills/following'>
+          {user ? <BillsFollowing /> : <Redirect to='/' />}
         </Route>
         <Route path='/bills/:category'>
           {user ? <BillIndex /> : <Redirect to='/' />}
