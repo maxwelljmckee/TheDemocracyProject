@@ -43,6 +43,11 @@ const HeaderMain = ({ fromLoader }) => {
         <div className='header-main__container'>
           <img src={staticLogo} alt='logo' onClick={handleHomeRedirect} />
           <i className='fas fa-bars' onClick={handleHamburgerMenu} ></i>
+
+          <HamburgerMenu
+            showHamburger={showHamburger}
+            hideHamburger={hideHamburger} />
+
         </div>
       }
 
