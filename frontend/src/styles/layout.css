@@ -17,8 +17,10 @@
 
 .header-main__container img {
     height: 8vh;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     cursor: pointer;
+    position: fixed;
+    left: 20px;
 }
 
 .header-main__container i {
@@ -27,10 +29,34 @@
     margin-right: 40px;
     margin-top: 10px;
     padding: 15px;
+    position: fixed;
+    right: 15px;
     border: 2px solid rgb(71, 71, 71);
     border-radius: 15px;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+/* ===== HAMBURGER MENU STYLES ===== */
+.hamburger-menu {
+    width: 100vw;
+    height: 100vh;
+
+    background-color: white;
+    position: absolute;
+    top: 8.5vh;
+    right: 0;
+    z-index: 3;
+}
+
+
+
 
 
 
@@ -182,3 +208,4 @@
 .blank-card__subtext {
     padding-top: 25px;
 }
+

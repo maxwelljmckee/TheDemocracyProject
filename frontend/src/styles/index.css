@@ -50,3 +50,7 @@ body{
 
 /* JELLO */
 @import './animations/jello-horizontal.css';
+
+/* SCALE-IN */
+@import './animations/scale-in-tr.css';
+@import './animations/scale-out-tr.css';

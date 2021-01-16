@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import staticLogo from '../../static/image-only_logo.png';
+import HamburgerMenu from './HamburgerMenu'
 
 
 const HeaderMain = ({ fromLoader }) => {
@@ -49,6 +50,8 @@ const HeaderMain = ({ fromLoader }) => {
 
           { animate3 && <i className='fas fa-bars slide-in-right'
             onClick={handleHamburgerMenu} ></i> }
+
+          <HamburgerMenu />
 
         </div>
       }
