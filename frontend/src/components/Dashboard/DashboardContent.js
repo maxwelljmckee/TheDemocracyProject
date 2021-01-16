@@ -6,6 +6,7 @@ import SectionFooter from '../Layout/SectionFooter';
 import dashboardIcon from './Dashboard-icon.png';
 import FollowRepsBadges from './FollowRepsBadges';
 import BillFollowBadges from './BillFollowBadges';
+import BillCard from '../Bills/BillCard';
 import RepCard from '../Representatives/RepCard';
 import { useHistory } from 'react-router-dom';
 
@@ -19,6 +20,13 @@ const DashboardContent = ({ user, animate }) => {
     setForwardAnimate(true);
     setTimeout(() => {
       history.push('/representatives/following')
+    }, 600)
+  }
+  
+  const billCardFooterClick = () => {
+    setForwardAnimate(true);
+    setTimeout(() => {
+      history.push('/bills/following')
     }, 600)
   }
 
@@ -55,7 +63,18 @@ const DashboardContent = ({ user, animate }) => {
         <FollowRepsBadges />
 
         <SectionBreak sectionTitle="Bills You're Following" />
-        {/* for bill in followedBills, map BillCard */}
+        { user.billsFollowed.length ? 
+          <>
+            { user.billsFollowed.slice(0, 3).map(bill => {
+              return <BillCard bill={bill} />
+            })}
+            <SectionFooter 
+              footerText='See All Following'
+              handleClick={billCardFooterClick} />
+          </>
+          :
+          <SectionFooter footerText='not following any bills' />
+        }
 
         <SectionBreak sectionTitle='Follow More Bills' />
         <BillFollowBadges />

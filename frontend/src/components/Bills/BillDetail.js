@@ -19,7 +19,7 @@ const BillDetail = () => {
   const history = useHistory();
   const { billId } = useParams();
   const user = useSelector(state => state.session.user);
-  const avatarUrl = billCategories[0].imageUrl
+  const avatarUrl = billCategories[0].imageUrl;
 
   const [bill, setBill] = useState({});
   const [billType, setBillType] = useState('');

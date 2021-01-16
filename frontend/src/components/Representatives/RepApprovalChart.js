@@ -4,7 +4,6 @@ import { Pie, defaults } from 'react-chartjs-2';
 // defaults.global.legend.align = 'center'
 
 const RepApprovalChart = ({ repVotes }) => {
-  console.log('in chart', repVotes);
   const upvotes = repVotes.filter(vote => !vote.isDownvote);
   const downvotes = repVotes.filter(vote => vote.isDownvote);
   const upvotePct = upvotes.length / repVotes.length;
