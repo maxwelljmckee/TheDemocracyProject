@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-// import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import SectionBreak from '../Layout/SectionBreak';
 import SectionFooter from '../Layout/SectionFooter';
@@ -8,13 +9,13 @@ import FollowRepsBadges from './FollowRepsBadges';
 import BillFollowBadges from './BillFollowBadges';
 import BillCard from '../Bills/BillCard';
 import RepCard from '../Representatives/RepCard';
-import { useHistory } from 'react-router-dom';
+import AnimationWrapper from '../Layout/AnimationWrapper';
 
 
-const DashboardContent = ({ user, animate }) => {
+const DashboardContent = ({ user, setForwardAnimate }) => {
   const history = useHistory();
 
-  const [forwardAnimate, setForwardAnimate] = useState(false);
+  // const [forwardAnimate, setForwardAnimate] = useState(false);
   
   const repCardFooterClick = () => {
     setForwardAnimate(true);
@@ -32,11 +33,11 @@ const DashboardContent = ({ user, animate }) => {
 
 
   return (
-    <div className={`${ forwardAnimate && 'slide-out-left'}`}>
-      <div className={`dashboard__container 
-      ${ !animate && 'hidden' }
-      ${ animate && 'slide-in-bottom-rebound'}`} >
-        
+    // <div className={`${ forwardAnimate && 'slide-out-left'}`}>
+      // <div className={`dashboard__container 
+      // ${ !animate && 'hidden' }
+      // ${ animate && 'slide-in-bottom-rebound'}`} >
+        <>
         {/* HEADER */}
         <div className='dashboard__icon-container'>
           <img className='dashboard__icon' src={dashboardIcon} alt='dashboard' />
@@ -60,7 +61,7 @@ const DashboardContent = ({ user, animate }) => {
         
 
         <SectionBreak sectionTitle='Follow Other Representatives' />
-        <FollowRepsBadges />
+        <FollowRepsBadges setForwardAnimate={setForwardAnimate} />
 
         <SectionBreak sectionTitle="Bills You're Following" />
         { user.billsFollowed.length ? 
@@ -77,16 +78,22 @@ const DashboardContent = ({ user, animate }) => {
         }
 
         <SectionBreak sectionTitle='Follow More Bills' />
-        <BillFollowBadges />
+        <BillFollowBadges setForwardAnimate={setForwardAnimate} />
 
         <SectionBreak sectionTitle='Community' />
         {/* Community Forum */}
 
         <SectionBreak />
-      </div>
-    </div>
+        </>
+      // </div>
+    // </div>
   )
 }
 
 
-export default DashboardContent;
+const DashboardWithAnimation = () => {
+  return <AnimationWrapper Component={DashboardContent} />
+}
+
+
+export default DashboardWithAnimation;

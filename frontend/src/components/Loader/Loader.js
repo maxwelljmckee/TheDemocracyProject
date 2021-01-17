@@ -46,7 +46,7 @@ const Loader = ({ animateCleanup }) => {
   return (
     <div className={`${ animateCleanup && 'fade-out-fast'}`}>
       <div className='loader__container fade-in-fast'>
-        <DynamicLogo animateCleanup={animateCleanup} />
+        <DynamicLogo />
         <ProPublicaCenter />
       </div>
     </div>

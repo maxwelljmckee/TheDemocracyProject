@@ -10,7 +10,7 @@ import SplashMain from './components/Splash/SplashMain';
 import SplashAbout from './components/Splash/SplashAbout';
 
 // DASHBOARD COMPONENTS
-import DashboardLayout from './components/Dashboard/DashboardLayout';
+import DashboardContent from './components/Dashboard/DashboardContent';
 
 // REPRESENTATIVE COMPONENTS
 import RepIndex from './components/Representatives/RepIndex';
@@ -23,7 +23,8 @@ import BillFullDetail from './components/Bills/BillFullDetail';
 import BillsFollowing from './components/Bills/BillsFollowing';
 
 // STORE DISPATCH FUNCTIONS
-import { deleteSession } from './store/session'
+import { deleteSession } from './store/session';
+import ComponentWithWrapper from './components/TestWrapper'
 
 
 
@@ -65,7 +66,7 @@ function App() {
 
         {/* ===== USER DASHBOARD ROUTES ===== */}
         <Route path='/dashboard'>
-          { user ? <DashboardLayout /> : <Redirect to='/' /> }
+          { user ? <DashboardContent /> : <Redirect to='/' /> }
         </Route>
 
 
@@ -94,6 +95,9 @@ function App() {
 
 
         {/* ===== COMMUNITY ROUTES ===== */}
+        <Route path='/test'>
+          <ComponentWithWrapper />
+        </Route>
 
 
       </Switch>
@@ -102,3 +106,6 @@ function App() {
 }
 
 export default App;
+
+
+

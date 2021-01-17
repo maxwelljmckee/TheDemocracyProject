@@ -10,7 +10,8 @@ const HamburgerMenu = ({ showHamburger, hideHamburger }) => {
   return (
     <div className={`hamburger-menu 
     ${hideHamburger && 'scale-out-tr'}
-    ${showHamburger && 'scale-in-tr'}`}>
+    ${showHamburger && 'scale-in-tr'}
+    ${!showHamburger && 'hidden'}`}>
 
       <HamburgerCard text='Settings' 
       handleClick={() => history.push('/logout')} />

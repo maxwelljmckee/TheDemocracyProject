@@ -32,7 +32,9 @@ const HeaderMain = ({ fromLoader }) => {
   }
 
   const handleHamburgerMenu = () => {
-    setShowHamburger(!showHamburger)
+    setTimeout(() => {
+      setShowHamburger(!showHamburger)
+    }, 300)
     setHideHamburger(!hideHamburger)
   }
 
