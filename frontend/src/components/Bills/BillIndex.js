@@ -20,6 +20,23 @@ const BillIndex = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
+  const [animateCleanup, setAnimateCleanup] = useState(false);
+  const [animateMainContent, setAnimateMainContent] = useState(false);
+  const [forwardAnimate, setForwardAnimate] = useState(false);
+  const [backAnimate, setBackAnimate] = useState(false);
+  
+  useEffect(() => {
+    dispatch(fetchBillsByCategory(category)).then(() => {
+      setTimeout(() => {
+        setAnimateCleanup(true); // initiate loader fade out
+        setTimeout(() => {
+          setLoaded(true); // load next page
+          setTimeout(() => {
+            setAnimateMainContent(true); //slide in main content
+          }, 1000) // slide in main content
+        }, 100) // fade out time
+      }, 500)}) // extra loading time
+  }, [])
 
   const [searchTerm, setSearchTerm] = useState('');
   let bills = useSelector(state => state.bills);
@@ -32,23 +49,21 @@ const BillIndex = () => {
     })
   }
 
-  useEffect(() => {
-    dispatch(fetchBillsByCategory(category)).then(() => setLoaded(true));
-  }, [])
 
-
-
-  // ${ !animateMainContent && 'hidden' }
-  // ${ animateMainContent && 'slide-in-bottom-rebound' }
   return (
     <>
     { !loaded ?
-      <Loader />
+        <Loader animateCleanup={animateCleanup} />
       :
-      <>
+      <div className={`
+      ${backAnimate && 'slide-out-right'}
+      ${forwardAnimate && 'slide-out-left'}`}>
+
         <HeaderMain fromLoader={true} />
         { bills &&
-          <div className={`bill-index__container`}>
+          <div className={`bill-index__container
+          ${!animateMainContent && 'hidden'}
+          ${animateMainContent && 'slide-in-bottom-rebound'}`}>
             <BackArrow />
             <div className='bill-index__header'>
               <img className='bill-index__image' src={categoryObj.imageUrl} alt='category image' />
@@ -61,14 +76,15 @@ const BillIndex = () => {
               {bills.map(bill => {
                 return <BillCard 
                         key={`bill-${bill.id}`}
-                        bill={bill} />
+                        bill={bill}
+                        setAnimation={setForwardAnimate} />
               })}
               <SectionBreak />
             </div>
           </div>
         }
         <FooterMain fromLoader={true} />
-      </>
+      </div>
     }
     </>
   )

@@ -4,12 +4,15 @@ import { useHistory } from 'react-router-dom';
 import billIdParser from '../../utils/billIdParser';
 
 
-const BillCard = ({ bill }) => {
+const BillCard = ({ bill, setAnimation }) => {
   const history = useHistory();
   const billType = billIdParser(bill.billId)
 
   const handleClick = () => {
-    history.push(`/bills/${bill.id}/detail`)
+    setAnimation(true);
+    setTimeout(() => {
+      history.push(`/bills/${bill.id}/detail`)
+    }, 600)
   }
 
   return (
