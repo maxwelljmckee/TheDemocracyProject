@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 
-const FollowRepsBadges = () => {
+const FollowRepsBadges = ({ setForwardAnimate }) => {
   const history = useHistory();
 
   const executiveUrl = 'https://miro.medium.com/max/1200/0*ysaO9dlLm4ElKcMK.png';
@@ -10,15 +10,24 @@ const FollowRepsBadges = () => {
   const senateUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/President_Pro_Tempore_US_Senate_Seal.svg/1200px-President_Pro_Tempore_US_Senate_Seal.svg.png';
 
   const handleExecutiveClick = () => {
-    history.push('/representatives/executive')
+    setForwardAnimate(true);
+    setTimeout(() => {
+      history.push('/representatives/executive')
+    }, 600)
   }
   
   const handleHouseClick = () => {
-    history.push('/representatives/house')
+    setForwardAnimate(true);
+    setTimeout(() => {
+      history.push('/representatives/house')
+    }, 600)
   }
   
   const handleSenateClick = () => {
-    history.push('/representatives/senate')
+    setForwardAnimate(true);
+    setTimeout(() => {
+      history.push('/representatives/senate')
+    }, 600)
   }
 
   return (

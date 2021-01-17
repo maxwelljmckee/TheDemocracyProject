@@ -21,6 +21,7 @@ const RepIndex = () => {
   const [animateCleanup, setAnimateCleanup] = useState(false);
   const [animateMainContent, setAnimateMainContent] = useState(false);
   const [forwardAnimate, setForwardAnimate] = useState(false);
+  const [backAnimate, setBackAnimate] = useState(false);
   
   // REDUX GLOBAL STATE // LOCAL STATE // PARAMS
   const { chamber } = useParams();
@@ -62,7 +63,7 @@ const RepIndex = () => {
                 setAnimateMainContent(true); //slide in main content
               }, 1000) // slide in main content
             }, 100) // fade out time
-          }, 1500) // extra loading time
+          }, 500) // extra loading time
         })
       })
     }
@@ -73,6 +74,7 @@ const RepIndex = () => {
       { !loaded ?
         <Loader animateCleanup={animateCleanup}/>
       :
+      <div className={`${ backAnimate && 'slide-out-right' }`}>
         <div className={`${forwardAnimate && 'slide-out-left'}`}>
           <HeaderMain fromLoader={chamber !== 'following'}/>
           
@@ -80,7 +82,7 @@ const RepIndex = () => {
           { chamber === 'following' ?
             <div className='rep-index__container slide-in-right'>
               <div className='rep-index__header'>
-                <BackArrow />
+                <BackArrow setAnimation={setBackAnimate} />
                 <i className="fas fa-search"></i>
                 <SectionBreak sectionTitle="See who you're following" />
               </div>
@@ -102,7 +104,7 @@ const RepIndex = () => {
             ${ !animateMainContent && 'hidden' }
             ${ animateMainContent && 'slide-in-bottom-rebound' }`}>
               <div className='rep-index__header'>
-                <BackArrow />
+                <BackArrow setAnimation={setBackAnimate} />
                 <i className="fas fa-search"></i>
                 <RepSearch
                   chamber={chamber}
@@ -127,6 +129,7 @@ const RepIndex = () => {
 
           <FooterMain fromLoader={chamber !== 'following'} />
         </div>
+      </div>
       }
     </>
   )

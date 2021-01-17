@@ -5,7 +5,7 @@ import BillCategoryBadge from './BillCategoryBadge';
 import billCategories from '../Bills/billCategories';
 
 
-const BillFollowBadges = () => {
+const BillFollowBadges = ({ setForwardAnimate }) => {
   const history = useHistory();
 
   return (
@@ -15,7 +15,13 @@ const BillFollowBadges = () => {
                 key={`category-badge-${category.shortTitle}`}
                 title={category.title}
                 imageUrl={category.imageUrl}
-                handleClick={() => history.push(`/bills/${category.shortTitle}`)} />
+                handleClick={() =>
+                  setTimeout(() => {
+                    setForwardAnimate(true)
+                    setTimeout(() => {
+                      history.push(`/bills/${category.shortTitle}`)
+                    }, 600)
+                  }, 0)} />
       })}
     </div>
   )

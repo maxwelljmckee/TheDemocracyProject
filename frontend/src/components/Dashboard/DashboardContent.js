@@ -46,7 +46,7 @@ const DashboardContent = ({ user, setForwardAnimate }) => {
           Welcome {user.firstName}
         </div>
 
-        {/* SECTIONS */}
+        {/* REPRESENTATIVES IN FOLLOWING */}
         <SectionBreak sectionTitle='Meet Your Representatives' />
         {/* for rep in followedReps, map RepCard */}
         { user.repFollows.map(repFollow => {
@@ -60,9 +60,12 @@ const DashboardContent = ({ user, setForwardAnimate }) => {
           handleClick={repCardFooterClick} />
         
 
+        {/* FOLLOW MORE REPRESENTATIVES */}
         <SectionBreak sectionTitle='Follow Other Representatives' />
         <FollowRepsBadges setForwardAnimate={setForwardAnimate} />
 
+
+        {/* BILLS IN FOLLOWING */}
         <SectionBreak sectionTitle="Bills You're Following" />
         { user.billsFollowed.length ? 
           <>
@@ -77,9 +80,13 @@ const DashboardContent = ({ user, setForwardAnimate }) => {
           <SectionFooter footerText='not following any bills' />
         }
 
+
+        {/* FOLLOW MORE BILLS */}
         <SectionBreak sectionTitle='Follow More Bills' />
         <BillFollowBadges setForwardAnimate={setForwardAnimate} />
 
+
+        {/* COMMUNITY FEATURES */}
         <SectionBreak sectionTitle='Community' />
         {/* Community Forum */}
 
