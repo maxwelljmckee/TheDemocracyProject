@@ -19,10 +19,7 @@ When you register with a zip code, The Democracy Project automatically connects 
 - Check out the mission statement in the hamburger menu for more info, or just get started browsing!
 
 
-<div>
-  <img src='./frontend/readme_gifs/login-demo.gif' />
-  
-</div>
+<img src='./frontend/readme_gifs/login-demo.gif' />
 
 
 ## Key Features
@@ -36,3 +33,23 @@ With The Democracy Project, users:
 
 
 <img src='./frontend/readme_gifs/bills-demo.gif' />
+
+
+## Roadblocks
+#### Heroku Postgres Database Limitations
+- Without a paid subscription to heroku db, you are only allowed 10,000 db rows across all of your tables. I would have liked to add many more features, such as adding individual vote-tracking and statement-tracking to every congressional representative, as well as a great deal more seed data. Given this constraint however, it is easy to see how one would run out of space very quickly, so I have resolved to defer these features to a later update of the application.
+
+
+## Future Updates
+#### Community Discussion Boards
+- Users can create and contribute to their own conversations in a dedicated community section of the platform.
+
+#### More Static Data
+- There is practically no end to the amount of data available on Congress. If this project ever becomes a production-level application, surely it will be more comprehensive in its coverage of the available data.
+- Additionally, I would like to dedicate another portion of the platform to offering basic definitions and educational resources on the terms and functions of government.
+
+#### Background Process Updates and Notifications
+- The App should automatically update its databases with the latest information from the ProPublica Congress API.
+- Users could then receive notifications of status-changes to the representatives and bills they follow.
+
+#### Honestly, the sky's the limit
