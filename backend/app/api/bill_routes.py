@@ -167,19 +167,27 @@ def post_bill_comment():
     )
     db.session.add(new_comment)
     db.session.commit()
-    return new_comment.to_dict_user()
+    return new_comment.to_dict()
 
 
 # ===== UPDATE A BILLCOMMENT =====
 @bill_routes.route('/update-comment', methods=['PUT'])
 def update_bill_comment():
-    pass
+    comment_id = request.json['commentId']
+    message = request.json['message']
+
+    comment = BillComment.query.get(int(comment_id))
+    comment.message = message
+
+    db.session.add(comment)
+    db.session.commit()
+    return comment.to_dict()
 
 
 # ===== DELETE A BILLCOMMENT =====
 @bill_routes.route('/delete-comment', methods=['DELETE'])
-def delete_bill_comment(id):
-    bill_comment = BillComment.query.get(id)
-    db.session.delete(bill_comment)
+def delete_bill_comment():
+    comment = BillComment.query.get(int(request.json['commentId']))
+    db.session.delete(comment)
     db.session.commit()
     return {'message': 'comment successfully deleted'}

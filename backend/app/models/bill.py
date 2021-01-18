@@ -66,8 +66,8 @@ class BillComment(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'user_id': self.user_id,
-            'bill_id': self.bill_id,
+            'userId': self.user_id,
+            'billId': self.bill_id,
             'message': self.message
         }
 

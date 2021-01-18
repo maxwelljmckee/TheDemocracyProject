@@ -22,6 +22,7 @@ const BillDetail = () => {
   const { billId } = useParams();
   const user = useSelector(state => state.session.user);
   const avatarUrl = billCategories[0].imageUrl;
+  const [rerender, setRerender] = useState(false);
 
   const [bill, setBill] = useState({});
   const [billType, setBillType] = useState('');
@@ -181,12 +182,14 @@ const BillDetail = () => {
 
             {/* COMMENTS SECTION */}
             <SectionBreak sectionTitle='Comments' />
-            <BillCommentForm userId={user.id} billId={bill.id} />
+            <BillCommentForm userId={user.id} billId={bill.id}
+            setRerender={setRerender} />
+            
             {bill.billComments.length ?
               <>
-              {bill.billComments.map(comment => {
-                return <BillCommentCard comment={comment} />
-              })}
+                {bill.billComments.map(comment => {
+                  return <BillCommentCard user={user} comment={comment} setRerender={setRerender} />
+                })}
               </>
             :
             <SectionFooter footerText='no comments for this bill' />

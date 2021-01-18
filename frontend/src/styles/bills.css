@@ -308,3 +308,81 @@
     border: none;
     border-radius: 20px;
 }
+
+.bill-comment-card__container {
+    width: 100%;
+    min-height: 200px;
+    margin: 20px auto;
+    padding: 30px;
+    box-sizing: border-box;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    background-color: white;
+    box-shadow: 0 0 10px 5px rgb(151, 151, 151, 0.5);
+}
+
+.bill-comment-card__header {
+    min-width: 200px;
+    font-size: 2.5em;
+    line-height: 1.3em;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(83, 83, 83);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bill-comment-card__header-group2 i {
+    padding: 0 12px;
+    color: rgb(83, 83, 83);
+}
+
+.bill-comment-card__message {
+    font-size: 2em;
+    line-height: 1.3em;
+    padding-top: 8px;
+}
+
+
+.bill-comment-update,
+.bill-comment-update textarea {
+    width: 100%;
+    min-height: 250px;
+    max-height: 450px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bill-comment-update textarea {
+    padding: 20px;
+    font-size: 2em;
+    font-family: 'Montserrat', sans-serif;
+    
+    border: 1px solid rgb(151, 151, 151);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.bill-comment-update button {
+    width: 200px;
+    margin-top: 25px;
+    padding: 18px 15px;
+    box-sizing: border-box;
+
+    font-size: 2em;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    color: white;
+    background-color: #1761a0;
+
+    border: none;
+    border-radius: 20px;
+}
