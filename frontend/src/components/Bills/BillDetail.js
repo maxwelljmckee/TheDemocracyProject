@@ -13,6 +13,8 @@ import billCategories from './billCategories';
 import BillFollowButton from '../Buttons&Icons/BillFollowButton';
 import UpvoteDownvoteCard from '../Buttons&Icons/UpvoteDownvoteCard';
 import BillApprovalChart from './BillApprovalChart';
+import BillCommentForm from './Comments/BillCommentForm';
+import BillCommentCard from './Comments/BillCommentCard';
 
 
 const BillDetail = () => {
@@ -170,14 +172,25 @@ const BillDetail = () => {
             <SectionBreak sectionTitle='Approval Ratings' />
             { bill.billVotes.length ? <BillApprovalChart billVotes={bill.billVotes} /> : <SectionFooter footerText='vote data unavailable' /> }
             
+            {/* UPVOTE DOWNVOTE CARD */}
             <SectionBreak sectionTitle='cast your vote' />
             <UpvoteDownvoteCard 
               handleUpvote={handleUpvote} 
               handleDownvote={handleDownvote}
               selected={selected} />
 
+            {/* COMMENTS SECTION */}
             <SectionBreak sectionTitle='Comments' />
-            {/* Comments */}
+            <BillCommentForm userId={user.id} billId={bill.id} />
+            {bill.billComments.length ?
+              <>
+              {bill.billComments.map(comment => {
+                return <BillCommentCard comment={comment} />
+              })}
+              </>
+            :
+            <SectionFooter footerText='no comments for this bill' />
+            }
 
             <SectionBreak />
           </div>
