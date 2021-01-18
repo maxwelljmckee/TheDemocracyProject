@@ -32,7 +32,7 @@ const HamburgerMenu = ({ showHamburger, setShowHamburger, hideHamburger, setHide
         <HamburgerCard text='Mission' 
         handleClick={() => history.push('/mission')} />
 
-        <HamburgerCard text='Glossary of Terms' 
+        <HamburgerCard text='TDP Academy' 
         handleClick={() => history.push('/glossary')} />
 
         <HamburgerCard text='Settings' 

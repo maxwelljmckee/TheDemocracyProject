@@ -23,9 +23,14 @@ export default [
       imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxw_LIpvQUkMyu1-q1W4iznLVW5MW_-VJi8w&usqp=CAU'
     },
     {
+      shortTitle: 'security',
+      title: 'National Security & Law Enforcement',
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNjZ3HR4b6U6Q-ZSdT7uzwtOL3wvMaRDXc6g&usqp=CAU'
+    },
+    {
       shortTitle: 'civil-rights',
       title: 'Civil Rights & Immigration',
-      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Toicon-icon-pictogram-equal.svg/1200px-Toicon-icon-pictogram-equal.svg.png'
+      imageUrl: 'https://www.pinclipart.com/picdir/big/37-372610_considered-one-of-the-most-integral-organizations-in.png'
     },
     {
       shortTitle: 'health',
@@ -41,11 +46,6 @@ export default [
       shortTitle: 'international',
       title: 'International Affairs',
       imageUrl: 'https://vectorflags.s3-us-west-2.amazonaws.com/flags/org-un-circle-01.png'
-    },
-    {
-      shortTitle: 'security',
-      title: 'National Security & Law Enforcement',
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNjZ3HR4b6U6Q-ZSdT7uzwtOL3wvMaRDXc6g&usqp=CAU'
     },
     {
       shortTitle: 'taxes',

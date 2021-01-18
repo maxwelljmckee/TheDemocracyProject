@@ -1,0 +1,6 @@
+.academy-splash__container,
+.settings__container {
+    width: 100%;
+    position: relative;
+    top: 9vh;
+}

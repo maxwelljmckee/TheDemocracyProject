@@ -13,6 +13,8 @@ import SplashAbout from './components/Splash/SplashAbout';
 import DashboardContent from './components/Dashboard/DashboardContent';
 import DashboardLayout from './components/Dashboard/DashboardLayout';
 import Mission from './components/Dashboard/Mission';
+import Settings from './components/Dashboard/Settings';
+import AcademySplash from './components/Academy/AcademySplash';
 
 // REPRESENTATIVE COMPONENTS
 import RepIndex from './components/Representatives/RepIndex';
@@ -72,6 +74,12 @@ function App() {
         </Route>
         <Route path='/mission'>
           { user ? <Mission /> : <Redirect to='/' /> }
+        </Route>
+        <Route path='/settings'>
+          { user ? <Settings /> : <Redirect to='/' /> }
+        </Route>
+        <Route path='/academy'>
+          { user ? <AcademySplash /> : <Redirect to='/' /> }
         </Route>
 
 

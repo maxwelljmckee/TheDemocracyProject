@@ -110,14 +110,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 
-    height: 5vh;
+    min-height: 5vh;
     margin: 15px 0;
+    padding: 10px 20px;
     background-color: #1761a0;
     box-shadow: 0 0 10px 5px rgb(151, 151, 151, 0.5);
 
     font-family: 'Montserrat', sans-serif;
     font-size: 2.8em;
+    line-height: 1.3em;
+    text-align: center;
     text-transform: uppercase;
     color: white;
 }
