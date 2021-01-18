@@ -19,7 +19,7 @@ When you register with a zip code, The Democracy Project automatically connects 
 - Check out the mission statement in the hamburger menu for more info, or just get started browsing!
 
 <div>
-  <img src='./frontend/readme_gifs/rep-follow-demo.mp4' />
+  <img src='./frontend/readme_gifs/login-demo.mp4' />
 </div>
 
 
