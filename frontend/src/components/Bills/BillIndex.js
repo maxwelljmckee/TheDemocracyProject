@@ -55,35 +55,34 @@ const BillIndex = () => {
     { !loaded ?
         <Loader animateCleanup={animateCleanup} />
       :
-      <div className={`
-      ${backAnimate && 'slide-out-right'}
-      ${forwardAnimate && 'slide-out-left'}`}>
-
-        <HeaderMain fromLoader={true} />
-        { bills &&
-          <div className={`bill-index__container
-          ${!animateMainContent && 'hidden'}
-          ${animateMainContent && 'slide-in-bottom-rebound'}`}>
-            <BackArrow />
-            <div className='bill-index__header'>
-              <img className='bill-index__image' src={categoryObj.imageUrl} alt='category image' />
+      <div className={`${backAnimate && 'slide-out-right'}`}>
+          <div className={`${forwardAnimate && 'slide-out-left'}`}>
+          <HeaderMain fromLoader={true} />
+          { bills &&
+            <div className={`bill-index__container
+            ${!animateMainContent && 'hidden'}
+            ${animateMainContent && 'slide-in-bottom-rebound'}`}>
+              <BackArrow setAnimation={setBackAnimate} />
+              <div className='bill-index__header'>
+                <img className='bill-index__image' src={categoryObj.imageUrl} alt='category image' />
+              </div>
+              <BillSearch
+                category={categoryObj}
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm} />
+              <div className='bill-index__body'>
+                {bills.map(bill => {
+                  return <BillCard 
+                          key={`bill-${bill.id}`}
+                          bill={bill}
+                          setAnimation={setForwardAnimate} />
+                })}
+                <SectionBreak />
+              </div>
             </div>
-            <BillSearch
-              category={categoryObj}
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm} />
-            <div className='bill-index__body'>
-              {bills.map(bill => {
-                return <BillCard 
-                        key={`bill-${bill.id}`}
-                        bill={bill}
-                        setAnimation={setForwardAnimate} />
-              })}
-              <SectionBreak />
-            </div>
-          </div>
-        }
-        <FooterMain fromLoader={true} />
+          }
+          <FooterMain fromLoader={true} />
+        </div>
       </div>
     }
     </>

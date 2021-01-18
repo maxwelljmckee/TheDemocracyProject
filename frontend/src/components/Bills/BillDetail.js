@@ -23,7 +23,8 @@ const BillDetail = () => {
 
   const [bill, setBill] = useState({});
   const [billType, setBillType] = useState('');
-  const [backAnimate, setBackAnimate] = useState(false)
+  const [forwardAnimate, setForwardAnimate] = useState(false);
+  const [backAnimate, setBackAnimate] = useState(false);
   // const [chartRender, setChartRender] = useState(false);
   
   
@@ -120,59 +121,66 @@ const BillDetail = () => {
       <HeaderMain fromLoader={false} />
       { billType &&
       <div className={`${backAnimate && 'slide-out-right'}`}>
-        <div className='bill-detail__container slide-in-right'>
+        <div className={`${forwardAnimate && 'slide-out-left'}`}>
+          <div className='bill-detail__container slide-in-right'>
 
-          {/* HEADER */}
-          <BackArrow setAnimation={setBackAnimate} />
-          <div className='bill-detail__avatar'>
-            <img  src={avatarUrl} alt='bill' />
+            {/* HEADER */}
+            <BackArrow setAnimation={setBackAnimate} />
+            <div className='bill-detail__avatar'>
+              <img  src={avatarUrl} alt='bill' />
+            </div>
+            <div className='bill-detail__bill-type'>
+              <span className='bill-type'>{billType[0]} {billType[1]}</span>
+            </div>
+
+            {/* FOLLOW BUTTON */}
+            <div className='bill-detail__follow'>
+              <BillFollowButton user={user} bill={bill} />
+            </div>
+
+            {/* TITLE */}
+            <SectionBreak sectionTitle='Title' />
+            <BlankCard text={bill.shortTitle} />
+
+            {/* SUMMARY */}
+            <SectionBreak sectionTitle='Summary' />
+            <BlankCard text={bill.shortSummary || 'Summary not available'} />
+            <SectionFooter 
+              footerText='See Full Title and Summary' 
+              handleClick={() => setTimeout(() => {
+                setForwardAnimate(true);
+                setTimeout(() => {
+                  history.push(`/bills/${billId}/full-detail`)
+                }, 600)
+              }, 0)} />
+
+            {/* PRIMARY SUBJECT (TOPIC) */}
+            <SectionBreak sectionTitle='topic' />
+            <BlankCard text={bill.primarySubject} />
+
+            {/* COMMITTEES */}
+            <SectionBreak sectionTitle='Committees' />
+            <BlankCard text={bill.committees} />
+
+            {/* LATEST MAJOR ACTION */}
+            <SectionBreak sectionTitle='latest major action' />
+            <BlankCard text={bill.latestMajorAction} subtext={`Action date: ${bill.latestMajorActionDate.split(' ').slice(0, 4).join(' ')}`} />
+
+            {/* VOTING STATS AND VOTE BUTTONS */}
+            <SectionBreak sectionTitle='Approval Ratings' />
+            { bill.billVotes.length ? <BillApprovalChart billVotes={bill.billVotes} /> : <SectionFooter footerText='vote data unavailable' /> }
+            
+            <SectionBreak sectionTitle='cast your vote' />
+            <UpvoteDownvoteCard 
+              handleUpvote={handleUpvote} 
+              handleDownvote={handleDownvote}
+              selected={selected} />
+
+            <SectionBreak sectionTitle='Comments' />
+            {/* Comments */}
+
+            <SectionBreak />
           </div>
-          <div className='bill-detail__bill-type'>
-            <span className='bill-type'>{billType[0]} {billType[1]}</span>
-          </div>
-
-          {/* FOLLOW BUTTON */}
-          <div className='bill-detail__follow'>
-            <BillFollowButton user={user} bill={bill} />
-          </div>
-
-          {/* TITLE */}
-          <SectionBreak sectionTitle='Title' />
-          <BlankCard text={bill.shortTitle} />
-
-          {/* SUMMARY */}
-          <SectionBreak sectionTitle='Summary' />
-          <BlankCard text={bill.shortSummary || 'Summary not available'} />
-          <SectionFooter 
-            footerText='See Full Title and Summary' 
-            handleClick={() => history.push(`/bills/${billId}/full-detail`)} />
-
-          {/* PRIMARY SUBJECT (TOPIC) */}
-          <SectionBreak sectionTitle='topic' />
-          <BlankCard text={bill.primarySubject} />
-
-          {/* COMMITTEES */}
-          <SectionBreak sectionTitle='Committees' />
-          <BlankCard text={bill.committees} />
-
-          {/* LATEST MAJOR ACTION */}
-          <SectionBreak sectionTitle='latest major action' />
-          <BlankCard text={bill.latestMajorAction} subtext={`Action date: ${bill.latestMajorActionDate.split(' ').slice(0, 4).join(' ')}`} />
-
-          {/* VOTING STATS AND VOTE BUTTONS */}
-          <SectionBreak sectionTitle='Approval Ratings' />
-          { bill.billVotes.length ? <BillApprovalChart billVotes={bill.billVotes} /> : <SectionFooter footerText='vote data unavailable' /> }
-          
-          <SectionBreak sectionTitle='cast your vote' />
-          <UpvoteDownvoteCard 
-            handleUpvote={handleUpvote} 
-            handleDownvote={handleDownvote}
-            selected={selected} />
-
-          <SectionBreak sectionTitle='Comments' />
-          {/* Comments */}
-
-          <SectionBreak />
         </div>
       </div>
       }

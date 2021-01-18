@@ -15,6 +15,7 @@ const BillDetail = () => {
   const [bill, setBill] = useState({});
   const [billType, setBillType] = useState('');
   const avatarUrl = billCategories[0].imageUrl
+  const [backAnimate, setBackAnimate] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -31,8 +32,9 @@ const BillDetail = () => {
     <>
       <HeaderMain fromLoader={false} />
       { billType &&
-        <div className='bill-detail__container'>
-          <BackArrow />
+      <div className={`${backAnimate && 'slide-out-right'}`}>
+        <div className='bill-detail__container slide-in-right'>
+          <BackArrow setAnimation={setBackAnimate} />
           <div className='bill-detail__avatar'>
             <img src={avatarUrl} alt='bill' />
           </div>
@@ -48,6 +50,7 @@ const BillDetail = () => {
 
           <SectionBreak />
         </div>
+      </div>
       }
       <FooterMain fromLoader={false} />
     </>

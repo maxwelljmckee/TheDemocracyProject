@@ -29,7 +29,7 @@ const DashboardLayout = () => {
             setAnimateMainContent(true); //slide in main content
           }, 1000) // slide in main content
         }, 100) // fade out time
-      }, 1500) // extra loading time
+      }, 1800) // extra loading time
     })
   }, [])
   
