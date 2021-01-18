@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import BillCommentForm from './BillCommentForm';
 
 
 const BillCommentCard = ({ user, comment }) => {

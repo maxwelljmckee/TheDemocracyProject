@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { fetchBillsByCategory } from '../../store/bills';
 import Loader from '../Loader/Loader';
@@ -17,7 +17,6 @@ const BillIndex = () => {
   const { category } = useParams();
   const categoryObj = billCategories.filter(item => item.shortTitle === category)[0]
 
-  const history = useHistory();
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
   const [animateCleanup, setAnimateCleanup] = useState(false);
@@ -36,7 +35,7 @@ const BillIndex = () => {
           }, 1000) // slide in main content
         }, 100) // fade out time
       }, 500)}) // extra loading time
-  }, [])
+  }, [category, dispatch])
 
   const [searchTerm, setSearchTerm] = useState('');
   let bills = useSelector(state => state.bills);

@@ -1,5 +1,4 @@
 import React from 'react';
-import HamburgerMenu from './HamburgerMenu';
 
 
 const HamburgerCard = ({ text, handleClick }) => {

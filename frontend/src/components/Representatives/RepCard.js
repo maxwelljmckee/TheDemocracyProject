@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import RepFollowButton from '../Buttons&Icons/RepFollowButton';
+// import RepFollowButton from '../Buttons&Icons/RepFollowButton';
 
 
 const RepCard = ({ user, rep, setForwardAnimate }) => {
@@ -20,6 +20,8 @@ const RepCard = ({ user, rep, setForwardAnimate }) => {
     case 'Pres.' || 'VP':
       chamber = 'Executive';
       break;
+    default:
+      chamber = '';
   }
 
   const handleClick = (() => {

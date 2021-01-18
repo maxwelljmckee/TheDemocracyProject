@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Redirect, useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 
 import { loginUser } from '../../../store/session';
 import logo_img from '../../../static/image-only_logo.png';

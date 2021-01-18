@@ -21,10 +21,10 @@ const SignUpForm = () => {
   const [zipCode, setZipCode] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [passwordMatch, setPasswordMatch] = useState(false)
   const [isRegistered, setIsRegistered] = useState(null);
-
+  
   const [errors, setErrors] = useState([]);
+  // const [passwordMatch, setPasswordMatch] = useState(false);
   // const [formValidated, setFormValidated] = useState(false);
 
   // const handleValidations = () => {
@@ -62,7 +62,7 @@ const SignUpForm = () => {
   }
 
   useEffect(() => {
-    if (isRegistered !== null) handleSubmit()
+    if (isRegistered !== null) handleSubmit();
   }, [isRegistered])
 
   return (

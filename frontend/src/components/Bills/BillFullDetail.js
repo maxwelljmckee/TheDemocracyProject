@@ -26,7 +26,7 @@ const BillDetail = () => {
       setBill(data);
       setBillType(billIdParser(data.billId));
     })()
-  }, [])
+  }, [billId])
 
   return (
     <>

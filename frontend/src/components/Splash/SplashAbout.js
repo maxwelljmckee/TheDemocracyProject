@@ -25,7 +25,7 @@ const SplashAbout = () => {
         }, 900)
       }, 900)
     }, 900)
-  }, [])
+  }, [history])
 
 
   return (

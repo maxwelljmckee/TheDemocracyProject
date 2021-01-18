@@ -25,7 +25,7 @@ const HeaderMain = ({ fromLoader }) => {
         }, 150) //slide in right - hamburger
       }, 200); //slide in left - logo
     }
-  }, [])
+  }, [fromLoader])
 
   const handleHomeRedirect = () => {
     history.push('/dashboard');

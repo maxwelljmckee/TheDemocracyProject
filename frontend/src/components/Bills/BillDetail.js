@@ -22,13 +22,11 @@ const BillDetail = () => {
   const { billId } = useParams();
   const user = useSelector(state => state.session.user);
   const avatarUrl = billCategories[0].imageUrl;
-  const [rerender, setRerender] = useState(false);
 
   const [bill, setBill] = useState({});
   const [billType, setBillType] = useState('');
   const [forwardAnimate, setForwardAnimate] = useState(false);
   const [backAnimate, setBackAnimate] = useState(false);
-  // const [chartRender, setChartRender] = useState(false);
   
   
   // ON PAGE LOAD, PARSE VOTE INFO FROM USER OBJECT && FETCH BILL DATA FROM BACKEND USING BILL-ID PARAM
@@ -182,16 +180,14 @@ const BillDetail = () => {
 
             {/* COMMENTS SECTION */}
             <SectionBreak sectionTitle='Comments' />
-            <BillCommentForm userId={user.id} billId={bill.id}
-            setRerender={setRerender} />
+            <BillCommentForm userId={user.id} billId={bill.id} />
             
             {bill.billComments.length ?
               <>
                 {bill.billComments.map(comment => {
                   return <BillCommentCard 
                           key={`bill-comment-${comment.id}`} 
-                          user={user} comment={comment}
-                          setRerender={setRerender} />
+                          user={user} comment={comment} />
                 })}
               </>
             :

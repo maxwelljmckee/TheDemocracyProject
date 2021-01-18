@@ -28,7 +28,9 @@ import BillsFollowing from './components/Bills/BillsFollowing';
 
 // STORE DISPATCH FUNCTIONS
 import { deleteSession } from './store/session';
-import ComponentWithWrapper from './components/TestWrapper'
+
+// TEST COMPONENTS
+// import ComponentWithWrapper from './components/TestWrapper'
 
 
 
@@ -108,6 +110,10 @@ function App() {
 
 
         {/* ===== COMMUNITY ROUTES ===== */}
+
+
+
+        {/* ===== TEST ROUTES ===== */}
         {/* <Route path='/test'>
           <ComponentWithWrapper />
         </Route> */}

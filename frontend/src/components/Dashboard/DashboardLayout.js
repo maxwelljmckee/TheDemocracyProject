@@ -31,7 +31,7 @@ const DashboardLayout = () => {
         }, 100) // fade out time
       }, 1800) // extra loading time
     })
-  }, [])
+  }, [dispatch])
   
   return (
     <>
