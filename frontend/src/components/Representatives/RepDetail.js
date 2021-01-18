@@ -208,10 +208,10 @@ const RepDetail = () => {
               <VotesPctChart rep={rep} />
             </div>
 
-            <SectionBreak sectionTitle='Approval Ratings' />
+            <SectionBreak sectionTitle='Approval Ratings' rep={rep} />
             {rep.repVotes.length ? <RepApprovalChart repVotes={rep.repVotes} /> : <SectionFooter footerText='vote data unavailable' />}
 
-            <SectionBreak sectionTitle='cast your vote' />
+            <SectionBreak sectionTitle='cast your vote' rep={rep} />
             <UpvoteDownvoteCard
               handleUpvote={handleUpvote}
               handleDownvote={handleDownvote}

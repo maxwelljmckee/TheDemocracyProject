@@ -115,7 +115,7 @@
     min-height: 5vh;
     margin: 15px 0;
     padding: 10px 20px;
-    background-color: #1761a0;
+    /* background-color: #1761a0; */
     box-shadow: 0 0 10px 5px rgb(151, 151, 151, 0.5);
 
     font-family: 'Montserrat', sans-serif;
