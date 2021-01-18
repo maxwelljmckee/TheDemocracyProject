@@ -64,7 +64,9 @@ const HeaderMain = ({ fromLoader }) => {
 
           <HamburgerMenu 
           showHamburger={showHamburger}
-          hideHamburger={hideHamburger} />
+          setShowHamburger={setShowHamburger}
+          hideHamburger={hideHamburger}
+          setHideHamburger={setHideHamburger} />
 
         </div>
       }

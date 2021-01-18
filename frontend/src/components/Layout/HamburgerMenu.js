@@ -1,25 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import HamburgerCard from './HamburgerCard';
 
 
-const HamburgerMenu = ({ showHamburger, hideHamburger }) => {
+const HamburgerMenu = ({ showHamburger, setShowHamburger, hideHamburger, setHideHamburger }) => {
   const history = useHistory();
+  const [forwardAnimate, setForwardAnimate] = useState(false);
+
+  // const handleHome = () => {
+  //   setShowHamburger(!showHamburger);
+  //   setHideHamburger(!hideHamburger);
+  //   setTimeout(() => {
+  //     setForwardAnimate(true);
+  //     setTimeout(() => {
+  //       history.push('/dashboard');
+  //     }, 600)
+  //   }, 500)
+  // }
 
   return (
-    <div className={`hamburger-menu 
-    ${hideHamburger && 'scale-out-tr'}
-    ${showHamburger && 'scale-in-tr'}
-    ${!showHamburger && 'hidden'}`}>
+    // <div className={`${forwardAnimate && 'slide-out-left'}`}>
+      <div className={`hamburger-menu 
+      ${hideHamburger && 'scale-out-tr'}
+      ${showHamburger && 'scale-in-tr'}
+      ${!showHamburger && 'hidden'}`}>
 
-      <HamburgerCard text='Settings' 
-      handleClick={() => history.push('/logout')} />
+        <HamburgerCard text='Home' 
+        handleClick={() => history.push('/dashboard')} />
 
-      <HamburgerCard text='Logout' 
-      handleClick={() => history.push('/logout')} />
+        <HamburgerCard text='Mission' 
+        handleClick={() => history.push('/mission')} />
 
-    </div>
+        <HamburgerCard text='Glossary of Terms' 
+        handleClick={() => history.push('/glossary')} />
+
+        <HamburgerCard text='Settings' 
+        handleClick={() => history.push('/settings')} />
+
+        <HamburgerCard text='Logout' 
+        handleClick={() => history.push('/logout')} />
+
+      </div>
+    // </div>
   )
 }
 

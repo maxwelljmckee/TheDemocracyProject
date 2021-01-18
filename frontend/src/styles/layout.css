@@ -70,7 +70,8 @@
     justify-content: center;
     align-items: center;
 
-    font-size: 4em;
+    font-size: 3.5em;
+    text-transform: uppercase;
     color: rgb(71, 71, 71);
 
     box-shadow: 0 0 10px 5px rgb(151, 151, 151, 0.5)

@@ -70,7 +70,8 @@ const DashboardContent = ({ user, animate }) => {
         { user.billsFollowed.length ? 
           <>
             { user.billsFollowed.slice(0, 3).map(bill => {
-              return <BillCard bill={bill} setAnimation={setForwardAnimate} />
+              return <BillCard bill={bill} setAnimation={setForwardAnimate}
+              key={`billcard-${bill.id}`} />
             })}
             <SectionFooter 
               footerText='See All Following'
