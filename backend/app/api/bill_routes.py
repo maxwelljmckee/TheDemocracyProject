@@ -158,19 +158,26 @@ def delete_bill_follow():
 
 
 # ===== POST A BILLCOMMENT =====
-@bill_routes.route('/bill-comments', methods=['POST'])
+@bill_routes.route('/post-comment', methods=['POST'])
 def post_bill_comment():
-    pass
+    new_comment = BillComment(
+        user_id=request.json['userId'],
+        bill_id=request.json['billId'],
+        message=request.json['message']
+    )
+    db.session.add(new_comment)
+    db.session.commit()
+    return new_comment.to_dict_user()
 
 
 # ===== UPDATE A BILLCOMMENT =====
-@bill_routes.route('/bill-comments', methods=['PUT'])
+@bill_routes.route('/update-comment', methods=['PUT'])
 def update_bill_comment():
     pass
 
 
 # ===== DELETE A BILLCOMMENT =====
-@bill_routes.route('/bill-comments/<int:id>', methods=['DELETE'])
+@bill_routes.route('/delete-comment', methods=['DELETE'])
 def delete_bill_comment(id):
     bill_comment = BillComment.query.get(id)
     db.session.delete(bill_comment)

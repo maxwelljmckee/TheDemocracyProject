@@ -47,7 +47,7 @@ const Mission = () => {
           <img src='https://www.pngjoy.com/pngm/300/5670893_solution-icon-solution-green-icon-png-transparent-png.png' alt='roadblock' />
         </div>
         <SectionBreak sectionTitle='The Solution' />
-        <BlankCard text="With The Democracy Project, you have a realtime connection to your elected officials. You can follow representatives and active bills, cast your approval, and engage in civic discourse on our discussion boards. Citizenship has never been so easy." />
+        <BlankCard text="With The Democracy Project, you have a realtime connection to your elected officials. You can follow representatives and active bills, upvote/downvote on the people and the issues, and engage in civic discourse on our discussion boards. Citizenship has never been so easy." />
 
         <div className='mission__icon'>
           <img src='https://www.pinclipart.com/picdir/big/44-448449_information-symbol-icon-driverlayer-search-engine-information-icon.png' alt='roadblock' />

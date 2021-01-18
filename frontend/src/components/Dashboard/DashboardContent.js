@@ -88,7 +88,7 @@ const DashboardContent = ({ user, animate }) => {
 
 
         {/* COMMUNITY FEATURES */}
-        <SectionBreak sectionTitle='Community' />
+        <SectionBreak sectionTitle='Community Coming Soon' />
         {/* Community Forum */}
 
         <SectionBreak />

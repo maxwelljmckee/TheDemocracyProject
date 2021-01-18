@@ -271,19 +271,40 @@
     box-shadow: 0 0 10px 5px rgba(151, 151, 151, 0.5);
 }
 
-.bill-comment-form__container form,
-.bill-comment-form__container form textarea {
+.bill-comment-form,
+.bill-comment-form textarea {
     width: 100%;
     min-height: 250px;
     max-height: 450px;
     box-sizing: border-box;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bill-comment-form textarea {
+    padding: 20px;
+    font-size: 1.1em;
+    font-family: 'Montserrat', sans-serif;
+    
     border: 1px solid rgb(151, 151, 151);
     border-radius: 30px;
 }
 
-.bill-comment-form__container form textarea {
-    padding: 15px;
-    font-size: 1.1em;
+.bill-comment-form button {
+    width: 200px;
+    margin-top: 25px;
+    padding: 18px 15px;
+    box-sizing: border-box;
+
+    /* font-size: 1.1em; */
     font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    color: white;
+    background-color: #1761a0;
+
+    border: none;
+    border-radius: 20px;
 }
