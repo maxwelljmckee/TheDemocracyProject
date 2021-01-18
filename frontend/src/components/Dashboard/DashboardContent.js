@@ -12,10 +12,10 @@ import RepCard from '../Representatives/RepCard';
 import AnimationWrapper from '../Layout/AnimationWrapper';
 
 
-const DashboardContent = ({ user, setForwardAnimate }) => {
+const DashboardContent = ({ user, animate }) => {
   const history = useHistory();
-
-  // const [forwardAnimate, setForwardAnimate] = useState(false);
+  // const [animate, setAnimate] = useState(false)
+  const [forwardAnimate, setForwardAnimate] = useState(false);
   
   const repCardFooterClick = () => {
     setForwardAnimate(true);
@@ -33,10 +33,10 @@ const DashboardContent = ({ user, setForwardAnimate }) => {
 
 
   return (
-    // <div className={`${ forwardAnimate && 'slide-out-left'}`}>
-      // <div className={`dashboard__container 
-      // ${ !animate && 'hidden' }
-      // ${ animate && 'slide-in-bottom-rebound'}`} >
+    <div className={`${ forwardAnimate && 'slide-out-left'}`}>
+      <div className={`dashboard__container 
+      ${ !animate && 'hidden' }
+      ${ animate && 'slide-in-bottom-rebound'}`} >
         <>
         {/* HEADER */}
         <div className='dashboard__icon-container'>
@@ -70,7 +70,7 @@ const DashboardContent = ({ user, setForwardAnimate }) => {
         { user.billsFollowed.length ? 
           <>
             { user.billsFollowed.slice(0, 3).map(bill => {
-              return <BillCard bill={bill} />
+              return <BillCard bill={bill} setAnimation={setForwardAnimate} />
             })}
             <SectionFooter 
               footerText='See All Following'
@@ -92,15 +92,15 @@ const DashboardContent = ({ user, setForwardAnimate }) => {
 
         <SectionBreak />
         </>
-      // </div>
-    // </div>
+      </div>
+    </div>
   )
 }
 
 
-const DashboardWithAnimation = () => {
-  return <AnimationWrapper Component={DashboardContent} />
-}
+// const DashboardWithAnimation = () => {
+//   return <AnimationWrapper Component={DashboardContent} />
+// }
 
 
-export default DashboardWithAnimation;
+export default DashboardContent;

@@ -23,6 +23,7 @@ const BillDetail = () => {
 
   const [bill, setBill] = useState({});
   const [billType, setBillType] = useState('');
+  const [backAnimate, setBackAnimate] = useState(false)
   // const [chartRender, setChartRender] = useState(false);
   
   
@@ -118,10 +119,11 @@ const BillDetail = () => {
     <>
       <HeaderMain fromLoader={false} />
       { billType &&
-        <div className='bill-detail__container'>
+      <div className={`${backAnimate && 'slide-out-right'}`}>
+        <div className='bill-detail__container slide-in-right'>
 
           {/* HEADER */}
-          <BackArrow />
+          <BackArrow setAnimation={setBackAnimate} />
           <div className='bill-detail__avatar'>
             <img  src={avatarUrl} alt='bill' />
           </div>
@@ -172,6 +174,7 @@ const BillDetail = () => {
 
           <SectionBreak />
         </div>
+      </div>
       }
       <FooterMain fromLoader={false} />
     </>

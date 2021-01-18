@@ -11,6 +11,7 @@ import SplashAbout from './components/Splash/SplashAbout';
 
 // DASHBOARD COMPONENTS
 import DashboardContent from './components/Dashboard/DashboardContent';
+import DashboardLayout from './components/Dashboard/DashboardLayout';
 
 // REPRESENTATIVE COMPONENTS
 import RepIndex from './components/Representatives/RepIndex';
@@ -66,7 +67,7 @@ function App() {
 
         {/* ===== USER DASHBOARD ROUTES ===== */}
         <Route path='/dashboard'>
-          { user ? <DashboardContent /> : <Redirect to='/' /> }
+          { user ? <DashboardLayout /> : <Redirect to='/' /> }
         </Route>
 
 
