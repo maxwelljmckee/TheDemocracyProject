@@ -55,7 +55,7 @@ class User(db.Model, UserMixin):
             'zipCode': self.zip_code,
             'isRegisteredVoter': self.is_registered_voter,
             'billVotes': [vote.to_dict() for vote in self.bill_votes],
-            'billComments': [comment.to_dict() for comment
+            'billComments': [comment.to_dict_bill() for comment
                              in self.bill_comments],
             # 'threads': self.threads,
             # 'threadComments': self.thread_comments,

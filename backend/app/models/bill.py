@@ -63,18 +63,18 @@ class BillComment(db.Model):
                                backref='parent'
                                )
 
-    def to_dict(self):
+    def to_dict_user(self):
         return {
             'id': self.id,
-            'userId': self.user_id,
+            'user': self.user.to_dict(),
             'billId': self.bill_id,
             'message': self.message
         }
 
-    def to_dict_full(self):
+    def to_dict_bill(self):
         return {
             'id': self.id,
-            'user': self.user.to_dict(),
+            'userId': self.user_id,
             'bill': self.bill.to_dict(),
             'message': self.message
         }
@@ -163,7 +163,7 @@ class Bill(db.Model):
             'latestMajorAction': self.latest_major_action,
             'clicks': self.clicks,
             'billVotes': [vote.to_dict() for vote in self.bill_votes],
-            'billComments': [comment.to_dict()
+            'billComments': [comment.to_dict_user()
                              for comment in self.bill_comments],
             'followers': [user.to_dict() for user in self.followers]
         }

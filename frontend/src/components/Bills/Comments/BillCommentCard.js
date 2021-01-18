@@ -39,10 +39,10 @@ const BillCommentCard = ({ user, comment }) => {
     <div className='bill-comment-card__container'>
       <div className='bill-comment-card__header'>
         <div className='bill-comment-card__header-group1'>
-          {user.firstName} {user.lastName}
+          {comment.user.firstName} {comment.user.lastName}
         </div>
         {console.log(comment.userId)}
-        { user.id === comment.userId &&
+        { user.id === comment.user.id &&
           <div className='bill-comment-card__header-group2'>
               <i className="far fa-edit" onClick={handleEdit}></i>
               <i className="far fa-trash-alt" onClick={handleDelete}></i>

@@ -167,7 +167,7 @@ def post_bill_comment():
     )
     db.session.add(new_comment)
     db.session.commit()
-    return new_comment.to_dict()
+    return new_comment.to_dict_user()
 
 
 # ===== UPDATE A BILLCOMMENT =====
@@ -181,7 +181,7 @@ def update_bill_comment():
 
     db.session.add(comment)
     db.session.commit()
-    return comment.to_dict()
+    return comment.to_dict_user()
 
 
 # ===== DELETE A BILLCOMMENT =====
