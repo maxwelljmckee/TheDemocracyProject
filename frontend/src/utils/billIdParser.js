@@ -33,6 +33,8 @@ export default (billId) => {
     case 'sjres':
       billType = 'Senate Joint Resolution'
       break
+    default:
+      return
   }
 
   return [billType, billNum]

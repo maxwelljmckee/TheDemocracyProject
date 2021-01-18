@@ -11,7 +11,7 @@ const BillFollowButton = ({ user, bill }) => {
         setIsFollowing(true)
       }
     })
-  }, [])
+  }, [bill.billId, user.billsFollowed])
 
   const handleFollow = async () => {
     setIsFollowing(!isFollowing);

@@ -13,7 +13,7 @@ const RepFollowButton = ({ user, rep }) => {
         if (follow.isConstituent) setIsConstituent(true)
       }
     })
-  }, [])
+  }, [rep.id, user.repFollows])
 
   const handleFollow = async () => {
     setIsFollowing(!isFollowing);

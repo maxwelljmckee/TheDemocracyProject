@@ -10,7 +10,7 @@ import SplashMain from './components/Splash/SplashMain';
 import SplashAbout from './components/Splash/SplashAbout';
 
 // DASHBOARD COMPONENTS
-import DashboardContent from './components/Dashboard/DashboardContent';
+// import DashboardContent from './components/Dashboard/DashboardContent';
 import DashboardLayout from './components/Dashboard/DashboardLayout';
 import Mission from './components/Dashboard/Mission';
 import Settings from './components/Dashboard/Settings';
@@ -108,9 +108,9 @@ function App() {
 
 
         {/* ===== COMMUNITY ROUTES ===== */}
-        <Route path='/test'>
+        {/* <Route path='/test'>
           <ComponentWithWrapper />
-        </Route>
+        </Route> */}
 
 
       </Switch>

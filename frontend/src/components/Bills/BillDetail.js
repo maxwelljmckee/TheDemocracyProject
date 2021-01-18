@@ -188,7 +188,10 @@ const BillDetail = () => {
             {bill.billComments.length ?
               <>
                 {bill.billComments.map(comment => {
-                  return <BillCommentCard user={user} comment={comment} setRerender={setRerender} />
+                  return <BillCommentCard 
+                          key={`bill-comment-${comment.id}`} 
+                          user={user} comment={comment}
+                          setRerender={setRerender} />
                 })}
               </>
             :

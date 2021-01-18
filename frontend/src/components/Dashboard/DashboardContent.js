@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 import SectionBreak from '../Layout/SectionBreak';
 import SectionFooter from '../Layout/SectionFooter';
@@ -9,7 +8,7 @@ import FollowRepsBadges from './FollowRepsBadges';
 import BillFollowBadges from './BillFollowBadges';
 import BillCard from '../Bills/BillCard';
 import RepCard from '../Representatives/RepCard';
-import AnimationWrapper from '../Layout/AnimationWrapper';
+// import AnimationWrapper from '../Layout/AnimationWrapper';
 
 
 const DashboardContent = ({ user, animate }) => {

@@ -15,7 +15,6 @@ const SignUpForm = () => {
   const [transition, setTransition] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
 
-  const [errors, setErrors] = useState([]);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -24,13 +23,15 @@ const SignUpForm = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordMatch, setPasswordMatch] = useState(false)
   const [isRegistered, setIsRegistered] = useState(null);
-  const [formValidated, setFormValidated] = useState(false);
 
-  const handleValidations = () => {
-    if (firstName && lastName && email && zipCode && passwordMatch()) {
-      setFormValidated(true)
-    }
-  }
+  const [errors, setErrors] = useState([]);
+  // const [formValidated, setFormValidated] = useState(false);
+
+  // const handleValidations = () => {
+  //   if (firstName && lastName && email && zipCode && passwordMatch()) {
+  //     setFormValidated(true)
+  //   }
+  // }
 
   const handleClick = async (e) => {
     e.preventDefault();
