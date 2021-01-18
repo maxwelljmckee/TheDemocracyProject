@@ -18,10 +18,15 @@ When you register with a zip code, The Democracy Project automatically connects 
 - Login as a Demo User or register for an account
 - Check out the mission statement in the hamburger menu for more info, or just get started browsing!
 
+<<<<<<< HEAD
 <div>
   <img src='./frontend/readme_gifs/login-demo.gif' />
   <img src='./frontend/readme_gifs/bills-demo.gif' />
 </div>
+=======
+
+<img src='./frontend/readme_gifs/login-demo.mp4' />
+>>>>>>> dcd889f7497a107b6ba0ffab27899eb532134755
 
 
 ## Key Features
