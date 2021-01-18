@@ -43,7 +43,7 @@ const RepIndex = () => {
   }
 
   if (selectValue) {
-    reps = reps.filter(rep => rep.stateId == selectValue)
+    reps = reps.filter(rep => rep.stateId === selectValue)
   }
 
 
@@ -67,7 +67,7 @@ const RepIndex = () => {
         })
       })
     }
-  }, [])
+  }, [chamber, dispatch, user.repFollows])
 
   return (
     <>

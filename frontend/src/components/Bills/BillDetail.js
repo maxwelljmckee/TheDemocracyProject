@@ -46,7 +46,7 @@ const BillDetail = () => {
       setBill(data);
       setBillType(billIdParser(data.billId));
     })()
-  }, [])
+  }, [billId, user.billVotes])
   
   // ==================== VOTE ASYNC HANDLERS ====================
   // ELEMENT MUST HAVE SELECTED STATE TO IMPLEMENT UPVOTE-DOWNVOTE-CARD

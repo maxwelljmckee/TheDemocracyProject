@@ -63,7 +63,7 @@ const BillIndex = () => {
             ${animateMainContent && 'slide-in-bottom-rebound'}`}>
               <BackArrow setAnimation={setBackAnimate} />
               <div className='bill-index__header'>
-                <img className='bill-index__image' src={categoryObj.imageUrl} alt='category image' />
+                <img className='bill-index__image' src={categoryObj.imageUrl} alt='category' />
               </div>
               <BillSearch
                 category={categoryObj}

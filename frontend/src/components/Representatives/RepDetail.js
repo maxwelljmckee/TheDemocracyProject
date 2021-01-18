@@ -41,17 +41,17 @@ const RepConventionals = ({ rep }) => {
     <div className='rep-detail__conventionals'>
       { rep.websiteUrl &&
         <a target='_blank' href={rep.websiteUrl} rel="noopener noreferrer">
-        <img src='https://www.freepnglogos.com/uploads/logo-website-png/logo-website-website-icon-with-png-and-vector-format-for-unlimited-22.png' />
+        <img src='https://www.freepnglogos.com/uploads/logo-website-png/logo-website-website-icon-with-png-and-vector-format-for-unlimited-22.png' alt='website' />
         </a>
       }
       { rep.contactUrl &&
         <a target='_blank' href={rep.contactUrl} rel="noopener noreferrer">
-          <img src='https://www.pngkit.com/png/full/152-1528166_phone-icon-circle-ltblue-mail-web-logo.png' />
+          <img src='https://www.pngkit.com/png/full/152-1528166_phone-icon-circle-ltblue-mail-web-logo.png' alt='email' />
         </a>
       }
       { rep.phone &&
         <a target='_blank' href={rep.phone} rel="noopener noreferrer">
-          <img src='https://www.pikpng.com/pngl/m/13-130814_phone-icon-circle-ltblue-png-call-icon-vector.png' />
+          <img src='https://www.pikpng.com/pngl/m/13-130814_phone-icon-circle-ltblue-png-call-icon-vector.png' alt='phone' />
         </a>
       }
     </div>
@@ -83,7 +83,7 @@ const RepDetail = () => {
       setRep(data);
       setLoaded(true);
     })()
-  }, []) 
+  }, [repId, user.repVotes]) 
 
 
 

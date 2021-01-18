@@ -6,7 +6,6 @@ const BillCommentForm = ({ userId, billId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('HIT FETCH');
     const res = await fetch('/api/bills/post-comment', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import HamburgerCard from './HamburgerCard';
@@ -6,7 +6,7 @@ import HamburgerCard from './HamburgerCard';
 
 const HamburgerMenu = ({ showHamburger, setShowHamburger, hideHamburger, setHideHamburger }) => {
   const history = useHistory();
-  const [forwardAnimate, setForwardAnimate] = useState(false);
+  // const [forwardAnimate, setForwardAnimate] = useState(false);
 
   // const handleHome = () => {
   //   setShowHamburger(!showHamburger);

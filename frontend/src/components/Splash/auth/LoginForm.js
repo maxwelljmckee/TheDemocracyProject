@@ -42,7 +42,7 @@ const LoginForm = () => {
   return (
     <div className={`${ transition && 'slide-out-left'}`}>
       <div className='login-form__container slide-in-right'>
-        <img src={logo_img} />
+        <img src={logo_img} alt='logo' />
         <form className='login-form' onSubmit={handleSubmit}>
           <div>
             {errors.map((error, i) => (

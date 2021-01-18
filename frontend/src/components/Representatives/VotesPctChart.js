@@ -4,8 +4,8 @@ import { Pie } from 'react-chartjs-2';
 // defaults.global.legend.align = 'center'
 
 const VotesPctChart = ({ rep }) => {
-  const color1 = (rep.party == 'D') ? 'rgba(23, 97, 160, 0.5)' : 'rgba(236, 76, 76, 0.5)';
-  const color2 = (rep.party == 'D') ? 'rgba(236, 76, 76, 0.5)' : 'rgba(23, 97, 160, 0.5)';
+  const color1 = (rep.party === 'D') ? 'rgba(23, 97, 160, 0.5)' : 'rgba(236, 76, 76, 0.5)';
+  const color2 = (rep.party === 'D') ? 'rgba(236, 76, 76, 0.5)' : 'rgba(23, 97, 160, 0.5)';
 
   return (
     <Pie 
