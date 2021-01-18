@@ -13,7 +13,7 @@ When you register with a zip code, The Democracy Project automatically connects 
 
 ## Getting Started
 - Grab your smartphone
-- Navigate to <a target=_blank href='https://thedemocracyproject.herokuapp.com/'>https://thedemocracyproject.herokuapp.com/</a>
+- Navigate to <a href='https://thedemocracyproject.herokuapp.com/'>https://thedemocracyproject.herokuapp.com/</a>
   - ( it is highly recommended that you view the app on a mobile device as it was conceived and designed for mobile )
 - Login as a Demo User or register for an account
 - Check out the mission statement in the hamburger menu for more info, or just get started browsing!
