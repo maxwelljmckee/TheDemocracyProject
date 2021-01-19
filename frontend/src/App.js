@@ -118,7 +118,6 @@ function App() {
           <ComponentWithWrapper />
         </Route> */}
 
-
       </Switch>
     </BrowserRouter>
   );

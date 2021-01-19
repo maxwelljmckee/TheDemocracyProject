@@ -35,6 +35,13 @@ const HamburgerMenu = ({ showHamburger, setShowHamburger, hideHamburger, setHide
         <HamburgerCard text='TDP Academy' 
         handleClick={() => history.push('/glossary')} />
 
+        <HamburgerCard text={
+          <div className='flex'>
+            <a href='https://github.com/maxwelljmckee/TheDemocracyProject' target='_blank'>SEE THE CODE</a>
+            <i className="fab fa-github"></i>
+          </div>
+        } />
+
         <HamburgerCard text='Settings' 
         handleClick={() => history.push('/settings')} />
 

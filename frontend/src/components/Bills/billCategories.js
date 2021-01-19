@@ -23,16 +23,6 @@ export default [
       imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxw_LIpvQUkMyu1-q1W4iznLVW5MW_-VJi8w&usqp=CAU'
     },
     {
-      shortTitle: 'security',
-      title: 'National Security & Law Enforcement',
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNjZ3HR4b6U6Q-ZSdT7uzwtOL3wvMaRDXc6g&usqp=CAU'
-    },
-    {
-      shortTitle: 'civil-rights',
-      title: 'Civil Rights & Immigration',
-      imageUrl: 'https://www.pinclipart.com/picdir/big/37-372610_considered-one-of-the-most-integral-organizations-in.png'
-    },
-    {
       shortTitle: 'health',
       title: 'Health & Public Works',
       imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGTZ8tDc6h0Xb4LqalYpMpafzP3WbeXzsKqg&usqp=CAU'
@@ -41,6 +31,16 @@ export default [
       shortTitle: 'science',
       title: 'Science, Technology & Energy',
       imageUrl: 'https://i1.wp.com/sciencemarchgoe.de/wp-content/uploads/2019/03/cropped-sciencegoeREDcircle_small-1.png?fit=512%2C512&ssl=1'
+    },
+    {
+      shortTitle: 'civil-rights',
+      title: 'Civil Rights & Immigration',
+      imageUrl: 'https://www.pinclipart.com/picdir/big/37-372610_considered-one-of-the-most-integral-organizations-in.png'
+    },
+    {
+      shortTitle: 'security',
+      title: 'National Security & Law Enforcement',
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNjZ3HR4b6U6Q-ZSdT7uzwtOL3wvMaRDXc6g&usqp=CAU'
     },
     {
       shortTitle: 'international',

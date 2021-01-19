@@ -19,7 +19,8 @@ const BillsFollowing = () => {
     <>
       <div className={`${backAnimate && 'slide-out-right'}`}>
         <HeaderMain fromLoader={false} />
-        <div className={`bill-detail__container 
+        <div className={`bill-detail__container
+        ${!forwardAnimate && 'slide-in-right'}
         ${forwardAnimate && 'slide-out-left'}`}>
 
           <BackArrow setAnimation={setBackAnimate} />

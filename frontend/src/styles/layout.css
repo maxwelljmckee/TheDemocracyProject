@@ -77,7 +77,22 @@
     box-shadow: 0 0 10px 5px rgb(151, 151, 151, 0.5)
 }
 
+.hamburger-card .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.hamburger-card .flex a {
+    color: black;
+    text-decoration: none;
+}
+
+.hamburger-card .flex i {
+    font-size: 1.5em;
+    border: none;
+    margin-right: 14%;
+}
 
 
 
