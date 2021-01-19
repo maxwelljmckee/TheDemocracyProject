@@ -1,7 +1,7 @@
 # TheDemocracyProject
 
 ## Purpose
-The Democrac yProject is born of a desire to provide solutions to a few simple questions: Why are there so many roadblocks to civic engagement, and why do we only get to vote every 2-4 years? If we all have computers in our pockets, why is it so difficult to get information about our representatives, what they're up to, and how to contact them?  
+The Democracy Project is born of a desire to provide solutions to a few simple questions: Why are there so many roadblocks to civic engagement, and why do we only get to vote every 2-4 years? If we all have computers in our pockets, why is it so difficult to get information about our representatives, what they're up to, and how to contact them?  
 •  
 When you register with a zip code, The Democracy Project automatically connects you with your state and district officials. From there you can follow as many other representatives as you would like, giving you easy access to all their socials and contacts, as well as voting statistics and more in one centralized hub. Plus, as a registered user you'll be able to follow active bills as they move through congress. You'll have access to summaries and discussion boards to make informed decisions on the issues, and then you can let your representatives know how you feel with realtime voting, giving you a direct line of feedback to your representatives on the issues that matter.
 
