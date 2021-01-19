@@ -7,7 +7,7 @@ When you register with a zip code, The Democracy Project automatically connects 
 
 
 ## Technologies Used
-**Frontend** || React • React-Redux • Chart.js • CSS • Animista  
+**Frontend** || React • Redux • Chart.js • CSS • Animista  
 **Backend** || Flask • SQLAlchemy / Alembic • PostgreSQL • ProPublica Congress API • Google Civic Information API
 
 
