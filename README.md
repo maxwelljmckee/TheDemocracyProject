@@ -20,7 +20,7 @@ When you register with a zip code, The Democracy Project automatically connects 
 
 <div>
   <img src='./frontend/readme_gifs/login-demo.gif' />
-  .     .     .
+  • • • • • • • • • •
   <img src='./frontend/readme_gifs/bills-demo.gif' />
 </div>
 
