@@ -64,5 +64,5 @@ With The Democracy Project, users:
 #### <a href='https://animista.net/'>Animista</a>
   - Many thanks to Animista for their handy plug-and-play CSS animations.
   
-#### <a href='https://stackoverflow.com/questions/28821804/how-can-i-quickly-determine-the-state-for-a-given-zipcode'>Zip -> State Parsing Function</a>**
+#### <a href='https://stackoverflow.com/questions/28821804/how-can-i-quickly-determine-the-state-for-a-given-zipcode'>Zip -> State Parsing Function</a>
   - Much thanks to Tony Brasunas for his zip-to-state parsing algorithm.
