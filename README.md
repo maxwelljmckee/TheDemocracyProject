@@ -18,8 +18,11 @@ When you register with a zip code, The Democracy Project automatically connects 
 - Login as a Demo User or register for an account
 - Check out the mission statement in the hamburger menu for more info, or just get started browsing!
 
-
-<img src='./frontend/readme_gifs/login-demo.gif' />
+<div>
+  <img src='./frontend/readme_gifs/login-demo.gif' />
+  .     .     .
+  <img src='./frontend/readme_gifs/bills-demo.gif' />
+</div>
 
 
 ## Key Features
@@ -30,9 +33,6 @@ With The Democracy Project, users:
 - can follow active bills through congress
 - can upvote/downvote on bills for realtime approval ratings
 - can participate in community discussion threads
-
-
-<img src='./frontend/readme_gifs/bills-demo.gif' />
 
 
 ## Roadblocks
