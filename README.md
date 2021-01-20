@@ -53,3 +53,9 @@ With The Democracy Project, users:
 - Users could then receive notifications of status-changes to the representatives and bills they follow.
 
 #### Honestly, the sky's the limit
+
+## Acknowledgements
+**ProPublica Congress API** || Without ProPublica this application would be impossible. Their congressional data API is the driver underneath all of the platform's static data assets.  
+**Google Civic Information API** || Google Civics provides all of the image data that accompanies the representative data gathered from ProPublica API.  
+**Animista** || Many thanks to Animista for their handy plug-and-play CSS animations.  
+**Zip -> State Parsing Function** || Much thanks to Tony Brasunas for his zip-to-state parsing algorithm.  
