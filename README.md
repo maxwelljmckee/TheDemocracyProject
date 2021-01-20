@@ -55,7 +55,11 @@ With The Democracy Project, users:
 #### Honestly, the sky's the limit
 
 ## Acknowledgements
-- **<a href='https://projects.propublica.org/api-docs/congress-api/'>ProPublica Congress API</a>** || Without ProPublica this application would be impossible. Their congressional data API is the driver underneath all of the platform's static data assets.  
-- **<a href='https://developers.google.com/civic-information'>Google Civic Information API</a>** || Google Civics provides all of the image data that accompanies the representative data gathered from ProPublica API.  
-- **<a href='https://animista.net/'>Animista</a>** || Many thanks to Animista for their handy plug-and-play CSS animations.  
-- **<a href='https://stackoverflow.com/questions/28821804/how-can-i-quickly-determine-the-state-for-a-given-zipcode'>Zip -> State Parsing Function</a>** || Much thanks to Tony Brasunas for his zip-to-state parsing algorithm.  
+**<a href='https://projects.propublica.org/api-docs/congress-api/'>ProPublica Congress API</a>**
+  - Without ProPublica this application would be impossible. Their congressional data API is the driver underneath all of the platform's static data assets.  
+**<a href='https://developers.google.com/civic-information'>Google Civic Information API</a>**
+  - Google Civics provides all of the image data that accompanies the representative data gathered from ProPublica API.  
+**<a href='https://animista.net/'>Animista</a>**
+  - Many thanks to Animista for their handy plug-and-play CSS animations.  
+**<a href='https://stackoverflow.com/questions/28821804/how-can-i-quickly-determine-the-state-for-a-given-zipcode'>Zip -> State Parsing Function</a>**
+  - Much thanks to Tony Brasunas for his zip-to-state parsing algorithm.  
