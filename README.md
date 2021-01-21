@@ -46,6 +46,7 @@ With The Democracy Project, users:
 
 #### More Static Data
 - There is practically no end to the amount of data available on Congress. If this project ever becomes a production-level application, surely it will be more comprehensive in its coverage of the available data.
+  - Static data served may include Representative Voting History, Representative's Official Statements, Representative Donor Record, Committees and Committee Activities, Constituent vs. non-Constituent Approval Ratings, etc. 
 - Additionally, I would like to dedicate another portion of the platform to offering basic definitions and educational resources on the terms and functions of government.
 
 #### Background Process Updates and Notifications
