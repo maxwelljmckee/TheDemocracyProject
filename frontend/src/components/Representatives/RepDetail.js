@@ -209,7 +209,13 @@ const RepDetail = () => {
             </div>
 
             <SectionBreak sectionTitle='Approval Ratings' rep={rep} />
-            {rep.repVotes.length ? <RepApprovalChart repVotes={rep.repVotes} /> : <SectionFooter footerText='vote data unavailable' />}
+            {rep.repVotes.length ? 
+              <div className='rep-detail__approval-chart'>
+                <RepApprovalChart repVotes={rep.repVotes} /> 
+              </div>
+              : 
+              <SectionFooter footerText='vote data unavailable' 
+            />}
 
             <SectionBreak sectionTitle='cast your vote' rep={rep} />
             <UpvoteDownvoteCard
