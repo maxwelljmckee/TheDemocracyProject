@@ -85,16 +85,17 @@ def sign_up():
 
         # pp.pprint(data)
         if 'officials' in data:
-            pp.pprint(data['officials'][-1])
-            phone_number = data['officials'][-1]['phones'][0]
-            parsed_number = parse_phone(phone_number)
-            house_rep_instance = Representative.query.filter_by(phone=parsed_number).one()
-            new_follow = RepFollow(
-                representative_id=house_rep_instance.id,
-                user_id=new_user.id,
-                is_constituent=True
-            )
-            db.session.add(new_follow)
+            if 'phones' in data['officials'][-1]:
+                pp.pprint(data['officials'])
+                phone_number = data['officials'][-1]['phones'][0]
+                parsed_number = parse_phone(phone_number)
+                house_rep_instance = Representative.query.filter_by(phone=parsed_number).one()
+                new_follow = RepFollow(
+                    representative_id=house_rep_instance.id,
+                    user_id=new_user.id,
+                    is_constituent=True
+                )
+                db.session.add(new_follow)
 
         db.session.commit()
         login_user(new_user)
