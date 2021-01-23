@@ -1,11 +1,19 @@
 
 
 /* ===== BACK ARROW BUTTON ===== */
-.fa-arrow-left {
+.back-arrow {
     font-size: 5em;
     position: relative;
     top: 30px;
     left: 40px;
+}
+
+
+.splash-back-arrow {
+    font-size: 5em;
+    position: absolute;
+    top: 100px;
+    left: 80px;
 }
 
 

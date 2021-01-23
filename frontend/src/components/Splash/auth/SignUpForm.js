@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import logo_img from '../../../static/image-only_logo.png';
 import IsRegistered from '../IsRegistered';
 import { registerUser } from '../../../store/session';
+import SplashBackArrow from "../../Buttons&Icons/SplashBackArrow";
 
 
 const SignUpForm = () => {
@@ -72,6 +73,7 @@ const SignUpForm = () => {
         ${ isHidden && 'hidden' }`}
       >
         <div className='signup-form__container slide-in-bottom'>
+          <SplashBackArrow />
           <img src={logo_img} />
           <form className='signup-form'>
             <input

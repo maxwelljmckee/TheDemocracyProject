@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { loginUser } from '../../../store/session';
 import logo_img from '../../../static/image-only_logo.png';
+import SplashBackArrow from "../../Buttons&Icons/SplashBackArrow";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -42,12 +43,13 @@ const LoginForm = () => {
   return (
     <div className={`${ transition && 'slide-out-left'}`}>
       <div className='login-form__container slide-in-right'>
+        <SplashBackArrow />
         <img src={logo_img} alt='logo' />
         <form className='login-form' onSubmit={handleSubmit}>
           <div>
             {errors.map((error, i) => (
               <div key={`error-${i}`}>{error}</div>
-            ))}
+              ))}
           </div>
           <input
             name="email"

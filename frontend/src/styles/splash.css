@@ -85,7 +85,7 @@
 .splash-about__header {
     margin-top: 10vh;
     width: 75%;
-    height: 35vh;
+    height: 25vh;
     margin: 0 auto;
     font-size: 10em;
     text-align: left;
@@ -99,9 +99,9 @@
 
 .splash-about__body {
     width: 75%;
-    height: 30vh;
+    height: 35vh;
     margin: 0 auto;
-    font-size: 7em;
+    font-size: 10em;
     text-align: left;
     line-height: 1.5em;
     color: #1761a0;
@@ -113,9 +113,9 @@
 .splash-about__footer {
     margin-bottom: 10vh;
     width: 75%;
-    height: 35vh;
+    height: 25vh;
     margin: 0 auto;
-    font-size: 8em;
+    font-size: 10em;
     text-align: left;
     line-height: 1.5em;
     color: #1761a0;
@@ -229,11 +229,6 @@
 /* .signup-form__container {
 
 } */
-
-.hidden {
-    display: none;
-}
-
 
 
 

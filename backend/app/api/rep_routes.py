@@ -59,7 +59,6 @@ def delete_follow():
 # ===== POST A REPVOTE =====
 @rep_routes.route('/post-vote', methods=['POST'])
 def post_rep_vote():
-    print('=================HIT POST', request.json)
     user_id = request.json['userId']
     representative_id = request.json['repId']
     new_vote = RepVote(
