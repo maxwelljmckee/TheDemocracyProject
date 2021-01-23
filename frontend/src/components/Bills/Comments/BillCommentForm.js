@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const BillCommentForm = ({ userId, billId }) => {
+const BillCommentForm = ({ user, billId, comments, setComments }) => {
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
@@ -9,9 +9,11 @@ const BillCommentForm = ({ userId, billId }) => {
     const res = await fetch('/api/bills/post-comment', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userId, billId, message })
+      body: JSON.stringify({ userId: user.id, billId, message })
     })
     const data = await res.json();
+    setComments([data, ...comments]);
+    setMessage('')
     return data
   }
 

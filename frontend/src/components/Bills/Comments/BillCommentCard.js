@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const BillCommentCard = ({ user, comment }) => {
+const BillCommentCard = ({ user, comment, comments, setComments }) => {
   const [edit, setEdit] = useState(false);
   const [message, setMessage] = useState(`${comment.message}`);
 
@@ -16,10 +16,11 @@ const BillCommentCard = ({ user, comment }) => {
       body: JSON.stringify({ commentId: comment.id })
     })
     const data = await res.json();
+    setComments(comments.filter(item => item.id !== comment.id))
     return data
   }
 
-  const handleSubmit = async (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault()
     const res = await fetch('/api/bills/update-comment', {
       method: 'PUT',
@@ -48,7 +49,7 @@ const BillCommentCard = ({ user, comment }) => {
         }
       </div>
       { edit ?
-        <form className='bill-comment-update' onSubmit={handleSubmit}>
+        <form className='bill-comment-update' onSubmit={handleUpdate}>
           <textarea
             name='commentText'
             type='text'
