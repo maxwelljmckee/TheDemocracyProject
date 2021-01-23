@@ -18,8 +18,11 @@ When you register with a zip code, The Democracy Project automatically connects 
 - Login as a Demo User or register for an account
 - Check out the mission statement in the hamburger menu for more info, or just get started browsing!
 
-
-<img src='./frontend/readme_gifs/login-demo.gif' />
+<div>
+  <img src='./frontend/readme_gifs/login-demo.gif' />
+  • • • • •
+  <img src='./frontend/readme_gifs/bills-demo.gif' />
+</div>
 
 
 ## Key Features
@@ -30,9 +33,6 @@ With The Democracy Project, users:
 - can follow active bills through congress
 - can upvote/downvote on bills for realtime approval ratings
 - can participate in community discussion threads
-
-
-<img src='./frontend/readme_gifs/bills-demo.gif' />
 
 
 ## Roadblocks
@@ -46,6 +46,7 @@ With The Democracy Project, users:
 
 #### More Static Data
 - There is practically no end to the amount of data available on Congress. If this project ever becomes a production-level application, surely it will be more comprehensive in its coverage of the available data.
+  - Static data served may include Representative Voting History, Representative's Official Statements, Representative Donor Record, Committees and Committee Activities, Constituent vs. non-Constituent Approval Ratings, etc. 
 - Additionally, I would like to dedicate another portion of the platform to offering basic definitions and educational resources on the terms and functions of government.
 
 #### Background Process Updates and Notifications
@@ -53,3 +54,16 @@ With The Democracy Project, users:
 - Users could then receive notifications of status-changes to the representatives and bills they follow.
 
 #### Honestly, the sky's the limit
+
+## Acknowledgements
+#### <a href='https://projects.propublica.org/api-docs/congress-api/'>ProPublica Congress API</a>
+  - Without ProPublica this application would be impossible. Their congressional data API is the driver underneath all of the platform's static data assets.
+  
+#### <a href='https://developers.google.com/civic-information'>Google Civic Information API</a>
+  - Google Civics provides all of the image data that accompanies the representative data gathered from ProPublica API.
+  
+#### <a href='https://animista.net/'>Animista</a>
+  - Many thanks to Animista for their handy plug-and-play CSS animations.
+  
+#### <a href='https://stackoverflow.com/questions/28821804/how-can-i-quickly-determine-the-state-for-a-given-zipcode'>Zip -> State Parsing Function</a>
+  - Much thanks to Tony Brasunas for his zip-to-state parsing algorithm.
