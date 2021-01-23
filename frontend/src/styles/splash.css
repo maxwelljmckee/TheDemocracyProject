@@ -103,7 +103,7 @@
     margin: 0 auto;
     font-size: 10em;
     text-align: left;
-    line-height: 1.5em;
+    line-height: 1.25em;
     color: #1761a0;
     text-shadow: 0.05em 0.05em rgba(23, 97, 160, 0.2);
     display: flex;
@@ -117,7 +117,7 @@
     margin: 0 auto;
     font-size: 10em;
     text-align: left;
-    line-height: 1.5em;
+    line-height: 1.25em;
     color: #1761a0;
     text-shadow: 0.05em 0.05em rgba(23, 97, 160, 0.2);
     display: flex;
@@ -224,11 +224,6 @@
 } */
 
 
-/* ===== SIGNUP FORM STYLES ===== */
-
-/* .signup-form__container {
-
-} */
 
 
 
