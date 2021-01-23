@@ -214,8 +214,8 @@ const RepDetail = () => {
                 <RepApprovalChart repVotes={rep.repVotes} /> 
               </div>
               : 
-              <SectionFooter footerText='vote data unavailable' 
-            />}
+              <SectionFooter footerText='vote data unavailable' />
+            }
 
             <SectionBreak sectionTitle='cast your vote' rep={rep} />
             <UpvoteDownvoteCard

@@ -176,7 +176,13 @@ const BillDetail = () => {
 
                 {/* VOTING STATS AND VOTE BUTTONS */}
                 <SectionBreak sectionTitle='Approval Ratings' />
-                { bill.billVotes.length ? <BillApprovalChart billVotes={bill.billVotes} /> : <SectionFooter footerText='vote data unavailable' /> }
+                { bill.billVotes.length ?
+                  <div className='bill-detail__approval-chart'>
+                    <BillApprovalChart billVotes={bill.billVotes} />
+                  </div>
+                  : 
+                  <SectionFooter footerText='vote data unavailable' /> 
+                }
                 
                 {/* UPVOTE DOWNVOTE CARD */}
                 <SectionBreak sectionTitle='cast your vote' />

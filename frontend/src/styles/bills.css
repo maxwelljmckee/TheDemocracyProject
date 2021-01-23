@@ -226,26 +226,9 @@
     color: white;
 }
 
-
-.bill-detail__title-group__D {
-    padding: 2px;
-    margin-top: 20px;
-    background-color: rgb(23, 97, 160);
-    color: white;
-}
-
-.bill-detail__title-group__R {
-    padding: 2px;
-    margin-top: 20px;
-    background-color: #ec4c4c;
-    color: white;
-}
-
-.bill-detail__votes-pct-chart {
-    width: 75%;
-    margin: 0 auto;
-    margin-top: 40px;
-    padding-bottom: 8vh;
+.bill-detail__approval-chart {
+    width: 80%;
+    margin: 40px auto;
 }
 
 
