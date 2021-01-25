@@ -83,19 +83,27 @@ def sign_up():
         res = requests.get(f'https://www.googleapis.com/civicinfo/v2/representatives?address={user_zip}&levels=country&key={API_KEY}')
         data = res.json()
 
-        # pp.pprint(data)
+        # EXCEPTION HANDLING: CONFIRM DESIRED DATA IS IN API RESPONSE
         if 'officials' in data:
             if 'phones' in data['officials'][-1]:
-                pp.pprint(data['officials'])
                 phone_number = data['officials'][-1]['phones'][0]
                 parsed_number = parse_phone(phone_number)
                 house_rep_instance = Representative.query.filter_by(phone=parsed_number).one()
-                new_follow = RepFollow(
-                    representative_id=house_rep_instance.id,
-                    user_id=new_user.id,
-                    is_constituent=True
-                )
-                db.session.add(new_follow)
+
+                # EXCEPTION HANDLING: CONFIRM DATA HAS NOT ALREADY BEEN ENTERED TO DB
+                valid_submission = True
+                for senator in user_senators:
+                    if parsed_number == senator.phone:
+                        valid_submission = False
+                        
+                # IF ALL CHECKS ARE PASSED, REGISTER NEW FOLLOW
+                if valid_submission:
+                    new_follow = RepFollow(
+                        representative_id=house_rep_instance.id,
+                        user_id=new_user.id,
+                        is_constituent=True
+                    )
+                    db.session.add(new_follow)
 
         db.session.commit()
         login_user(new_user)

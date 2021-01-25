@@ -37,7 +37,7 @@
     padding: 15px;
     position: fixed;
     right: 15px;
-    border: 2px solid rgb(71, 71, 71);
+    border: 5px solid rgb(71, 71, 71);
     border-radius: 15px;
     cursor: pointer;
 }
