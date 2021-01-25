@@ -39,7 +39,7 @@ const SplashMain = () => {
           </div>
           <div className='splash-main__btn-container'>
             <div className='splash-main__btn'onClick={handleLearnMore}>
-              Learn More
+              Sign Up
             </div>
           </div>
           <div className='splash-main__secondary-logo'>

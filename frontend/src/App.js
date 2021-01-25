@@ -96,16 +96,16 @@ function App() {
 
         {/* ===== BILLS ROUTES ===== */}
         <Route path='/bills/:billId/detail'>
-          {user ? <BillDetail /> : <Redirect to='/' />}
+          { user ? <BillDetail /> : <Redirect to='/' />}
         </Route>
         <Route path='/bills/:billId/full-detail'>
-          {user ? <BillFullDetail /> : <Redirect to='/' />}
+          { user ? <BillFullDetail /> : <Redirect to='/' />}
         </Route>
         <Route exact path='/bills/following'>
-          {user ? <BillsFollowing /> : <Redirect to='/' />}
+          { user ? <BillsFollowing /> : <Redirect to='/' />}
         </Route>
         <Route path='/bills/:category'>
-          {user ? <BillIndex /> : <Redirect to='/' />}
+          { user ? <BillIndex /> : <Redirect to='/' />}
         </Route>
 
 
