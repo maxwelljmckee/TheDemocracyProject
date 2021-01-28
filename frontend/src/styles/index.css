@@ -22,6 +22,10 @@ body{
 @import './academy.css';
 
 
+/* ===== MEDIA QUERIES ===== */
+@import './media-queries/layout-queries.css';
+@import './media-queries/splash-queries.css';
+
 
 /* ===== BUTTONS AND LOGOS ===== */
 @import './buttons.css';

@@ -25,7 +25,7 @@ const SplashMain = () => {
 
   return (
     <>
-    <div className='fade-in-slow'>
+    <div className='fade-in-slow splash-main__wrapper'>
         <div 
           className={`splash-main__container
           ${ verticalAnimation && 'slide-out-top' } 

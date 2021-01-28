@@ -21,15 +21,15 @@ const DashboardLayout = () => {
 
   useEffect(() => {
     dispatch(restoreUser()).then(() => {
-      setTimeout(() => {
-        setAnimateCleanup(true); // initiate loader fade out
-        setTimeout(() => {
-          setLoading(false); // load next page
-          setTimeout(() => {
-            setAnimateMainContent(true); //slide in main content
-          }, 1000) // slide in main content
-        }, 100) // fade out time
-      }, 1800) // extra loading time
+      // setTimeout(() => {
+      //   setAnimateCleanup(true); // initiate loader fade out
+      //   setTimeout(() => {
+      //     setLoading(false); // load next page
+      //     setTimeout(() => {
+      //       setAnimateMainContent(true); //slide in main content
+      //     }, 1000) // slide in main content
+      //   }, 100) // fade out time
+      // }, 1800) // extra loading time
     })
   }, [dispatch])
   

@@ -1,0 +1,99 @@
+
+@media (min-width: 650px) {
+
+    /* MAIN */
+    .splash-main__main-logo {
+        width: 500px;
+        height: 350px;
+    }
+    .splash-main__main-logo img {
+        width: 500px;
+        margin: 0 auto;
+        position: relative;
+        top: -30px;
+        height: 450px;
+        z-index: 0;
+    }
+
+    .splash-main__btn-container .splash-main__btn {
+        font-size: 1.1em;
+        width: 70%;
+        z-index: 3;
+    }
+
+    .splash-main__btn:hover {
+        cursor: pointer;
+    }
+
+    .splash-main__secondary-logo {
+        position: relative;
+        bottom: 50px;
+    }
+
+
+
+    /* ABOUT */
+    .splash-about__header,
+    .splash-about__body,
+    .splash-about__footer {
+        font-size: 5em;
+    }
+
+
+
+    /* SIGNUP && LOGIN */
+    .splash-back-arrow {
+        /* font-size: 1em; */
+        z-index: 3;
+    }
+
+    .splash-back-arrow:hover {
+        cursor: pointer;
+    }
+
+    .login-form,
+    .signup-form {
+        position: fixed;
+        top: 412px;
+    }
+
+    .login-form input,
+    .login-form button,
+    .signup-form input,
+    .signup-form button {
+        box-sizing: border-box;
+        width: 70%;
+        font-size: 1.1em;
+        padding: .7em;
+        margin: .7em;
+        border-radius: 5em;
+        box-shadow: 0 0 0.2em 0 #1761a0;
+        z-index: 3;
+    }
+
+
+
+    /* ISREGISTERED */
+    .is-registered__header {
+        font-size: 5em;
+    }
+
+    .is-registered__body {
+        font-size: 3em;
+    }
+
+    #splash__upvote {
+        font-size: 10em;
+        left: 20%
+    }
+
+    #splash__downvote {
+        font-size: 10em;
+        right: 20%;
+    }
+
+    #splash__upvote:hover,
+    #splash__downvote:hover {
+        cursor: pointer;
+    }
+}

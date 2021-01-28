@@ -68,7 +68,7 @@ const SignUpForm = () => {
 
   return (
     <>
-      <div className={`
+      <div className={` signup-form__wrapper
         ${ animate && 'slide-out-top' }
         ${ isHidden && 'hidden' }`}
       >
@@ -133,14 +133,13 @@ const SignUpForm = () => {
           </form>
         </div>
       </div>
-      {/* <div> */}
+      
       { isHidden &&
         <IsRegistered
           setIsRegistered={setIsRegistered}
           transition={transition}
         />
       }
-      {/* </div> */}
     </>
   );
 };

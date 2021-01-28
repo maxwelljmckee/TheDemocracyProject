@@ -27,30 +27,33 @@ const IsRegistered = ({ transition, setIsRegistered }) => {
   }
 
   return (
-    <div className={`slide-in-bottom
+    <div className={`slide-in-bottom is-registered__wrapper
          ${ transition && 'slide-out-left'}`}>
-      <div className='is-registered__header'>
-        One More Thing!
+      <div className='is-registered__container'>
+        
+        <div className='is-registered__header'>
+          One More Thing!
+            </div>
+        { unhide1 &&
+          <div className='is-registered__body slide-in-bottom'>
+            Are you a registered voter?
           </div>
-      { unhide1 &&
-        <div className='is-registered__body slide-in-bottom'>
-          Are you a registered voter?
-        </div>
-      }
-      { unhide2 &&
-        <i 
-          className="fas fa-check-circle bounce-in-fwd"
-          id='splash__upvote'
-          onClick={handleUpvote}
-        />
-      }
-      { unhide3 &&
+        }
+        { unhide2 &&
           <i 
-            className="fas fa-times-circle bounce-in-fwd"
-            id='splash__downvote'
-            onClick={handleDownvote}
+            className="fas fa-check-circle bounce-in-fwd"
+            id='splash__upvote'
+            onClick={handleUpvote}
           />
-      }
+        }
+        { unhide3 &&
+            <i 
+              className="fas fa-times-circle bounce-in-fwd"
+              id='splash__downvote'
+              onClick={handleDownvote}
+            />
+        }
+      </div>
     </div>
   )
 }

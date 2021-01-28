@@ -29,7 +29,7 @@ const SplashAbout = () => {
 
 
   return (
-    <div className={`${animate && 'slide-out-top' }`}>
+    <div className={`${animate && 'slide-out-top' } splash-about__wrapper`}>
       <div className={`splash-about__container slide-in-bottom
       ${ animate && 'slide-out-top' }`}>
         <div className='splash-about__header'>

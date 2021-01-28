@@ -1,0 +1,23 @@
+
+@media (min-width: 650px) {
+
+    .splash-main__wrapper,
+    .splash-about__wrapper,
+    .signup-form__wrapper,
+    .is-registered__wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    .splash-main__container,
+    .splash-about__container,
+    .signup-form__container,
+    .is-registered__container {
+        width: 650px;
+        max-height: 1000px;
+        margin: 0 auto;
+    }
+
+}
