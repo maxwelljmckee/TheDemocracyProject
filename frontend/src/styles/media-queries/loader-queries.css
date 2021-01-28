@@ -1,0 +1,9 @@
+
+@media (max-width: 650px) {
+
+    .loader__container {
+        width: 400px;
+        height: 400px;
+        margin: 100px auto,
+    }
+}
