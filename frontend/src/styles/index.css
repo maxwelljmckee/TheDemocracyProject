@@ -24,7 +24,8 @@ body{
 
 /* ===== MEDIA QUERIES ===== */
 /* @import './media-queries/layout-queries.css';
-@import './media-queries/splash-queries.css'; */
+@import './media-queries/splash-queries.css';
+@import './media-queries/loader-queries.css'; */
 
 
 /* ===== BUTTONS AND LOGOS ===== */
