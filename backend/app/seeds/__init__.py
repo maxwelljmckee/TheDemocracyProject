@@ -19,18 +19,15 @@ seed_commands = AppGroup('seed')
 # Creates the `flask seed all` command
 @seed_commands.command('all')
 def seed():
-    # seed_users()
-    # seed_states()
-    # seed_executive()
-    # seed_senators()
-    # seed_house()
-    # seed_house_images()
-    # seed_senate_images()
-    # seed_bills()
+    seed_users()
+    seed_states()
+    seed_executive()
+    seed_senators()
+    seed_house()
+    seed_house_images()
+    seed_senate_images()
+    seed_bills()
     seed_additional_users()
-
-    # seed_bills_2()
-    # seed_bills_3()
 
 
 # Creates the `flask seed undo` command
@@ -38,11 +35,11 @@ def seed():
 def undo():
     # pass
     undo_additional_users()
-    # undo_bills()
-    # undo_senate_images()
-    # undo_house_images()
-    # undo_executive()
-    # undo_senators()
-    # undo_house()
-    # undo_states()
-    # undo_users()
+    undo_bills()
+    undo_senate_images()
+    undo_house_images()
+    undo_executive()
+    undo_senators()
+    undo_house()
+    undo_states()
+    undo_users()
