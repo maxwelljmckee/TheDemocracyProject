@@ -83,15 +83,17 @@
     align-items: center;
 }
 
-.hamburger-card .flex a {
-    color: black;
+.hamburger-card a {
+    color: rgb(71, 71, 71);
     text-decoration: none;
+    margin: 0 12px;
 }
 
-.hamburger-card .flex i {
+.hamburger-card i {
     font-size: 1.5em;
+    position: relative;
     border: none;
-    margin-right: 14%;
+    margin: 0 12px;
 }
 
 
