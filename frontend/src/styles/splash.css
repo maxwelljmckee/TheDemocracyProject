@@ -27,6 +27,8 @@
     width: 50%;
     height: 20%;
     margin: 1.5em auto;
+    position: relative;
+    bottom: 30px;
 }
 
 .splash-main__secondary-logo img {
