@@ -51,7 +51,7 @@ const RepConventionals = ({ rep }) => {
       }
       { rep.phone &&
         <a target='_blank' href={rep.phone} rel="noopener noreferrer">
-          <img src='https://www.pikpng.com/pngl/m/13-130814_phone-icon-circle-ltblue-png-call-icon-vector.png' alt='phone' />
+        <img src='https://www.pinclipart.com/picdir/big/324-3241843_single-game-tickets-png-call-icon-vector-clipart.png' alt='phone' />
         </a>
       }
     </div>
